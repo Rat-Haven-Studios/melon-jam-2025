@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dogaq2kcai3kl"]
+
+[ext_resource type="Script" uid="uid://bei2cvpc8wqtr" path="res://3-ui/components/btn-sfx-component/Btnsfx_component.gd" id="1_o14eq"]
+
+[node name="BtnSFXComponent" type="Node"]
+script = ExtResource("1_o14eq")

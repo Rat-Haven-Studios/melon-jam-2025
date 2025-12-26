@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="score-jam-2025"
+run/main_scene="uid://dil2m1cwkhfny"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://0-assets/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cgibhnxq5s461"
+
+[autoload]
+
+SettingsMenu="*res://2-globals/settings-menu/SettingsMenu.tscn"
+SceneTransitioner="*res://2-globals/scene-transitioner/SceneTransition.tscn"
+AudiManny="*res://2-globals/audio-manager/AudiManny.tscn"
+CLogger="*res://2-globals/clogger/clogger.gd"
+
+[gui]
+
+theme/custom="uid://cwwkk3kpedi4j"
+
+[rendering]
+
+renderer/rendering_method="mobile"

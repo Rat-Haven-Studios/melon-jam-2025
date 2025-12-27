@@ -13,6 +13,8 @@ config_version=5
 config/name="melon-jam-2025"
 run/main_scene="uid://dil2m1cwkhfny"
 config/features=PackedStringArray("4.5", "Mobile")
+boot_splash/bg_color=Color(0.4862745, 0.5176471, 0.46666667, 1)
+boot_splash/show_image=false
 config/icon="res://0-assets/sprites/icon.svg"
 
 [audio]
@@ -26,7 +28,7 @@ SceneTransitioner="*res://2-globals/scene-transitioner/SceneTransition.tscn"
 AudiManny="*res://2-globals/audio-manager/AudiManny.tscn"
 CLogger="*res://2-globals/clogger/clogger.gd"
 Data="*res://2-globals/busses/data.gd"
-DialogueUI="*res://2-globals/dialogue-ui/dialogueui.gd"
+DialogueUI="*res://2-globals/dialogue-ui/DialogueUI.tscn"
 
 [gui]
 

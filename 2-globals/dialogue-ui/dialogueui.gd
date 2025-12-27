@@ -12,6 +12,8 @@ var selected_choice = null  # Store the selected choice
 
 var char_timer: float = 0.04
 
+var flag = true
+
 func _ready():
 	ui.visible = false
 
@@ -51,9 +53,21 @@ func display_text(text: String, npc: NPC):
 			responseTextBox.text += char
 		if Input.is_action_pressed("alternate"):
 			char_timer = 0
-	await get_tree().create_timer(2.0).timeout  # Adjust timing as needed
-	text_displayed.emit()
+			
 	
+	var timer = get_tree().create_timer(2.0)
+	timer.timeout.connect(flagOut)
+	
+	if Input.is_action_pressed("interact"):
+		flag = true
+	
+	while not flag:
+		pass
+	
+	text_displayed.emit()
+
+func flagOut():
+	flag = true
 
 func present_choices(choices: Array, npc: NPC) -> Dictionary:
 	# Clear any existing buttons first

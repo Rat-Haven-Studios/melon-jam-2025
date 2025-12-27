@@ -15,17 +15,27 @@ func _ready():
 
 func show():
 	if not ui.visible:
+		Data.level.visible = false
 		ui.visible = true
 
 func hide():
 	if ui.visible:
 		ui.visible = false
+		Data.level.visible = true
 
 func display_text(text: String, npc: NPC):
 	show()
 	print("[NPC]: ", text)
 	nameTextBox.text = npc.npcname  # Show who's talking
-	responseTextBox.text = text
+	responseTextBox.text = ""
+	var cntr = 0
+	for char in text:
+		await get_tree().create_timer(0.05).timeout  # Adjust timing as needed
+		if cntr % 3 == 0:
+			AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
+		cntr += 1
+		responseTextBox.text += char
+
 	await get_tree().create_timer(2.0).timeout  # Adjust timing as needed
 	text_displayed.emit()
 

@@ -1,5 +1,8 @@
 extends Node
 
+var player
+var level
+
 enum PlayerMasks {
 	BLANK,
 	MAYORAL,

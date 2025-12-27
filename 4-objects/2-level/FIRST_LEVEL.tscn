@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=6 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Texture2D" uid="uid://dtv0iqfxnymma" path="res://0-assets/sprites/world/Quick Blueprint.png" id="1_4jqpd"]
+[ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://cqookot7nrslv" path="res://4-objects/1-npc/bandit-king/BanditKing.tscn" id="4_07xkt"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_jry3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(256, 256)

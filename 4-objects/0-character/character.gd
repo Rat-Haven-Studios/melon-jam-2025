@@ -10,12 +10,10 @@ enum STATE {
 	TALKING
 }
 
-
 func _ready() -> void:
-	
+	Data.player = self
 	pass
 	# initialize talked to array
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

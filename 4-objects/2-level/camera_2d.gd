@@ -12,6 +12,8 @@ func _process(float):
 		findPlayer()
 	else:
 		self.position = player.position
+
+
 func findPlayer():
 	CLogger.info("Camera finding player")
 	player = get_tree().get_first_node_in_group("Player")

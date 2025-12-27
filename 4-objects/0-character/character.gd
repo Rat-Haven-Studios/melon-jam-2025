@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 
 var currState = STATE.MOVING
@@ -18,16 +18,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if currState == STATE.MOVING:
 		processMovement()
-		
+	move_and_slide()
 	
-
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()
 	var direction: Vector2 = movement_vector.normalized()
 	self.velocity = direction * self.BASE_SPEED
-	self.move_and_slide()
-	pass
-	
+
 func get_movement_vector() -> Vector2:
 	var x_movement = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_movement = Input.get_action_strength("down") - Input.get_action_strength("up")

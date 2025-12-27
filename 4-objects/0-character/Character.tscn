@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://pqx6itiibjs" path="res://5-component/interactions/InteractComponent/InteractComponent.tscn" id="3_hpm3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt3e"]
-size = Vector2(10, 14)
+size = Vector2(10, 5.5)
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_l8ec2")
@@ -13,7 +13,7 @@ BASE_SPEED = 90
 WALKING_STAIRS_SPEED = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_gbt3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -28,5 +28,5 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StairsDetector"]
-position = Vector2(0, -6)
+position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_gbt3e")

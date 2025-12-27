@@ -64,10 +64,13 @@ func converse(maskID: int):
 	var currentNodeID: String = "start"
 	var conversationState: Dictionary = {}
 	
+	for flag in Data.player.actionFlags.keys():
+		conversationState[flag] = Data.player.actionFlags[flag]
+	
 	if talked[maskID]:
 		await DialogueUI.displayText(dialogueTree.talked_already, self)
 		self.susLevel += 1
-		currentNodeID = ""
+		currentNodeID = "talked_previously"
 	elif dialogueTree.has("initial_greeting"):
 		await DialogueUI.displayText(dialogueTree.initial_greeting, self)
 
@@ -79,14 +82,13 @@ func converse(maskID: int):
 		if node.is_empty():
 			break
 		
-		# Check conditions
 		if node.has("condition") and not evaluateCondition(node.condition, conversationState):
 			currentNodeID = node.get("else", "")
 			continue
 		
 		await DialogueUI.displayText(node.text, self)
 		
-		if node.choices.is_empty():
+		if not node.has("choices") or node.choices.is_empty():
 			break
 		
 		var availableChoices = []
@@ -105,7 +107,7 @@ func converse(maskID: int):
 		if selectedChoice.has("set_flag"):
 			conversationState[selectedChoice.set_flag] = true
 			Data.player.actionFlags[selectedChoice.set_flag] = true
-			print(conversationState)
+			CLogger.debug("Setting flag: %s" % selectedChoice.set_flag)
 		
 		currentNodeID = selectedChoice.get("next", "")
 	

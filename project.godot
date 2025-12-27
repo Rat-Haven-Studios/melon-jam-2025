@@ -32,6 +32,7 @@ DialogueUI="*res://2-globals/dialogue-ui/DialogueUI.tscn"
 
 [gui]
 
+theme/default_font_multichannel_signed_distance_field=true
 theme/custom="uid://cwwkk3kpedi4j"
 
 [input]

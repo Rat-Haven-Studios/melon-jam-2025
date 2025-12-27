@@ -11,10 +11,10 @@ func _process(float):
 		CLogger.debug("Haven't found the player man")
 		findPlayer()
 	else:
-		self.position = player.position
-
+		self. position = lerp(self.position, player.position, .1)
 
 func findPlayer():
 	CLogger.info("Camera finding player")
+
 	player = get_tree().get_first_node_in_group("Player")
 	

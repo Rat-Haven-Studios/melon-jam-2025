@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 	if currState == STATE.MOVING:
 		processMovement()
 	move_and_slide()
+	if Input.is_action_just_pressed("interact"):
+		CLogger.action("Player attempting interact")
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

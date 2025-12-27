@@ -16,4 +16,5 @@ zoom = Vector2(4, 4)
 script = ExtResource("2_wl7ar")
 
 [node name="Character" parent="." instance=ExtResource("3_qj1of")]
-BASE_SPEED = 200
+position = Vector2(367, 498)
+BASE_SPEED = 90

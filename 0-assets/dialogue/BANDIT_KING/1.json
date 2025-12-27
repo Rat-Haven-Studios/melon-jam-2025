@@ -1,0 +1,23 @@
+{
+  "initial_greeting": "I am the Bandit King... Name yourself!",
+  "talked_already": "What's wrong? Couldn't get enough of me? Hahaha!",
+  "nodes": {
+	"start": {
+	  "text": "What brings you here?",
+	  "choices": [
+		{
+		  "text": "Fuck. You. I don't talk to your kind.",
+		  "next": "end",
+		  "sus_change": 10
+		},
+		{
+		  "text": "Just passing through.",
+		  "next": "end"
+		}
+	  ]
+	},
+	"end": {
+	  "text": "I'm sorry...",
+	}
+  }
+}

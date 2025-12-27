@@ -1,100 +1,74 @@
 extends Node
 
+signal text_displayed
+signal choice_selected(choice: Dictionary)
+
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/MarginContainer/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/MarginContainer/Label
 @onready var ui: CanvasLayer = $UI
 
-signal text_displayed
-signal choice_selected(choice: Dictionary)
-
-var selected_choice = null  # Store the selected choice
-
+var selected_choice = null
 var char_timer: float = 0.04
 
-var flag = false
-
 func _ready():
-	ui.visible = false
+	hide()
 
 func show():
 	if not ui.visible:
-		#Data.level.visible = false
 		ui.visible = true
 
 func hide():
 	if ui.visible:
 		ui.visible = false
-		#Data.level.visible = true
 
-func finish_text():
-	pass
-
-func display_text(text: String, npc: NPC):
-	flag = false
+func displayText(text: String, npc: NPC):
 	show()
 	CLogger.log("npc", text)
 	
 	nameTextBox.text = npc.npcname
 	responseTextBox.text = ""
 	
-	# play SFX every other
 	var cntr = 0
-	char_timer = 0.04
 	for char in text:
-		if char_timer == 0:
+		if Input.is_action_pressed("alternate"):
 			responseTextBox.text += text.substr(cntr)
-			CLogger.debug("I'm trying my very best to clear this shit I promise")
+			CLogger.debug("Skipping current dialogue...")
 			break
 		else:
 			await get_tree().create_timer(char_timer).timeout
-			if cntr % 2 == 0:
+			if cntr % 2 == 0: # play SFX every other
 				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
 			cntr += 1
 			responseTextBox.text += char
-		if Input.is_action_pressed("alternate"):
-			char_timer = 0
 
+	# wait for the user to continue...
 	while not Input.is_action_just_pressed("interact"):
 		await get_tree().process_frame
 
-func present_choices(choices: Array, npc: NPC) -> Dictionary:
-	# Clear any existing buttons first
+func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	for child in btnContainer.get_children():
 		child.queue_free()
 	
 	selected_choice = null  # Reset selection
 	
-	print("Choices:")
+	CLogger.log("choice", " ".join(choices))
 	for i in range(choices.size()):
-		print("  %d. %s" % [i + 1, choices[i].text])
-		
-		# Create new button
 		var btn: Button = Button.new()
 		btn.text = choices[i].text
-		
-		# Connect button to callback function
-		btn.pressed.connect(_on_choice_button_pressed.bind(choices[i]))
-		
-		# Add button to container
+		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i]))
 		btnContainer.add_child(btn)
 	
-	# Wait for player to select a choice
 	while selected_choice == null:
 		await get_tree().process_frame
 	
 	return selected_choice
 
-# Callback function when a choice button is pressed
-func _on_choice_button_pressed(choice: Dictionary):
-	print("Player selected: ", choice.text)
-	
-	# Store the selected choice
+func _onChoiceButtonPressed(choice: Dictionary):
+	CLogger.action("Player selected: %s" % choice.text)
 	selected_choice = choice
 	
-	# Clear buttons after selection
 	for child in btnContainer.get_children():
 		child.queue_free()
 	
-	# Emit signal so other systems can react
 	choice_selected.emit(choice)

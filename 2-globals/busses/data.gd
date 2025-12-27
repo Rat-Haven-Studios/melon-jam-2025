@@ -1,6 +1,6 @@
 extends Node
 
-var player
+var player: Character
 var level
 
 enum PlayerMasks {

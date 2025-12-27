@@ -1,5 +1,6 @@
-extends CharacterBody2D
+class_name Character extends CharacterBody2D
 
+var actionFlags: Dictionary
 
 var currState = STATE.WALKING
 @onready var seekingStairs: Area2D = $StairsDetector

@@ -2,6 +2,7 @@ extends Node2D
 
 var  interactables: Array[Area2D] = []
 var canInteract: bool = true
+var currentlyInteracting: bool = false
 @onready var area:Area2D = $Area2D
 @onready var label:Label = $Label
 
@@ -24,6 +25,7 @@ func _input(event: InputEvent) -> void:
 		
 		await interactables[0].interact.call()
 		label.hide()
+		
 		
 		canInteract = true
 func _sortByNearest(area1: Area2D, area2:Area2D):

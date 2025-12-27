@@ -1,4 +1,3 @@
-@abstract
 class_name NPC extends CharacterBody2D
 
 var npcname: String
@@ -13,7 +12,7 @@ var wanderTime: float
 
 @export var mapSprite: Texture2D
 @export var dialogueSprite: Texture2D
-
+@onready var interactable:= $InteractReceiverComponent
 func _init(characterID: Data.Characters, npcname: String, susLevel: int):
 	talked = {
 		Data.PlayerMasks.BLANK: false,
@@ -35,9 +34,15 @@ func _init(characterID: Data.Characters, npcname: String, susLevel: int):
 	generateDialogueTrees()
 	CLogger.info("Initialized %s" % npcname)
 
-func _ready():
+func _ready() -> void:
+	interactable.interact = _onInteract
 	roamBuilding()
 
+func _onInteract():
+	interactable.isInteractable = false
+	converse(0)
+	interactable.isInteractable = true
+	
 func roamBuilding():
 	# I would want some sort of check to see if they NPC is going to a spot within the world border AND not intersecting with a wall
 	# We can work that out later

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0w1aiel064xo"]
+
+[ext_resource type="Script" uid="uid://car8je0uko2hp" path="res://5-component/interactions/interact-receiver/interact_receiver_component.gd" id="1_xdxq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g718j"]
+
+[node name="InteractReceiverComponent" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xdxq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g718j")

@@ -11,6 +11,7 @@ enum STATE {
 
 
 func _ready() -> void:
+	
 	pass
 	# initialize talked to array
 
@@ -23,8 +24,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		CLogger.action("Player attempting interact")
 		
-		# TEMPORARY
-		await Data.CharacterObjects[Data.Characters.BANDIT_KING].converse(0)
+
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

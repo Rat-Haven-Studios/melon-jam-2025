@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=18 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
-[ext_resource type="Texture2D" uid="uid://cp7s1u6psl4q5" path="res://0-assets/sprites/mansion_interior.png" id="2_jry3e"]
+[ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/Matt's Map.png" id="2_qflod"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://cqookot7nrslv" path="res://4-objects/1-npc/bandit-king/BanditKing.tscn" id="4_07xkt"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
 [ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
+[ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
+[ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="9_igri3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(19.155083, 22.027313)
@@ -36,28 +38,27 @@ size = Vector2(52, 40.5)
 script = ExtResource("1_jry3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(256, 256)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_jry3e")
+position = Vector2(128, 128)
+texture = ExtResource("2_qflod")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(259, 383)
+position = Vector2(131, 255)
 zoom = Vector2(4, 4)
 script = ExtResource("2_wl7ar")
 
 [node name="Character" parent="." instance=ExtResource("3_qj1of")]
-position = Vector2(256, 384)
+position = Vector2(128, 256)
 scale = Vector2(0.9921745, 1)
-BASE_SPEED = 90
 WALKING_STAIRS_SPEED = 60
 
 [node name="BanditKing" parent="." instance=ExtResource("4_07xkt")]
-position = Vector2(343, 333)
+position = Vector2(215, 205)
 
 [node name="All Walls" type="Node2D" parent="."]
+visible = false
 
 [node name="Wall" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(183.00002, 375.00003)
+position = Vector2(55.000023, 247.00003)
 rotation = 3.1415927
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -67,7 +68,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_4qvpp")
 
 [node name="Wall2" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(329, 375.00003)
+position = Vector2(201, 247.00003)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -77,7 +78,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_qflod")
 
 [node name="Wall3" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(380.00003, 265.00003)
+position = Vector2(252.00003, 137.00003)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -87,7 +88,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
 [node name="Wall4" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(131.99998, 265.00003)
+position = Vector2(3.9999924, 137.00003)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -97,7 +98,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
 [node name="Wall5" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(253.00003, 162.00005)
+position = Vector2(125.00004, 34.000053)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -107,7 +108,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_igri3")
 
 [node name="Wall6" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(301.00003, 242)
+position = Vector2(173.00003, 114.00001)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -117,7 +118,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_urky6")
 
 [node name="Wall7" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(211.00002, 242)
+position = Vector2(83.00002, 114.00001)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -127,7 +128,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_urky6")
 
 [node name="Wall8" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(149.00002, 241.99998)
+position = Vector2(21.000023, 113.99999)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -137,7 +138,7 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_scqml")
 
 [node name="Wall9" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(366.00003, 240.99998)
+position = Vector2(238.00003, 112.99999)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
@@ -147,7 +148,8 @@ scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_scqml")
 
 [node name="All Stairs" type="Node2D" parent="."]
-position = Vector2(256, 162.00002)
+visible = false
+position = Vector2(128, 34.000015)
 rotation = -3.1415925
 scale = Vector2(5.742603, 0.8314422)
 
@@ -178,3 +180,41 @@ scale = Vector2(0.17413707, 1.2027295)
 position = Vector2(1.1148811e-06, 0)
 shape = SubResource("RectangleShape2D_2rcib")
 debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
+
+[node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
+energy = 0.75
+
+[node name="All of the lights!" type="Node2D" parent="."]
+position = Vector2(128, 253)
+
+[node name="Light" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(-31, -137)
+
+[node name="Light2" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(30, -138)
+
+[node name="Light3" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(64, -43)
+
+[node name="Light4" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(-63, -236)
+
+[node name="Light5" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(-21, -235)
+
+[node name="Light6" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(20, -236)
+
+[node name="Light7" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(63, -234)
+
+[node name="Light8" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(-68, -53)
+
+[node name="Light9" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(-107, -133)
+
+[node name="Light10" parent="All of the lights!" instance=ExtResource("9_igri3")]
+position = Vector2(105, -133)
+
+[node name="Light11" parent="All of the lights!" instance=ExtResource("9_igri3")]

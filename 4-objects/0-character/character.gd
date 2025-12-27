@@ -22,6 +22,9 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):
 		CLogger.action("Player attempting interact")
+		
+		# TEMPORARY
+		await Data.CharacterObjects[Data.Characters.BANDIT_KING].converse(0)
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

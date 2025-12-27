@@ -48,7 +48,69 @@ func roamBuilding():
 	CLogger.debug("Regular Version = " + str(Vector2(randX, randY)))
 	moveDirection = Vector2(randX, randY)
 	
+func getDialogueTree(mask: Data.PlayerMasks) -> Dictionary:
+	return dialogueTrees.get(mask, {})
+
+func getDialogueNode(mask: Data.PlayerMasks, node_id: String) -> Dictionary:
+	var tree = getDialogueTree(mask)
+	return tree.get("nodes", {}).get(node_id, {})
+
+func converse(maskID: int):
+	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
 	
+	var dialogueTree = dialogueTrees.get(maskID, {})
+	if dialogueTree.is_empty():
+		CLogger.warn("No dialogue tree found for mask %d" % maskID)
+		return
+	
+	talked[maskID] = true
+	
+	if dialogueTree.has("initial_greeting"):
+		await DialogueUI.display_text(dialogueTree.initial_greeting, self)
+	
+	var current_node_id = "start"
+	var conversation_state = {}  # Track flags/variables during conversation
+	
+	while current_node_id != "":
+		var node = dialogueTree.get("nodes", {}).get(current_node_id, {})
+		
+		if node.is_empty():
+			break
+		
+		# Check conditions (optional)
+		if node.has("condition") and not evaluate_condition(node.condition, conversation_state):
+			current_node_id = node.get("else", "")
+			continue
+		
+		await DialogueUI.display_text(node.text, self)
+		
+		if node.choices.is_empty():
+			break
+		
+		# Filter choices by conditions
+		var available_choices = []
+		for choice in node.choices:
+			if not choice.has("condition") or evaluate_condition(choice.condition, conversation_state):
+				available_choices.append(choice)
+		
+		if available_choices.is_empty():
+			break
+		
+		var selected_choice = await DialogueUI.present_choices(available_choices, self)
+		
+		if selected_choice.has("sus_change"):
+			susLevel += selected_choice.sus_change
+		
+		# Set flags
+		if selected_choice.has("set_flag"):
+			conversation_state[selected_choice.set_flag] = true
+		
+		current_node_id = selected_choice.get("next", "")
+
+func evaluate_condition(condition: String, state: Dictionary) -> bool:
+	# Simple condition evaluation
+	# e.g., "has_key" checks if state.has("has_key")
+	return state.get(condition, false)
 
 func generateDialogueTrees():
 	dialogueTrees = {}

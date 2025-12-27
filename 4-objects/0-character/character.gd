@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var currState = STATE.MOVING
 @export var BASE_SPEED: int = 5
+@onready var interactionComponent = $InteractComponent
 
 enum STATE {
 	MOVING,
@@ -23,7 +24,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):
 		CLogger.action("Player attempting interact")
-		
+	
 
 	
 func processMovement():

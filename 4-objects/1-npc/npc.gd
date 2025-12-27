@@ -7,6 +7,11 @@ var talked: Dictionary = {
 	}
 var dialogueTrees: Dictionary = {}
 
+enum STATE {
+	WALKING,
+	TALKING
+}
+var currState: STATE = STATE.WALKING
 var moveDirection: Vector2
 var prevPosition: Vector2
 var wanderTime: float
@@ -46,7 +51,11 @@ func _ready() -> void:
 	CLogger.info("Initialized %s" % npcname)
 	roamBuilding()
 func _process(delta):
-	if wanderTime > 0:
+	# They're talking
+	if currState == STATE.TALKING:
+		pass
+	# They're walking
+	elif wanderTime > 0:
 		wanderTime -= delta
 		self.velocity = moveDirection * (self.speed / 3)
 		move_and_slide()
@@ -56,8 +65,10 @@ func _process(delta):
 			CLogger.debug("I hit the wall" + str(self.velocity))
 			wanderTime = 0
 		prevPosition = self.global_position
+	# They're stopping
 	elif waitTime > 0 :
 		waitTime -= delta
+	# Mix it up now
 	else:
 		randomizeWander()
 		chillOutTime()
@@ -90,6 +101,7 @@ func roamBuilding():
 	moveDirection = Vector2(randX, randY)
 	
 func converse(maskID: int):
+	currState = STATE.TALKING
 	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
 		
 	var dialogueTree = dialogueTrees.get(maskID, {})
@@ -151,6 +163,7 @@ func converse(maskID: int):
 	# at this point, the conversation is over
 	DialogueUI.hide()
 	CLogger.action("Conversation ended with %s" % npcname)
+	self.currState = STATE.WALKING
 	Data.player.currState = Data.player.STATE.WALKING
 
 func evaluateCondition(condition, conversationState: Dictionary) -> bool:

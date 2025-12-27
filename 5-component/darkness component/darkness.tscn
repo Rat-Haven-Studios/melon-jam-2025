@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://brllo41iwtc42"]
+
+[ext_resource type="Script" uid="uid://dmd300ihe4y30" path="res://5-component/darkness component/darkness.gd" id="1_x3bic"]
+
+[node name="Darkness" type="DirectionalLight2D"]
+energy = 0.5
+blend_mode = 1
+script = ExtResource("1_x3bic")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ess0lyyqlkgy"]
+[gd_scene load_steps=6 format=3 uid="uid://ess0lyyqlkgy"]
 
 [ext_resource type="Script" uid="uid://122mf68ayfjx" path="res://4-objects/0-character/character.gd" id="1_l8ec2"]
 [ext_resource type="Texture2D" uid="uid://wj76csxjivf0" path="res://0-assets/sprites/character/Placeholder Man.png" id="2_hpm3x"]
 [ext_resource type="PackedScene" uid="uid://pqx6itiibjs" path="res://5-component/interactions/InteractComponent/InteractComponent.tscn" id="3_hpm3x"]
+[ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_npi03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt3e"]
 size = Vector2(10, 5.5)
@@ -30,3 +31,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StairsDetector"]
 position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_gbt3e")
+
+[node name="Light" parent="." instance=ExtResource("4_npi03")]
+position = Vector2(0, -6)
+flickerMin = 0.8
+flickerMax = 0.9
+rangeMin = 0.0
+rangeMax = 0.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddjp2vs6mg0xs"]
+
+[ext_resource type="Script" uid="uid://b84nerbai38uo" path="res://5-component/light component/light.gd" id="1_0cxwj"]
+[ext_resource type="Texture2D" uid="uid://bfkbbtj2atohw" path="res://5-component/light component/player.tres" id="1_5xx0o"]
+
+[node name="Light" type="PointLight2D"]
+energy = 0.01
+texture = ExtResource("1_5xx0o")
+script = ExtResource("1_0cxwj")

@@ -108,6 +108,7 @@ func converse(maskID: int):
 	if dialogueTree.is_empty():
 		CLogger.error("No dialogue tree found for mask %d" % maskID)
 		Data.player.currState = Data.player.STATE.WALKING
+		currState = STATE.WALKING
 		return
 	
 	var currentNodeID: String = "start"

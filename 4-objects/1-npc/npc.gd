@@ -122,6 +122,7 @@ func converse(maskID: int):
 	# Conversation ended, hide UI
 	DialogueUI.hide()
 	CLogger.action("Conversation ended with %s" % npcname)
+	Data.player.currState = Data.player.STATE.WALKING
 
 func evaluate_condition(condition: String, state: Dictionary) -> bool:
 	# Simple condition evaluation

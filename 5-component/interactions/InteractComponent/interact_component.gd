@@ -20,13 +20,12 @@ func _process(_delta):
 		label.hide()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and canInteract and interactables:
+	if event.is_action_pressed("interact") and canInteract and interactables and not get_parent().currState == get_parent().STATE.TALKING:
 		canInteract = false
 		
 		await interactables[0].interact.call()
 		label.hide()
-		
-		
+		Data.player.currState = Data.player.STATE.TALKING
 		canInteract = true
 func _sortByNearest(area1: Area2D, area2:Area2D):
 	var area1_dist = global_position.distance_to(area1.global_position)

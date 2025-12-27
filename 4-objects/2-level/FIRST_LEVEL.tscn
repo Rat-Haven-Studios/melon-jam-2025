@@ -182,7 +182,7 @@ shape = SubResource("RectangleShape2D_2rcib")
 debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
 
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
-energy = 0.75
+energy = 0.6
 
 [node name="All of the lights!" type="Node2D" parent="."]
 position = Vector2(128, 253)

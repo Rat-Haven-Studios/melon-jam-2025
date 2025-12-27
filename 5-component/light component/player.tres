@@ -1,10 +1,11 @@
 [gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://bfkbbtj2atohw"]
 
 [sub_resource type="Gradient" id="Gradient_esoif"]
-offsets = PackedFloat32Array(0.012987, 0.694805, 0.694805)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.6066667, 1)
+colors = PackedColorArray(0.827451, 0.89411765, 0.827451, 1, 0.1440624, 0.14406261, 0.14406249, 1, 0, 0, 0, 1)
 
 [resource]
 gradient = SubResource("Gradient_esoif")
 fill = 1
-fill_from = Vector2(0.527027, 0.5585586)
+fill_from = Vector2(0.52803737, 0.50934577)
+fill_to = Vector2(0.91588783, 0.093457945)

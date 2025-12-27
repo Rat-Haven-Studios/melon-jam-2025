@@ -30,6 +30,11 @@ CLogger="*res://2-globals/clogger/clogger.gd"
 Data="*res://2-globals/busses/data.gd"
 DialogueUI="*res://2-globals/dialogue-ui/DialogueUI.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true

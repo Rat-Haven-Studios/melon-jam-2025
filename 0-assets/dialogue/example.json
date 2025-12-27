@@ -8,12 +8,27 @@
 		{
 		  "text": "Do you have any supplies?",
 		  "next": "ask_supplies",
+		  "condition": {
+			"state": "false",
+			"flag": "bought_potion"
+		  },
 		  "sus_change": 0
 		},
 		{
 		  "text": "About that deal we discussed...",
 		  "next": "check_deal",
-		  "condition": "offered_deal"
+		  "condition": {
+			"state": "true",
+			"flag": "offered_deal"
+		  }
+		},
+		{
+		  "text": "Thanks again for the potion!",
+		  "next": "already_bought",
+		  "condition": {
+			"state": "true",
+			"flag": "bought_potion"
+		  }
 		},
 		{
 		  "text": "Just looking around.",
@@ -33,8 +48,21 @@
 		{
 		  "text": "I'll trade you information instead.",
 		  "next": "offer_trade",
+		  "condition": {
+			"state": "false",
+			"flag": "offered_deal"
+		  },
 		  "sus_change": 1,
 		  "set_flag": "offered_deal"
+		},
+		{
+		  "text": "About that information trade...",
+		  "next": "offer_trade",
+		  "condition": {
+			"state": "true",
+			"flag": "offered_deal"
+		  },
+		  "sus_change": 0
 		}
 	  ]
 	},
@@ -60,8 +88,23 @@
 	  "choices": []
 	},
 	
+	"already_bought": {
+	  "text": "You already got your potion! I don't have any more right now.",
+	  "choices": [
+		{
+		  "text": "Oh right, my bad.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
 	"offer_trade": {
 	  "text": "Information? What kind of information?",
+	  "condition": {
+		"state": "false",
+		"flag": "gave_info"
+	  },
+	  "else": "already_gave_info",
 	  "choices": [
 		{
 		  "text": "There are bandits on the north road.",
@@ -72,6 +115,17 @@
 		{
 		  "text": "Never mind, I'll pay gold.",
 		  "next": "price_reveal"
+		}
+	  ]
+	},
+	
+	"already_gave_info": {
+	  "text": "You already told me about the bandits. Here, take your potion.",
+	  "choices": [
+		{
+		  "text": "Thanks!",
+		  "next": "end",
+		  "set_flag": "traded_for_potion"
 		}
 	  ]
 	},
@@ -89,18 +143,36 @@
 	
 	"check_deal": {
 	  "text": "Ah yes, the trade! Do you have that information for me?",
-	  "condition": "offered_deal",
+	  "condition": {
+		"state": "true",
+		"flag": "offered_deal"
+	  },
 	  "else": "confused",
 	  "choices": [
 		{
 		  "text": "Yes, about the bandits.",
 		  "next": "trade_accepted",
-		  "condition": "gave_info",
+		  "condition": {
+			"state": "false",
+			"flag": "gave_info"
+		  },
 		  "set_flag": "gave_info"
 		},
 		{
+		  "text": "I already told you about the bandits.",
+		  "next": "already_gave_info",
+		  "condition": {
+			"state": "true",
+			"flag": "gave_info"
+		  }
+		},
+		{
 		  "text": "Not yet, still gathering info.",
-		  "next": "waiting"
+		  "next": "waiting",
+		  "condition": {
+			"state": "false",
+			"flag": "gave_info"
+		  }
 		}
 	  ]
 	},

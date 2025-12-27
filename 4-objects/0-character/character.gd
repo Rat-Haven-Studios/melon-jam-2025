@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 	
 
 func swapMask():
-	CLogger.debug("I'm swappin my mfing mask")
 	match self.currMask:
 		Data.PlayerMasks.BLANK:
 			# Do the animation
@@ -52,6 +51,7 @@ func swapMask():
 		Data.PlayerMasks.POOR:
 			# Do the animation
 			currMask = Data.PlayerMasks.BLANK
+	CLogger.debug("I'm swappin my mfing mask to " + str(currMask))
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

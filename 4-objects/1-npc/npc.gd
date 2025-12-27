@@ -37,7 +37,7 @@ func _ready() -> void:
 
 func _onInteract():
 	interactable.isInteractable = false
-	converse(0)
+	converse(Data.player.currMask)
 	interactable.isInteractable = true
 	
 func roamBuilding():
@@ -56,6 +56,7 @@ func converse(maskID: int):
 	var dialogueTree = dialogueTrees.get(maskID, {})
 	if dialogueTree.is_empty():
 		CLogger.error("No dialogue tree found for mask %d" % maskID)
+		Data.player.currState = Data.player.STATE.WALKING
 		return
 	
 	var currentNodeID: String = "start"

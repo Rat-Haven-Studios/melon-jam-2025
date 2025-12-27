@@ -37,10 +37,11 @@ func display_text(text: String, npc: NPC):
 	
 	# play SFX every other
 	var cntr = 0
+	char_timer = 0.04
 	for char in text:
 		if char_timer == 0:
 			responseTextBox.text += text.substr(cntr)
-			char_timer = 0.04
+			CLogger.debug("I'm trying my very best to clear this shit I promise")
 			break
 		else:
 			await get_tree().create_timer(char_timer).timeout
@@ -48,9 +49,11 @@ func display_text(text: String, npc: NPC):
 				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
 			cntr += 1
 			responseTextBox.text += char
-
+		if Input.is_action_pressed("alternate"):
+			char_timer = 0
 	await get_tree().create_timer(2.0).timeout  # Adjust timing as needed
 	text_displayed.emit()
+	
 
 func present_choices(choices: Array, npc: NPC) -> Dictionary:
 	# Clear any existing buttons first

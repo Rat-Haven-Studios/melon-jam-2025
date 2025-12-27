@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 
-var currState = STATE.MOVING
+var currState = STATE.WALKING
 @export var BASE_SPEED: int = 5
 @onready var interactionComponent = $InteractComponent
 
 enum STATE {
-	MOVING,
+	WALKING,
 	TALKING
 }
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if currState == STATE.MOVING:
+	if currState == STATE.WALKING:
 		processMovement()
 		move_and_slide()
 	

@@ -6,7 +6,7 @@ extends Control
 @onready var quitButton: Button = $PanelContainer/VBoxContainer/ButtonMarginContainer/VBoxContainer/ButtonVBox/QuitButton
 @onready var creditsButton: Button = $PanelContainer/VBoxContainer/ButtonMarginContainer/VBoxContainer/ButtonVBox/CreditsButton
 
-const FIRST_LEVEL: String = ""
+const FIRST_LEVEL: String = "res://4-objects/2-level/FIRST_LEVEL.tscn"
 const HOW_TO_PLAY: String = ""
 const CREDITS: String = ""
 

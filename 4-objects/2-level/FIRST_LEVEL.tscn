@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://btyikl70k86w6"]
+
+[ext_resource type="Texture2D" uid="uid://dtv0iqfxnymma" path="res://0-assets/sprites/world/Quick Blueprint.png" id="1_4jqpd"]
+[ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
+[ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 256)
+texture = ExtResource("1_4jqpd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(259, 383)
+zoom = Vector2(4, 4)
+script = ExtResource("2_wl7ar")
+
+[node name="Character" parent="." instance=ExtResource("3_qj1of")]
+position = Vector2(367, 498)
+BASE_SPEED = 90

@@ -3,11 +3,12 @@
 [ext_resource type="FontFile" uid="uid://tp8y60dxmlou" path="res://0-assets/fonts/Jersey25-Regular.ttf" id="1_0prnn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnb1h"]
-bg_color = Color(0.133333, 0.137255, 0.137255, 1)
+bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
+border_color = Color(0.827451, 0.89411765, 0.827451, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -17,12 +18,12 @@ corner_radius_bottom_left = 8
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdocg"]
-bg_color = Color(0.133333, 0.137255, 0.137255, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.941176, 0.964706, 0.941176, 1)
+bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.89411765, 0.827451, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -60,9 +61,10 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtpir"]
 bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
+border_color = Color(0.827451, 0.89411765, 0.827451, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvaiu"]
-bg_color = Color(0.133333, 0.137255, 0.137255, 1)
+bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2

@@ -26,10 +26,10 @@ script = ExtResource("2_5nxtp")
 
 [node name="CoveragePanel" type="Panel" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = -850.0
-offset_top = -531.0
-offset_right = 858.0
-offset_bottom = 516.0
+offset_left = -1385.0
+offset_top = -818.0
+offset_right = 1417.0
+offset_bottom = 719.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5nxtp")
 
 [node name="PanelContainer" type="PanelContainer" parent="SettingsMenu"]

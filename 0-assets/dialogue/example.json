@@ -1,0 +1,133 @@
+{
+  "initial_greeting": "Oh, a visitor! Haven't seen one in ages.",
+  "talked_already": "Back again? I don't have much else to say.",
+  "nodes": {
+	"start": {
+	  "text": "What can I do for you?",
+	  "choices": [
+		{
+		  "text": "Do you have any supplies?",
+		  "next": "ask_supplies",
+		  "sus_change": 0
+		},
+		{
+		  "text": "About that deal we discussed...",
+		  "next": "check_deal",
+		  "condition": "offered_deal"
+		},
+		{
+		  "text": "Just looking around.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"ask_supplies": {
+	  "text": "I've got a healing potion. But it'll cost you.",
+	  "choices": [
+		{
+		  "text": "How much?",
+		  "next": "price_reveal",
+		  "sus_change": 0
+		},
+		{
+		  "text": "I'll trade you information instead.",
+		  "next": "offer_trade",
+		  "sus_change": 1,
+		  "set_flag": "offered_deal"
+		}
+	  ]
+	},
+	
+	"price_reveal": {
+	  "text": "50 gold. Take it or leave it.",
+	  "choices": [
+		{
+		  "text": "Deal. [Pay 50 gold]",
+		  "next": "purchase_complete",
+		  "sus_change": -1,
+		  "set_flag": "bought_potion"
+		},
+		{
+		  "text": "That's too expensive.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"purchase_complete": {
+	  "text": "Pleasure doing business. Come back anytime!",
+	  "choices": []
+	},
+	
+	"offer_trade": {
+	  "text": "Information? What kind of information?",
+	  "choices": [
+		{
+		  "text": "There are bandits on the north road.",
+		  "next": "trade_accepted",
+		  "sus_change": 0,
+		  "set_flag": "gave_info"
+		},
+		{
+		  "text": "Never mind, I'll pay gold.",
+		  "next": "price_reveal"
+		}
+	  ]
+	},
+	
+	"trade_accepted": {
+	  "text": "Bandits? Good to know! Here's your potion. We're even.",
+	  "choices": [
+		{
+		  "text": "Thanks!",
+		  "next": "end",
+		  "set_flag": "traded_for_potion"
+		}
+	  ]
+	},
+	
+	"check_deal": {
+	  "text": "Ah yes, the trade! Do you have that information for me?",
+	  "condition": "offered_deal",
+	  "else": "confused",
+	  "choices": [
+		{
+		  "text": "Yes, about the bandits.",
+		  "next": "trade_accepted",
+		  "condition": "gave_info",
+		  "set_flag": "gave_info"
+		},
+		{
+		  "text": "Not yet, still gathering info.",
+		  "next": "waiting"
+		}
+	  ]
+	},
+	
+	"confused": {
+	  "text": "What deal? We never talked about any deal.",
+	  "choices": [
+		{
+		  "text": "My mistake.",
+		  "next": "start"
+		}
+	  ]
+	},
+	
+	"waiting": {
+	  "text": "Well, hurry up! I need that potion for someone else.",
+	  "choices": [
+		{
+		  "text": "I'll be back soon.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"end": {
+	  "text": "Safe travels!",
+	  "choices": []
+	}
+  }
+}

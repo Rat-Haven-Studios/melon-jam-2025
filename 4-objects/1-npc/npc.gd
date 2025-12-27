@@ -116,9 +116,34 @@ func converse(maskID: int):
 	CLogger.action("Conversation ended with %s" % npcname)
 	Data.player.currState = Data.player.STATE.WALKING
 
-func evaluateCondition(condition: String, state: Dictionary) -> bool:
-	# "has_key" checks if state.has("has_key")
-	return state.get(condition, false)
+func evaluateCondition(condition, conversationState: Dictionary) -> bool:
+	if condition is String:
+		if conversationState.has(condition):
+			return conversationState[condition]
+		if Data.player.actionFlags.has(condition):
+			return Data.player.actionFlags[condition]
+		return false
+	
+	if condition is Dictionary:
+		var flag = condition.get("flag", "")
+		var expectedState = condition.get("state", "true")
+		
+		var flagValue = false
+		if conversationState.has(flag):
+			flagValue = conversationState[flag]
+		elif Data.player.actionFlags.has(flag):
+			flagValue = Data.player.actionFlags[flag]
+		
+		if expectedState == "true":
+			return flagValue == true
+		elif expectedState == "false":
+			return flagValue == false
+		else:
+			CLogger.error("Invalid condition state: %s" % expectedState)
+			return false
+	
+	CLogger.error("Invalid condition format")
+	return false
 
 func getDialogueTree(mask: Data.PlayerMasks) -> Dictionary:
 	return dialogueTrees.get(mask, {})

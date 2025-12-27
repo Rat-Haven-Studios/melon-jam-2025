@@ -29,6 +29,15 @@
 				"sus_change": 3
 			},
 			{
+				"text": "I want to know about the Mayor",
+				"next": "mayor_info",
+				"condition": {
+					"state": "false",
+					"flag": "asked_about_mayor"
+				},
+				"sus_change": 1
+			},
+			{
 				"text": "Nothing, I'll leave",
 			}
 		]

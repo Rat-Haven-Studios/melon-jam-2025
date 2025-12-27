@@ -4,7 +4,6 @@ var  interactables: Array[Area2D] = []
 var canInteract: bool = true
 var currentlyInteracting: bool = false
 @onready var area:Area2D = $Area2D
-@onready var label:Label = $Label
 
 func _ready():
 	area.area_entered.connect(onAreaEntered)
@@ -13,18 +12,13 @@ func _ready():
 func _process(_delta):
 	if interactables and canInteract:
 		interactables.sort_custom(_sortByNearest)
-		if interactables[0].isInteractable:
-			label.text = interactables[0].interactString
-			label.show()
-	else:
-		label.hide()
+
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and canInteract and interactables and not get_parent().currState == get_parent().STATE.TALKING:
 		canInteract = false
 		
 		await interactables[0].interact.call()
-		label.hide()
 		Data.player.currState = Data.player.STATE.TALKING
 		canInteract = true
 func _sortByNearest(area1: Area2D, area2:Area2D):

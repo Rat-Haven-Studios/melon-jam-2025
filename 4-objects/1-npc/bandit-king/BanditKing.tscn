@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://0w1aiel064xo" path="res://5-component/interactions/interact-receiver/InteractReceiverComponent.tscn" id="2_m8it2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0r2yv"]
+size = Vector2(15, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hs422"]
 atlas = ExtResource("1_vgh3i")
@@ -26,9 +27,13 @@ script = ExtResource("1_v4bx4")
 metadata/_custom_type_script = "uid://c1k2t3oaljnp8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4)
 shape = SubResource("RectangleShape2D_0r2yv")
 
 [node name="InteractReceiverComponent" parent="." instance=ExtResource("2_m8it2")]
+scale = Vector2(2.6713219, 2.6713219)
+interactString = "Hawk Tuah!"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -2)
 sprite_frames = SubResource("SpriteFrames_beadx")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqookot7nrslv"]
 
-[ext_resource type="Script" uid="uid://damfr37ihfiqh" path="res://4-objects/npc/bandit-king/bandit-king.gd" id="1_v4bx4"]
+[ext_resource type="Script" uid="uid://damfr37ihfiqh" path="res://4-objects/1-npc/bandit-king/bandit-king.gd" id="1_v4bx4"]
 
 [node name="BanditKing" type="Node2D"]
 script = ExtResource("1_v4bx4")

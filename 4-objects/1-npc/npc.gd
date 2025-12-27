@@ -1,5 +1,5 @@
 @abstract
-class_name NPC extends Node2D
+class_name NPC extends CharacterBody2D
 
 var npcname: String
 var characterID: Data.Characters

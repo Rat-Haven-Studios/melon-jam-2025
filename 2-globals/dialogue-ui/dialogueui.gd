@@ -8,6 +8,7 @@ signal choice_selected(choice: Dictionary)
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer/Label
 @onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
 @onready var ui: CanvasLayer = $UI
+@onready var displaySpritre: TextureRect = $UI/VBoxContainer/HBoxContainer/MarginContainer2/TextureRect
 
 var selected_choice = null
 var char_timer: float = 0.04
@@ -39,6 +40,7 @@ func displayText(text: String, npc: NPC):
 	show()
 	CLogger.log("npc", text)
 	
+	displaySpritre.texture = npc.dialogueSprite
 	nameTextBox.text = npc.npcname
 	responseTextBox.text = ""
 	

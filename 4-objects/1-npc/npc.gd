@@ -8,8 +8,17 @@ var talked: Dictionary = {
 var dialogueTrees: Dictionary = {}
 
 var moveDirection: Vector2
+var prevPosition: Vector2
 var wanderTime: float
+var waitTime: float
 
+const MAX_MAP_BORDER: Vector2 = Vector2(256, 256)
+const MIN_MAP_BORDER: Vector2 = Vector2(0, 0)
+@export var waitTimeMin: float = 2
+@export var waitTimeMax: float = 10
+@export var wanderTimeMin: float = 1
+@export var wanderTimeMax: float = 7
+@export var speed: int = 25
 @export var characterID: Data.Characters
 @export var npcname: String
 @export var susLevel: int
@@ -20,6 +29,8 @@ var wanderTime: float
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
+	wanderTime = 0
+	waitTime = randf_range(waitTimeMin, waitTimeMax)
 	Data.CharacterObjects[characterID] = self
 	
 	if not mapSprite:
@@ -34,20 +45,48 @@ func _ready() -> void:
 	interactable.interact = _onInteract
 	CLogger.info("Initialized %s" % npcname)
 	roamBuilding()
-
+func _process(delta):
+	if wanderTime > 0:
+		wanderTime -= delta
+		self.velocity = moveDirection * (self.speed / 3)
+		move_and_slide()
+		if isExceedingMapBorder():
+			wanderTime = 0
+		if isProbablyHittingWall():
+			CLogger.debug("I hit the wall" + str(self.velocity))
+			wanderTime = 0
+		prevPosition = self.global_position
+	elif waitTime > 0 :
+		waitTime -= delta
+	else:
+		randomizeWander()
+		chillOutTime()
+	
+func isExceedingMapBorder():
+	var currX = self.global_position.x
+	var currY = self.global_position.y
+	return (currX > MAX_MAP_BORDER.x or currY > MAX_MAP_BORDER.y) or (currX < MIN_MAP_BORDER.x or currY < MIN_MAP_BORDER.y)
+func isProbablyHittingWall():
+	return velocity.x == 0 or velocity.y == 0
+	
+func chillOutTime():
+	waitTime = randf_range(waitTimeMin, waitTimeMax)
+	
 func _onInteract():
 	interactable.isInteractable = false
 	converse(Data.player.currMask)
 	interactable.isInteractable = true
-	
+
+func randomizeWander():
+	moveDirection = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	wanderTime = randf_range(wanderTimeMin, wanderTimeMax)
+
 func roamBuilding():
 	# I would want some sort of check to see if they NPC is going to a spot within the world border AND not intersecting with a wall
 	# We can work that out later
 	
 	var randX = randi_range(0, 512)
 	var randY = randi_range(0, 512)
-	CLogger.debug("Normalized Version = " + str(Vector2(randX, randY).normalized()))
-	CLogger.debug("Regular Version = " + str(Vector2(randX, randY)))
 	moveDirection = Vector2(randX, randY)
 	
 func converse(maskID: int):

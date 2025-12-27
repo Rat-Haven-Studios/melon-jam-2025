@@ -38,11 +38,16 @@ func display_text(text: String, npc: NPC):
 	# play SFX every other
 	var cntr = 0
 	for char in text:
-		await get_tree().create_timer(char_timer).timeout
-		if cntr % 2 == 0:
-			AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
-		cntr += 1
-		responseTextBox.text += char
+		if char_timer == 0:
+			responseTextBox.text += text.substr(cntr)
+			char_timer = 0.04
+			break
+		else:
+			await get_tree().create_timer(char_timer).timeout
+			if cntr % 2 == 0:
+				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
+			cntr += 1
+			responseTextBox.text += char
 
 	await get_tree().create_timer(2.0).timeout  # Adjust timing as needed
 	text_displayed.emit()

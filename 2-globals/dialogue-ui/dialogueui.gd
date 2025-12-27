@@ -5,7 +5,8 @@ signal choice_selected(choice: Dictionary)
 
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/Label
-@onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/MarginContainer/Label
+@onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer/Label
+@onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
 @onready var ui: CanvasLayer = $UI
 
 var selected_choice = null
@@ -43,8 +44,10 @@ func displayText(text: String, npc: NPC):
 			responseTextBox.text += char
 
 	# wait for the user to continue...
+	arrow.visible = true
 	while not Input.is_action_just_pressed("interact"):
 		await get_tree().process_frame
+	arrow.visible = false
 
 func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	for child in btnContainer.get_children():

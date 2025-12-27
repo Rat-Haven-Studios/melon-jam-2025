@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c74fv2ii8r6r2"]
+[gd_scene load_steps=6 format=3 uid="uid://c74fv2ii8r6r2"]
 
 [ext_resource type="Script" uid="uid://cxuellutbqyib" path="res://2-globals/dialogue-ui/dialogueui.gd" id="1_qrvl0"]
 [ext_resource type="Texture2D" uid="uid://dtr0r33o4jd26" path="res://0-assets/sprites/character/bunny_man.png" id="3_0pdjh"]
+[ext_resource type="Texture2D" uid="uid://cv0vkwblg620y" path="res://0-assets/sprites/arrow.png" id="3_g18vi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kmnt"]
 bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
@@ -113,17 +114,35 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_g18vi")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer/MarginContainer/Panel"]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 1109.0
-offset_bottom = 166.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 25
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/MarginContainer/Panel/MarginContainer"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Text"
 autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = ExtResource("3_g18vi")

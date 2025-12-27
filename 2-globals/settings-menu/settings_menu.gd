@@ -39,6 +39,7 @@ func toggleMenu() -> void:
 func onMainMenuButtonPressed() -> void:
 	toggleVisible()
 	mainMenuButtonRequest.emit()
+	DialogueUI.hide()
 	SceneTransitioner.change_scene(MAIN_PATH)
 	AudiManny.playMusic(AudiManny.Music.MENU)
 	CLogger.action("Closed Settings. Went to Main Menu")

@@ -32,6 +32,9 @@ func displayText(text: String, npc: NPC):
 	
 	var cntr = 0
 	for char in text:
+		if not ui.visible:
+			return
+		
 		if Input.is_action_pressed("alternate"):
 			responseTextBox.text += text.substr(cntr)
 			CLogger.debug("Skipping current dialogue...")

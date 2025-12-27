@@ -76,7 +76,7 @@ func converse(maskID: int):
 
 	talked[maskID] = true
 	
-	while currentNodeID != "":
+	while DialogueUI.ui.visible and currentNodeID != "":
 		var node = dialogueTree.get("nodes", {}).get(currentNodeID, {})
 		
 		if node.is_empty():

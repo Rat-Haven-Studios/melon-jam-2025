@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqookot7nrslv"]
+[gd_scene load_steps=6 format=3 uid="uid://cqookot7nrslv"]
 
 [ext_resource type="Script" uid="uid://damfr37ihfiqh" path="res://4-objects/1-npc/bandit-king/bandit-king.gd" id="1_v4bx4"]
+[ext_resource type="Texture2D" uid="uid://bpfs2iqi65km5" path="res://0-assets/sprites/Mono Knight.png" id="1_vgh3i"]
 
-[node name="BanditKing" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13y5"]
+atlas = ExtResource("1_vgh3i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8it2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d13y5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgh3i"]
+
+[node name="BanditKing" type="CharacterBody2D"]
 script = ExtResource("1_v4bx4")
-metadata/_custom_type_script = "uid://damfr37ihfiqh"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m8it2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vgh3i")

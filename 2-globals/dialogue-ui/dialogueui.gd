@@ -12,7 +12,7 @@ var selected_choice = null  # Store the selected choice
 
 var char_timer: float = 0.04
 
-var flag = true
+var flag = false
 
 func _ready():
 	ui.visible = false
@@ -31,6 +31,7 @@ func finish_text():
 	pass
 
 func display_text(text: String, npc: NPC):
+	flag = false
 	show()
 	CLogger.log("npc", text)
 	
@@ -58,11 +59,11 @@ func display_text(text: String, npc: NPC):
 	var timer = get_tree().create_timer(2.0)
 	timer.timeout.connect(flagOut)
 	
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
 		flag = true
 	
 	while not flag:
-		pass
+		await get_tree().process_frame
 	
 	text_displayed.emit()
 

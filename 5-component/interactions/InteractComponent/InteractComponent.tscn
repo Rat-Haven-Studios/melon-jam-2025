@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pqx6itiibjs"]
+[gd_scene load_steps=3 format=3 uid="uid://pqx6itiibjs"]
 
 [ext_resource type="Script" uid="uid://c4ckn3fp63pfb" path="res://5-component/interactions/InteractComponent/interact_component.gd" id="1_a21w7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a21w7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_a21w7"]
-font_size = 12
 
 [node name="InteractComponent" type="Node2D"]
 script = ExtResource("1_a21w7")
@@ -16,20 +13,3 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_a21w7")
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -56.5
-offset_top = -16.0
-offset_right = 56.5
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-text = "E To Talk Tuah!"
-label_settings = SubResource("LabelSettings_a21w7")
-horizontal_alignment = 1
-vertical_alignment = 1

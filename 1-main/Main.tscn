@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dil2m1cwkhfny"]
+[gd_scene load_steps=3 format=3 uid="uid://dil2m1cwkhfny"]
 
 [ext_resource type="PackedScene" uid="uid://cl5g7tjmjq45r" path="res://3-ui/main-menu/MainMenu.tscn" id="1_0ndlw"]
+[ext_resource type="PackedScene" uid="uid://cqookot7nrslv" path="res://4-objects/npc/bandit-king/BanditKing.tscn" id="2_a1ago"]
 
 [node name="Main" type="Node"]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_0ndlw")]
+
+[node name="BanditKing" parent="." instance=ExtResource("2_a1ago")]

@@ -1,6 +1,6 @@
 extends PointLight2D
 
-@export var flickerMin: float = 0.9
+@export var flickerMin: float = 0.7
 @export var flickerMax: float = 1.0
 @export var baseFlickerTime: float = 1.0
 @export var rangeMin: float = 450

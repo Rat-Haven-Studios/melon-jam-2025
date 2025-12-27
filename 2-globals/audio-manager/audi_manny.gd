@@ -5,7 +5,8 @@ enum Music {
 }
 
 const MUSIC := {
-	Music.MENU: preload("res://0-assets/music/main-menu.wav"),
+#	Music.MENU: preload("res://0-assets/music/1main-menu.wav"),
+	Music.MENU: preload("res://0-assets/music/139 Fireplace.mp3")
 }
 
 @onready var musicPlayer: AudioStreamPlayer = $MusicPlayer

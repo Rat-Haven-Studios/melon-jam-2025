@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 var currState = STATE.MOVING
+@export var BASE_SPEED: int = 5
 
 enum STATE {
 	MOVING,

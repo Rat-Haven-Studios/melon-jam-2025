@@ -1,28 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuogw058cab8o"]
+[gd_scene load_steps=2 format=3 uid="uid://toe70xl1lkkf"]
 
-[ext_resource type="Texture2D" uid="uid://bpfs2iqi65km5" path="res://0-assets/sprites/Mono Knight.png" id="1_l1arj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad56y"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_atnjp"]
-atlas = ExtResource("1_l1arj")
-region = Rect2(448, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qua7y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_atnjp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Script" uid="uid://c1k2t3oaljnp8" path="res://4-objects/1-npc/npc.gd" id="1_atnjp"]
 
 [node name="Npc" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ad56y")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_qua7y")
+script = ExtResource("1_atnjp")

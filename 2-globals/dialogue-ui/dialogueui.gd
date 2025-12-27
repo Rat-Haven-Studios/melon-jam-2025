@@ -15,6 +15,15 @@ var char_timer: float = 0.04
 func _ready():
 	hide()
 
+func _input(event):
+	if event is InputEventKey and event.pressed and not event.echo:
+		var keyCode = event.keycode
+		if keyCode >= KEY_1 and keyCode <= KEY_9:
+			var choiceIndex = keyCode - KEY_1 # conver to 0 index
+			if choiceIndex < btnContainer.get_child_count():
+				var btn: Button = btnContainer.get_child(choiceIndex)
+				btn.pressed.emit()
+
 func show():
 	if not ui.visible:
 		ui.visible = true
@@ -61,7 +70,8 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	CLogger.log("choice", " ".join(choices))
 	for i in range(choices.size()):
 		var btn: Button = Button.new()
-		btn.text = choices[i].text
+		btn.text = "  %d.\t %s" % [i + 1, choices[i].text]
+		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i]))
 		btnContainer.add_child(btn)
 	

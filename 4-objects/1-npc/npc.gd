@@ -53,81 +53,77 @@ func roamBuilding():
 	CLogger.debug("Regular Version = " + str(Vector2(randX, randY)))
 	moveDirection = Vector2(randX, randY)
 	
+func converse(maskID: int):
+	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
+		
+	var dialogueTree = dialogueTrees.get(maskID, {})
+	if dialogueTree.is_empty():
+		CLogger.error("No dialogue tree found for mask %d" % maskID)
+		return
+	
+	var currentNodeID: String = "start"
+	var conversationState: Dictionary = {}
+	
+	if talked[maskID]:
+		await DialogueUI.displayText(dialogueTree.talked_already, self)
+		self.susLevel += 1
+		currentNodeID = ""
+	elif dialogueTree.has("initial_greeting"):
+		await DialogueUI.displayText(dialogueTree.initial_greeting, self)
+
+	talked[maskID] = true
+	
+	while currentNodeID != "":
+		var node = dialogueTree.get("nodes", {}).get(currentNodeID, {})
+		
+		if node.is_empty():
+			break
+		
+		# Check conditions
+		if node.has("condition") and not evaluateCondition(node.condition, conversationState):
+			currentNodeID = node.get("else", "")
+			continue
+		
+		await DialogueUI.displayText(node.text, self)
+		
+		if node.choices.is_empty():
+			break
+		
+		var availableChoices = []
+		for choice in node.choices:
+			if not choice.has("condition") or evaluateCondition(choice.condition, conversationState):
+				availableChoices.append(choice)
+		
+		if availableChoices.is_empty():
+			break
+		
+		var selectedChoice = await DialogueUI.presentChoices(availableChoices, self)
+		
+		if selectedChoice.has("sus_change"):
+			susLevel += selectedChoice.sus_change
+		
+		if selectedChoice.has("set_flag"):
+			conversationState[selectedChoice.set_flag] = true
+			Data.player.actionFlags[selectedChoice.set_flag] = true
+			print(conversationState)
+		
+		currentNodeID = selectedChoice.get("next", "")
+	
+	# at this point, the conversation is over
+	DialogueUI.hide()
+	CLogger.action("Conversation ended with %s" % npcname)
+	Data.player.currState = Data.player.STATE.WALKING
+
+func evaluateCondition(condition: String, state: Dictionary) -> bool:
+	# "has_key" checks if state.has("has_key")
+	return state.get(condition, false)
+
 func getDialogueTree(mask: Data.PlayerMasks) -> Dictionary:
 	return dialogueTrees.get(mask, {})
 
 func getDialogueNode(mask: Data.PlayerMasks, node_id: String) -> Dictionary:
 	var tree = getDialogueTree(mask)
 	return tree.get("nodes", {}).get(node_id, {})
-
-# In NPC.gd
-func converse(maskID: int):
-	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
-	
-	var dialogueTree = dialogueTrees.get(maskID, {})
-	if dialogueTree.is_empty():
-		CLogger.warn("No dialogue tree found for mask %d" % maskID)
-		return
-	
-	talked[maskID] = true
-	
-	# Show initial greeting
-	if dialogueTree.has("initial_greeting"):
-		await DialogueUI.display_text(dialogueTree.initial_greeting, self)
-	
-	var current_node_id = "start"
-	var conversation_state = {}
-	
-	while current_node_id != "":
-		var node = dialogueTree.get("nodes", {}).get(current_node_id, {})
-		
-		if node.is_empty():
-			break
-		
-		# Check conditions
-		if node.has("condition") and not evaluate_condition(node.condition, conversation_state):
-			current_node_id = node.get("else", "")
-			continue
-		
-		# Display NPC's dialogue
-		await DialogueUI.display_text(node.text, self)
-		
-		# If no choices, end conversation
-		if node.choices.is_empty():
-			break
-		
-		# Filter choices by conditions
-		var available_choices = []
-		for choice in node.choices:
-			if not choice.has("condition") or evaluate_condition(choice.condition, conversation_state):
-				available_choices.append(choice)
-		
-		if available_choices.is_empty():
-			break
-		
-		# Present choices and wait for player selection
-		# This will now show buttons and wait for click
-		var selected_choice = await DialogueUI.present_choices(available_choices, self)
-		
-		# Process the selected choice
-		if selected_choice.has("sus_change"):
-			susLevel += selected_choice.sus_change
-		
-		if selected_choice.has("set_flag"):
-			conversation_state[selected_choice.set_flag] = true
-		
-		# Move to next node
-		current_node_id = selected_choice.get("next", "")
-	
-	# Conversation ended, hide UI
-	DialogueUI.hide()
-	CLogger.action("Conversation ended with %s" % npcname)
-	Data.player.currState = Data.player.STATE.WALKING
-
-func evaluate_condition(condition: String, state: Dictionary) -> bool:
-	# Simple condition evaluation
-	# e.g., "has_key" checks if state.has("has_key")
-	return state.get(condition, false)
 
 func generateDialogueTrees():
 	dialogueTrees = {}

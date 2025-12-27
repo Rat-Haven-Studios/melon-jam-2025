@@ -1,5 +1,6 @@
 {
   "initial_greeting": "I am the Bandit King... Name yourself!",
+  "talked_already": "What's wrong? Couldn't get enough of me? Hahaha!",
   "nodes": {
 	"start": {
 	  "text": "What brings you here?",
@@ -10,27 +11,446 @@
 		  "sus_change": 1
 		},
 		{
+		  "text": "I heard you know about the mayor's secret.",
+		  "next": "check_mayor_knowledge",
+		  "condition": "asked_about_mayor"
+		},
+		{
 		  "text": "Just passing through.",
 		  "next": "end"
 		}
 	  ]
 	},
+	
 	"ask_info": {
 	  "text": "What kind of information?",
 	  "choices": [
 		{
 		  "text": "About the mayor.",
 		  "next": "mayor_info",
+		  "sus_change": 2,
+		  "set_flag": "asked_about_mayor"
+		},
+		{
+		  "text": "About the treasure.",
+		  "next": "treasure_info",
+		  "sus_change": 1,
+		  "set_flag": "asked_about_treasure"
+		},
+		{
+		  "text": "Never mind.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"mayor_info": {
+	  "text": "The mayor? Why do you ask?",
+	  "choices": [
+		{
+		  "text": "I think he's hiding something.",
+		  "next": "mayor_suspicious",
+		  "sus_change": 3,
+		  "set_flag": "accused_mayor"
+		},
+		{
+		  "text": "Just curious.",
+		  "next": "mayor_casual",
+		  "sus_change": 0
+		}
+	  ]
+	},
+	
+	"mayor_suspicious": {
+	  "text": "Interesting... You're sharper than you look. The mayor has been meeting with someone in the old mill at midnight.",
+	  "choices": [
+		{
+		  "text": "Who is he meeting?",
+		  "next": "mayor_meeting",
+		  "sus_change": 1,
+		  "set_flag": "knows_midnight_meeting"
+		},
+		{
+		  "text": "Thanks for the tip.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"mayor_casual": {
+	  "text": "Hmph. He's just another corrupt official. Nothing special.",
+	  "choices": [
+		{
+		  "text": "What else can you tell me?",
+		  "next": "ask_more_or_leave"
+		},
+		{
+		  "text": "I see. Farewell.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"mayor_meeting": {
+	  "text": "Some cloaked figure. Never seen their face. But I know they exchange a locked box each time.",
+	  "choices": [
+		{
+		  "text": "A locked box? Do you have the key?",
+		  "next": "key_question",
+		  "sus_change": 2
+		},
+		{
+		  "text": "Interesting. I'll investigate.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"key_question": {
+	  "text": "Maybe I do... but information isn't free, friend.",
+	  "choices": [
+		{
+		  "text": "I'll trade you information about the treasure.",
+		  "next": "check_treasure_knowledge",
+		  "condition": "asked_about_treasure"
+		},
+		{
+		  "text": "How much do you want?",
+		  "next": "payment_demand",
+		  "sus_change": -1
+		},
+		{
+		  "text": "I'll find it myself then.",
+		  "next": "defiant_response",
+		  "sus_change": 1
+		}
+	  ]
+	},
+	
+	"check_treasure_knowledge": {
+	  "text": "Now we're talking! Tell me what you know.",
+	  "condition": "asked_about_treasure",
+	  "else": "no_treasure_knowledge",
+	  "choices": [
+		{
+		  "text": "The treasure is hidden in the eastern caves.",
+		  "next": "treasure_trade",
+		  "set_flag": "traded_treasure_info"
+		}
+	  ]
+	},
+	
+	"no_treasure_knowledge": {
+	  "text": "You don't know anything about the treasure. Don't waste my time!",
+	  "choices": [
+		{
+		  "text": "Sorry, my mistake.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"treasure_trade": {
+	  "text": "Eastern caves, eh? Alright, here's the key. The box contains a ledger of the mayor's dealings. Use it wisely.",
+	  "choices": [
+		{
+		  "text": "Thank you. This will be useful.",
+		  "next": "end_with_key",
+		  "set_flag": "obtained_key"
+		}
+	  ]
+	},
+	
+	"payment_demand": {
+	  "text": "100 gold. That's my price.",
+	  "choices": [
+		{
+		  "text": "Deal. [Pay 100 gold]",
+		  "next": "payment_accepted",
+		  "set_flag": "paid_for_key"
+		},
+		{
+		  "text": "That's too much. I'll find another way.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"payment_accepted": {
+	  "text": "Smart choice. Here's the key. The box contains evidence of the mayor's corruption.",
+	  "choices": [
+		{
+		  "text": "Thank you.",
+		  "next": "end_with_key",
+		  "set_flag": "obtained_key"
+		}
+	  ]
+	},
+	
+	"defiant_response": {
+	  "text": "Suit yourself, tough guy. But you'll regret not taking my offer.",
+	  "choices": [
+		{
+		  "text": "We'll see about that.",
+		  "next": "end",
 		  "sus_change": 2
 		}
 	  ]
 	},
-	"mayor_info": {
-	  "text": "The mayor? Why do you ask?",
+	
+	"treasure_info": {
+	  "text": "Ah, the legendary treasure! What makes you think I know about it?",
+	  "choices": [
+		{
+		  "text": "Everyone knows bandits love treasure.",
+		  "next": "treasure_response",
+		  "sus_change": 0
+		},
+		{
+		  "text": "I heard you found a map.",
+		  "next": "treasure_map",
+		  "sus_change": 2,
+		  "set_flag": "mentioned_map"
+		}
+	  ]
+	},
+	
+	"treasure_response": {
+	  "text": "Ha! Stereotypes. But yes, there's treasure in the eastern caves. Guarded by something nasty though.",
+	  "choices": [
+		{
+		  "text": "What kind of guard?",
+		  "next": "treasure_guard"
+		},
+		{
+		  "text": "I can handle it. Thanks.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"treasure_map": {
+	  "text": "You're well-informed. Yes, I have a map. But it's incomplete without the mayor's piece.",
+	  "choices": [
+		{
+		  "text": "The mayor has part of the map?",
+		  "next": "map_connection",
+		  "sus_change": 1,
+		  "set_flag": "knows_map_connection"
+		}
+	  ]
+	},
+	
+	"treasure_guard": {
+	  "text": "Some kind of ancient construct. Brings down anyone who tries to take the treasure without the proper key.",
+	  "choices": [
+		{
+		  "text": "Where do I find this key?",
+		  "next": "treasure_key_hint",
+		  "set_flag": "asked_about_treasure_key"
+		},
+		{
+		  "text": "I'll figure it out. Thanks.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"treasure_key_hint": {
+	  "text": "Word is the mayor's got it. Strange, isn't it? A bandit king and a corrupt mayor both interested in the same treasure...",
+	  "choices": [
+		{
+		  "text": "Very strange indeed.",
+		  "next": "ask_more_or_leave",
+		  "set_flag": "suspicious_of_connection"
+		}
+	  ]
+	},
+	
+	"map_connection": {
+	  "text": "Exactly. We used to be... business partners. Until he betrayed me. That's why I'm out here now.",
+	  "choices": [
+		{
+		  "text": "What happened between you two?",
+		  "next": "betrayal_story",
+		  "sus_change": 0
+		},
+		{
+		  "text": "I see. I should go.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"betrayal_story": {
+	  "text": "We found the map together, years ago. He took his half and disappeared. Became mayor with that stolen treasure money, I suspect.",
+	  "choices": [
+		{
+		  "text": "So you want revenge?",
+		  "next": "revenge_question",
+		  "set_flag": "knows_revenge_motive"
+		},
+		{
+		  "text": "That's quite a story.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"revenge_question": {
+	  "text": "Revenge? No. I want what's mine. If you can get his half of the map, I'll split the treasure with you. 50-50.",
+	  "choices": [
+		{
+		  "text": "I'll think about it.",
+		  "next": "ask_more_or_leave",
+		  "set_flag": "treasure_deal_offered"
+		},
+		{
+		  "text": "Deal. I'll get that map.",
+		  "next": "deal_accepted",
+		  "sus_change": -2,
+		  "set_flag": "accepted_treasure_deal"
+		}
+	  ]
+	},
+	
+	"deal_accepted": {
+	  "text": "Excellent! Bring me the mayor's map piece and we'll find that treasure together. Don't try to double-cross me.",
+	  "choices": [
+		{
+		  "text": "I won't. See you soon.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"check_mayor_knowledge": {
+	  "text": "Ah, so you've been asking around about the mayor. What did you learn?",
+	  "condition": "asked_about_mayor",
+	  "else": "confused_response",
+	  "choices": [
+		{
+		  "text": "He's meeting someone at midnight.",
+		  "next": "already_know_meeting",
+		  "condition": "knows_midnight_meeting"
+		},
+		{
+		  "text": "He has part of a treasure map.",
+		  "next": "already_know_map",
+		  "condition": "knows_map_connection"
+		},
+		{
+		  "text": "Not much yet.",
+		  "next": "mayor_hint"
+		}
+	  ]
+	},
+	
+	"already_know_meeting": {
+	  "text": "Good. You're paying attention. If you follow him, you might learn something useful.",
+	  "condition": "knows_midnight_meeting",
+	  "else": "confused_response",
+	  "choices": [
+		{
+		  "text": "I'll do that. Thanks.",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"already_know_map": {
+	  "text": "So you know about the map. Are you going to help me get it?",
+	  "condition": "knows_map_connection",
+	  "else": "confused_response",
+	  "choices": [
+		{
+		  "text": "Yes, I'll help you.",
+		  "next": "deal_accepted",
+		  "condition": "treasure_deal_offered",
+		  "set_flag": "accepted_treasure_deal"
+		},
+		{
+		  "text": "Still thinking about it.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"mayor_hint": {
+	  "text": "Then keep digging. The mayor's secrets run deep.",
+	  "choices": [
+		{
+		  "text": "I will. Goodbye.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"confused_response": {
+	  "text": "What are you babbling about? We haven't discussed that.",
+	  "choices": [
+		{
+		  "text": "My mistake. Let's talk about something else.",
+		  "next": "start"
+		},
+		{
+		  "text": "Sorry, I should go.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"ask_more_or_leave": {
+	  "text": "Anything else you want to know?",
+	  "choices": [
+		{
+		  "text": "Tell me about the mayor.",
+		  "next": "return_mayor_info",
+		  "condition": "asked_about_mayor"
+		},
+		{
+		  "text": "Tell me about the treasure.",
+		  "next": "return_treasure_info",
+		  "condition": "asked_about_treasure"
+		},
+		{
+		  "text": "No, I'm good. Farewell.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"return_mayor_info": {
+	  "text": "We already talked about the mayor. I've told you what I know.",
+	  "condition": "asked_about_mayor",
+	  "else": "start",
+	  "choices": [
+		{
+		  "text": "Right. Anything else?",
+		  "next": "ask_more_or_leave"
+		}
+	  ]
+	},
+	
+	"return_treasure_info": {
+	  "text": "I already told you about the treasure. Eastern caves, remember?",
+	  "condition": "asked_about_treasure",
+	  "else": "start",
+	  "choices": [
+		{
+		  "text": "Yes, I remember. Thanks.",
+		  "next": "end"
+		}
+	  ]
+	},
+	
+	"end_with_key": {
+	  "text": "Use that key wisely. And remember, we never had this conversation.",
 	  "choices": []
 	},
+	
 	"end": {
-	  "text": "Safe travels.",
+	  "text": "Safe travels, stranger. Watch your back out there.",
 	  "choices": []
 	}
   }

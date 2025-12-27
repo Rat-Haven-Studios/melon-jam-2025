@@ -40,7 +40,7 @@ func playSFX(stream: AudioStream) -> void:
 	p.play()
 	p.finished.connect(p.queue_free)
 	
-	CLogger.info("Playing SFX: %s" % stream.resource_path)
+	# CLogger.info("Playing SFX: %s" % stream.resource_path)
 
 func onFinished() -> void:
 	musicPlayer.play()

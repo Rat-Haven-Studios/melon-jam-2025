@@ -1,6 +1,6 @@
 extends Node
 # In DialogueUI.gd
-@onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer
+@onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/MarginContainer/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/MarginContainer/Label
 @onready var ui: CanvasLayer = $UI
@@ -15,13 +15,13 @@ func _ready():
 
 func show():
 	if not ui.visible:
-		Data.level.visible = false
+		#Data.level.visible = false
 		ui.visible = true
 
 func hide():
 	if ui.visible:
 		ui.visible = false
-		Data.level.visible = true
+		#Data.level.visible = true
 
 func display_text(text: String, npc: NPC):
 	show()
@@ -30,8 +30,8 @@ func display_text(text: String, npc: NPC):
 	responseTextBox.text = ""
 	var cntr = 0
 	for char in text:
-		await get_tree().create_timer(0.05).timeout  # Adjust timing as needed
-		if cntr % 3 == 0:
+		await get_tree().create_timer(0.04).timeout  # Adjust timing as needed
+		if cntr % 2 == 0:
 			AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
 		cntr += 1
 		responseTextBox.text += char

@@ -28,7 +28,7 @@ script = ExtResource("1_v4bx4")
 metadata/_custom_type_script = "uid://c1k2t3oaljnp8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_0r2yv")
 
 [node name="InteractReceiverComponent" parent="." instance=ExtResource("2_m8it2")]

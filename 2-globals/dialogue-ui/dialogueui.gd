@@ -31,6 +31,9 @@ func show():
 func hide():
 	if ui.visible:
 		ui.visible = false
+		
+	for btn in btnContainer.get_children():
+		btn.queue_free()
 
 func displayText(text: String, npc: NPC):
 	show()

@@ -1,5 +1,5 @@
 extends Node
-# In DialogueUI.gd
+
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/MarginContainer/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/MarginContainer/Label
@@ -9,6 +9,8 @@ signal text_displayed
 signal choice_selected(choice: Dictionary)
 
 var selected_choice = null  # Store the selected choice
+
+var char_timer: float = 0.04
 
 func _ready():
 	ui.visible = false
@@ -23,14 +25,20 @@ func hide():
 		ui.visible = false
 		#Data.level.visible = true
 
+func finish_text():
+	pass
+
 func display_text(text: String, npc: NPC):
 	show()
-	print("[NPC]: ", text)
-	nameTextBox.text = npc.npcname  # Show who's talking
+	CLogger.log("npc", text)
+	
+	nameTextBox.text = npc.npcname
 	responseTextBox.text = ""
+	
+	# play SFX every other
 	var cntr = 0
 	for char in text:
-		await get_tree().create_timer(0.04).timeout  # Adjust timing as needed
+		await get_tree().create_timer(char_timer).timeout
 		if cntr % 2 == 0:
 			AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
 		cntr += 1

@@ -1,41 +1,38 @@
 class_name NPC extends CharacterBody2D
 
-var npcname: String
-var characterID: Data.Characters
-var susLevel: int
-
-var talked: Dictionary # which mask they've talked to
-var dialogueTrees: Dictionary
-
-var moveDirection: Vector2
-var wanderTime: float
-
-@export var mapSprite: Texture2D
-@export var dialogueSprite: Texture2D
-@onready var interactable:= $InteractReceiverComponent
-func _init(characterID: Data.Characters, npcname: String, susLevel: int):
-	talked = {
+var talked: Dictionary = {
 		Data.PlayerMasks.BLANK: false,
 		Data.PlayerMasks.MAYORAL: false,
 		Data.PlayerMasks.POOR: false
 	}
-	
-	dialogueTrees = {
-		
-	}
-	
-	self.characterID = characterID
-	self.npcname = npcname
-	self.susLevel = susLevel
-	
-	Data.CharacterObjects[characterID] = self
-	# add to a characters group instead?
-	
-	generateDialogueTrees()
-	CLogger.info("Initialized %s" % npcname)
+var dialogueTrees: Dictionary = {}
+
+var moveDirection: Vector2
+var wanderTime: float
+
+@export var characterID: Data.Characters
+@export var npcname: String
+@export var susLevel: int
+@export var mapSprite: Texture2D
+@export var dialogueSprite: Texture2D
+
+@onready var interactable:= $InteractReceiverComponent
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
+	Data.CharacterObjects[characterID] = self
+	
+	if not mapSprite:
+		CLogger.error("No map sprite on %s" % mapSprite)
+	
+	if not dialogueSprite:
+		CLogger.error("No dialogue sprite on %s" % mapSprite)
+		
+	sprite.texture = mapSprite
+	
+	generateDialogueTrees()
 	interactable.interact = _onInteract
+	CLogger.info("Initialized %s" % npcname)
 	roamBuilding()
 
 func _onInteract():

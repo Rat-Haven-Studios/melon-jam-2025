@@ -10,8 +10,8 @@ size = Vector2(10, 5.5)
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_l8ec2")
-BASE_SPEED = 90
 WALKING_STAIRS_SPEED = 50
+BASE_SPEED = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

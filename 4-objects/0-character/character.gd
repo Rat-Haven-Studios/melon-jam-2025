@@ -1,20 +1,19 @@
 class_name Character extends CharacterBody2D
 
-var actionFlags: Dictionary
 
-var currState = STATE.WALKING
 @onready var seekingStairs: Area2D = $StairsDetector
-@export var BASE_SPEED: int
-@export var WALKING_STAIRS_SPEED: int
-var currSpeed: int
 @onready var interactionComponent = $InteractComponent
+@export var WALKING_STAIRS_SPEED: int
+@export var BASE_SPEED: int
+var actionFlags: Dictionary
+var currState = STATE.WALKING
+var currSpeed: int
+var currMask: Data.PlayerMasks = Data.PlayerMasks.BLANK
 
 enum STATE {
 	WALKING,
 	TALKING
 }
-
-
 
 func _ready() -> void:
 	Data.player = self
@@ -32,11 +31,27 @@ func onStairsExited(area):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if currState == STATE.WALKING:
-		processMovement()
-		move_and_slide()
+	if currState == STATE.TALKING:
+		return
+	
+	processMovement()
+	move_and_slide()
+	if Input.is_action_just_pressed("swap"):
+		swapMask()
 	
 
+func swapMask():
+	CLogger.debug("I'm swappin my mfing mask")
+	match self.currMask:
+		Data.PlayerMasks.BLANK:
+			# Do the animation
+			currMask = Data.PlayerMasks.MAYORAL
+		Data.PlayerMasks.MAYORAL:
+			# Do the animation
+			currMask = Data.PlayerMasks.POOR
+		Data.PlayerMasks.POOR:
+			# Do the animation
+			currMask = Data.PlayerMasks.BLANK
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

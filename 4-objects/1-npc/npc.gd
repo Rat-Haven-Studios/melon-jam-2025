@@ -60,6 +60,7 @@ func getDialogueNode(mask: Data.PlayerMasks, node_id: String) -> Dictionary:
 	var tree = getDialogueTree(mask)
 	return tree.get("nodes", {}).get(node_id, {})
 
+# In NPC.gd
 func converse(maskID: int):
 	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
 	
@@ -70,11 +71,12 @@ func converse(maskID: int):
 	
 	talked[maskID] = true
 	
+	# Show initial greeting
 	if dialogueTree.has("initial_greeting"):
 		await DialogueUI.display_text(dialogueTree.initial_greeting, self)
 	
 	var current_node_id = "start"
-	var conversation_state = {}  # Track flags/variables during conversation
+	var conversation_state = {}
 	
 	while current_node_id != "":
 		var node = dialogueTree.get("nodes", {}).get(current_node_id, {})
@@ -82,13 +84,15 @@ func converse(maskID: int):
 		if node.is_empty():
 			break
 		
-		# Check conditions (optional)
+		# Check conditions
 		if node.has("condition") and not evaluate_condition(node.condition, conversation_state):
 			current_node_id = node.get("else", "")
 			continue
 		
+		# Display NPC's dialogue
 		await DialogueUI.display_text(node.text, self)
 		
+		# If no choices, end conversation
 		if node.choices.is_empty():
 			break
 		
@@ -101,16 +105,23 @@ func converse(maskID: int):
 		if available_choices.is_empty():
 			break
 		
+		# Present choices and wait for player selection
+		# This will now show buttons and wait for click
 		var selected_choice = await DialogueUI.present_choices(available_choices, self)
 		
+		# Process the selected choice
 		if selected_choice.has("sus_change"):
 			susLevel += selected_choice.sus_change
 		
-		# Set flags
 		if selected_choice.has("set_flag"):
 			conversation_state[selected_choice.set_flag] = true
 		
+		# Move to next node
 		current_node_id = selected_choice.get("next", "")
+	
+	# Conversation ended, hide UI
+	DialogueUI.hide()
+	CLogger.action("Conversation ended with %s" % npcname)
 
 func evaluate_condition(condition: String, state: Dictionary) -> bool:
 	# Simple condition evaluation

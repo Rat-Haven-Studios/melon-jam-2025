@@ -1,5 +1,5 @@
 extends Node
-
+# In DialogueUI.gd
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/MarginContainer/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/MarginContainer/Label
@@ -8,6 +8,8 @@ extends Node
 signal text_displayed
 signal choice_selected(choice: Dictionary)
 
+var selected_choice = null  # Store the selected choice
+
 func _ready():
 	ui.visible = false
 
@@ -15,11 +17,16 @@ func show():
 	if not ui.visible:
 		ui.visible = true
 
+func hide():
+	if ui.visible:
+		ui.visible = false
+
 func display_text(text: String, npc: NPC):
 	show()
 	print("[NPC]: ", text)
+	nameTextBox.text = npc.npcname  # Show who's talking
 	responseTextBox.text = text
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(2.0).timeout  # Adjust timing as needed
 	text_displayed.emit()
 
 func present_choices(choices: Array, npc: NPC) -> Dictionary:
@@ -27,7 +34,7 @@ func present_choices(choices: Array, npc: NPC) -> Dictionary:
 	for child in btnContainer.get_children():
 		child.queue_free()
 	
-	var selected_choice = null
+	selected_choice = null  # Reset selection
 	
 	print("Choices:")
 	for i in range(choices.size()):
@@ -37,10 +44,8 @@ func present_choices(choices: Array, npc: NPC) -> Dictionary:
 		var btn: Button = Button.new()
 		btn.text = choices[i].text
 		
-		# Connect button to signal
-		btn.pressed.connect(func(): 
-			selected_choice = choices[i]
-		)
+		# Connect button to callback function
+		btn.pressed.connect(_on_choice_button_pressed.bind(choices[i]))
 		
 		# Add button to container
 		btnContainer.add_child(btn)
@@ -50,3 +55,17 @@ func present_choices(choices: Array, npc: NPC) -> Dictionary:
 		await get_tree().process_frame
 	
 	return selected_choice
+
+# Callback function when a choice button is pressed
+func _on_choice_button_pressed(choice: Dictionary):
+	print("Player selected: ", choice.text)
+	
+	# Store the selected choice
+	selected_choice = choice
+	
+	# Clear buttons after selection
+	for child in btnContainer.get_children():
+		child.queue_free()
+	
+	# Emit signal so other systems can react
+	choice_selected.emit(choice)

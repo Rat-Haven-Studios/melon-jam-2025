@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 
 var currState = STATE.WALKING
-@export var BASE_SPEED: int = 5
+@onready var seekingStairs: Area2D = $StairsDetector
+@export var BASE_SPEED: int
+@export var WALKING_STAIRS_SPEED: int
+var currSpeed: int
 @onready var interactionComponent = $InteractComponent
 
 enum STATE {
@@ -10,10 +13,21 @@ enum STATE {
 	TALKING
 }
 
+
+
 func _ready() -> void:
 	Data.player = self
+	currSpeed = BASE_SPEED
+	seekingStairs.area_entered.connect(onStairsEntered)
+	seekingStairs.area_exited.connect(onStairsExited)
 	pass
-	# initialize talked to array
+
+
+# initialize talked to array
+func onStairsEntered(area):
+	currSpeed = WALKING_STAIRS_SPEED
+func onStairsExited(area):
+	currSpeed = BASE_SPEED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,7 +40,7 @@ func _process(delta: float) -> void:
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()
 	var direction: Vector2 = movement_vector.normalized()
-	self.velocity = direction * self.BASE_SPEED
+	self.velocity = direction * self.currSpeed
 
 func get_movement_vector() -> Vector2:
 	var x_movement = Input.get_action_strength("right") - Input.get_action_strength("left")

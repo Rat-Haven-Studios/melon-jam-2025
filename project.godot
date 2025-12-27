@@ -77,6 +77,7 @@ alternate={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="interactions"
+2d_physics/layer_3="stairs"
 
 [rendering]
 

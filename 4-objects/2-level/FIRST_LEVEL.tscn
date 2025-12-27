@@ -1,22 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=16 format=3 uid="uid://btyikl70k86w6"]
 
-[ext_resource type="Texture2D" uid="uid://dtv0iqfxnymma" path="res://0-assets/sprites/world/Quick Blueprint.png" id="1_4jqpd"]
 [ext_resource type="Script" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
+[ext_resource type="Texture2D" uid="uid://cp7s1u6psl4q5" path="res://0-assets/sprites/mansion_interior.png" id="2_jry3e"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
-[ext_resource type="PackedScene" uid="uid://bh6ui0y41adib" path="res://4-objects/justaguy.tscn" id="3_4qvpp"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://cqookot7nrslv" path="res://4-objects/1-npc/bandit-king/BanditKing.tscn" id="4_07xkt"]
+[ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
+[ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
+size = Vector2(19.155083, 22.027313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qflod"]
+size = Vector2(19.155079, 22.027313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02hsu"]
+size = Vector2(1.4801798, 286.43884)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igri3"]
+size = Vector2(42.141174, 22.027313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urky6"]
+size = Vector2(6.878421, 61.339245)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scqml"]
+size = Vector2(6.7478175, 55.926884)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw45h"]
+size = Vector2(24, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rcib"]
+size = Vector2(52, 40.5)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jry3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(256, 256)
-texture = ExtResource("1_4jqpd")
-
-[node name="Justaguy" parent="." instance=ExtResource("3_4qvpp")]
-position = Vector2(176, 348)
-scale = Vector2(-0.55427706, 0.6577298)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jry3e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(259, 383)
@@ -24,8 +46,135 @@ zoom = Vector2(4, 4)
 script = ExtResource("2_wl7ar")
 
 [node name="Character" parent="." instance=ExtResource("3_qj1of")]
-position = Vector2(367, 498)
+position = Vector2(256, 384)
+scale = Vector2(0.9921745, 1)
 BASE_SPEED = 90
+WALKING_STAIRS_SPEED = 60
 
 [node name="BanditKing" parent="." instance=ExtResource("4_07xkt")]
-position = Vector2(224, 396)
+position = Vector2(343, 333)
+
+[node name="All Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(183.00002, 375.00003)
+rotation = 3.1415927
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall"]
+position = Vector2(-1.6359039e-07, 8.34465e-06)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_4qvpp")
+
+[node name="Wall2" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(329, 375.00003)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall2"]
+position = Vector2(0, 3.0517578e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_qflod")
+
+[node name="Wall3" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(380.00003, 265.00003)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall3"]
+position = Vector2(-2.1194733e-06, 3.1471252e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
+
+[node name="Wall4" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(131.99998, 265.00003)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall4"]
+position = Vector2(3.3676624e-06, -9.536743e-07)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
+
+[node name="Wall5" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(253.00003, 162.00005)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall5"]
+position = Vector2(-0.52240753, 4.5776367e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_igri3")
+
+[node name="Wall6" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(301.00003, 242)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall6"]
+position = Vector2(4.377216e-06, 1.8397588e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_urky6")
+
+[node name="Wall7" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(211.00002, 242)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall7"]
+position = Vector2(4.377216e-06, 1.8397588e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_urky6")
+
+[node name="Wall8" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(149.00002, 241.99998)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall8"]
+position = Vector2(0.06530762, -2.7061462)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_scqml")
+
+[node name="Wall9" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(366.00003, 240.99998)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall9"]
+position = Vector2(0.06530762, -2.7061462)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_scqml")
+
+[node name="All Stairs" type="Node2D" parent="."]
+position = Vector2(256, 162.00002)
+rotation = -3.1415925
+scale = Vector2(5.742603, 0.8314422)
+
+[node name="Stairs2" parent="All Stairs" instance=ExtResource("7_qflod")]
+position = Vector2(-13.408558, -109.44835)
+rotation = 3.1415915
+scale = Vector2(0.17413707, 1.2027295)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Stairs/Stairs2"]
+shape = SubResource("RectangleShape2D_tw45h")
+debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
+
+[node name="Stairs" parent="All Stairs" instance=ExtResource("7_qflod")]
+position = Vector2(13.234415, -109.44838)
+rotation = 3.1415915
+scale = Vector2(0.17413707, 1.2027295)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Stairs/Stairs"]
+shape = SubResource("RectangleShape2D_tw45h")
+debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
+
+[node name="Stairs3" parent="All Stairs" instance=ExtResource("7_qflod")]
+position = Vector2(-3.8672842e-06, -102.23199)
+rotation = 3.1415915
+scale = Vector2(0.17413707, 1.2027295)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Stairs/Stairs3"]
+position = Vector2(1.1148811e-06, 0)
+shape = SubResource("RectangleShape2D_2rcib")
+debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)

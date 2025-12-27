@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqookot7nrslv"]
 
 [ext_resource type="Script" uid="uid://damfr37ihfiqh" path="res://4-objects/1-npc/bandit-king/bandit-king.gd" id="1_v4bx4"]
-[ext_resource type="Texture2D" uid="uid://bpfs2iqi65km5" path="res://0-assets/sprites/Mono Knight.png" id="1_vgh3i"]
 [ext_resource type="PackedScene" uid="uid://0w1aiel064xo" path="res://5-component/interactions/interact-receiver/InteractReceiverComponent.tscn" id="2_m8it2"]
+[ext_resource type="Texture2D" uid="uid://0i62n2t7xago" path="res://0-assets/sprites/bunnyman_overworld.png" id="3_m8it2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0r2yv"]
-size = Vector2(15, 16)
+size = Vector2(12, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hs422"]
-atlas = ExtResource("1_vgh3i")
-region = Rect2(256, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r2yv"]
+atlas = ExtResource("3_m8it2")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_beadx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hs422")
+"texture": SubResource("AtlasTexture_0r2yv")
 }],
 "loop": true,
 "name": &"default",
@@ -27,7 +27,7 @@ script = ExtResource("1_v4bx4")
 metadata/_custom_type_script = "uid://c1k2t3oaljnp8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 4)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_0r2yv")
 
 [node name="InteractReceiverComponent" parent="." instance=ExtResource("2_m8it2")]
@@ -35,5 +35,4 @@ scale = Vector2(2.6713219, 2.6713219)
 interactString = "Hawk Tuah!"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, -2)
 sprite_frames = SubResource("SpriteFrames_beadx")

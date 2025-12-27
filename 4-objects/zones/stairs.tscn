@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b87vnv5gfl6w1"]
+
+[node name="Stairs" type="Area2D"]
+collision_layer = 4
+collision_mask = 4

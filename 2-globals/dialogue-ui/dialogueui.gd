@@ -54,21 +54,9 @@ func display_text(text: String, npc: NPC):
 			responseTextBox.text += char
 		if Input.is_action_pressed("alternate"):
 			char_timer = 0
-			
-	
-	var timer = get_tree().create_timer(2.0)
-	timer.timeout.connect(flagOut)
-	
-	if Input.is_action_just_pressed("interact"):
-		flag = true
-	
-	while not flag:
-		await get_tree().process_frame
-	
-	text_displayed.emit()
 
-func flagOut():
-	flag = true
+	while not Input.is_action_just_pressed("interact"):
+		await get_tree().process_frame
 
 func present_choices(choices: Array, npc: NPC) -> Dictionary:
 	# Clear any existing buttons first

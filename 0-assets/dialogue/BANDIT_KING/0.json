@@ -1,0 +1,37 @@
+{
+  "initial_greeting": "I am the Bandit King... Name yourself!",
+  "nodes": {
+	"start": {
+	  "text": "What brings you here?",
+	  "choices": [
+		{
+		  "text": "I need information.",
+		  "next": "ask_info",
+		  "sus_change": 1
+		},
+		{
+		  "text": "Just passing through.",
+		  "next": "end"
+		}
+	  ]
+	},
+	"ask_info": {
+	  "text": "What kind of information?",
+	  "choices": [
+		{
+		  "text": "About the mayor.",
+		  "next": "mayor_info",
+		  "sus_change": 2
+		}
+	  ]
+	},
+	"mayor_info": {
+	  "text": "The mayor? Why do you ask?",
+	  "choices": []
+	},
+	"end": {
+	  "text": "Safe travels.",
+	  "choices": []
+	}
+  }
+}

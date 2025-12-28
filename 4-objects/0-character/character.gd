@@ -5,6 +5,11 @@ class_name Character extends CharacterBody2D
 @onready var interactionComponent = $InteractComponent
 @export var WALKING_STAIRS_SPEED: int
 @export var BASE_SPEED: int
+
+@onready var neutralMask: Sprite2D = $NeutralMaskSprite
+@onready var mayorMask: Sprite2D = $MayorMaskSprite
+@onready var poorMask: Sprite2D = $PoorMaskSprite
+
 var actionFlags: Dictionary
 var currState = STATE.WALKING
 var currSpeed: int
@@ -39,17 +44,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("swap"):
 		swapMask()
 	
-
 func swapMask():
+	
 	match self.currMask:
 		Data.PlayerMasks.BLANK:
-			# Do the animation
+			neutralMask.hide()
+			mayorMask.show()
 			currMask = Data.PlayerMasks.MAYORAL
 		Data.PlayerMasks.MAYORAL:
-			# Do the animation
+			mayorMask.hide()
+			poorMask.show()
 			currMask = Data.PlayerMasks.POOR
 		Data.PlayerMasks.POOR:
-			# Do the animation
+			poorMask.hide()
+			neutralMask.show()
 			currMask = Data.PlayerMasks.BLANK
 	CLogger.debug("I'm swappin my mfing mask to " + str(currMask))
 	

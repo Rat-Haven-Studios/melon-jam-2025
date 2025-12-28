@@ -8,7 +8,7 @@
 		{
 		  "text": "I need information.",
 		  "next": "ask_info",
-		  "sus_change": 1
+		  "sus_change": 1,
 		},
 		{
 		  "text": "Just passing through.",
@@ -26,6 +26,7 @@
 					"state": "true",
 					"flag": "asked_about_mayor"
 				},
+				"colored": "true",
 				"sus_change": 3
 			},
 			{
@@ -35,10 +36,12 @@
 					"state": "false",
 					"flag": "asked_about_mayor"
 				},
-				"sus_change": 1
+				"sus_change": 1,
+				"set_flag": "asked_about_mayor"
 			},
 			{
 				"text": "Nothing, I'll leave",
+				"next": "end"
 			}
 		]
 	},

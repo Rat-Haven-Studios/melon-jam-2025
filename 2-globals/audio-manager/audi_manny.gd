@@ -37,6 +37,7 @@ func playSFX(stream: AudioStream) -> void:
 	# conflict with each other / overwrite each other
 	var p := AudioStreamPlayer.new()
 	p.stream = stream
+	p.bus = "sfx"
 	add_child(p)
 	p.play()
 	p.finished.connect(p.queue_free)

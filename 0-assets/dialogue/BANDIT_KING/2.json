@@ -1,0 +1,25 @@
+{
+  "initial_greeting": "I am the Bandit King... Name yourself!",
+  "talked_already": "What's wrong? Couldn't get enough of me? Hahaha!",
+  "nodes": {
+	"start": {
+	  "text": "What brings you here?",
+	  "choices": [
+		{
+		  "text": "I want your body.",
+		  "next": "sexy_talk",
+		  "sus_change": 10
+		},
+		{
+		  "text": "Just passing through.",
+		}
+	  ]
+	},
+	"sexy_talk": {
+	  "text": "You couldn't handle me.",
+	},
+	"end": {
+	  "text": "Farewell."
+	}
+  }
+}

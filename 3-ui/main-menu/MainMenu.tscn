@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl5g7tjmjq45r"]
+[gd_scene load_steps=8 format=3 uid="uid://cl5g7tjmjq45r"]
 
 [ext_resource type="Theme" uid="uid://cwwkk3kpedi4j" path="res://0-resources/main_theme.tres" id="1_v16xo"]
 [ext_resource type="Script" uid="uid://uvaoekoq750b" path="res://3-ui/main-menu/main_menu.gd" id="2_o43a6"]
 [ext_resource type="Texture2D" uid="uid://djkjpl835ym8t" path="res://0-assets/sprites/Misc/main_menu.png" id="3_0i3i1"]
 [ext_resource type="Script" uid="uid://wtkip6i1f07w" path="res://3-ui/components/on-hover-anim-component/on_hover_animation_component.gd" id="3_shm1l"]
 [ext_resource type="Script" uid="uid://bei2cvpc8wqtr" path="res://3-ui/components/btn-sfx-component/Btnsfx_component.gd" id="4_q63ys"]
+[ext_resource type="Texture2D" uid="uid://uf8wlqvbm0u0" path="res://0-assets/sprites/logo.png" id="6_7wdfj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v16xo"]
 bg_color = Color(0.156863, 0.156863, 0.156863, 0)
@@ -143,3 +144,12 @@ metadata/_custom_type_script = "uid://wtkip6i1f07w"
 [node name="SFXComponent" type="Node" parent="PanelContainer/VBoxContainer/ButtonMarginContainer/VBoxContainer/ButtonVBox/QuitButton"]
 script = ExtResource("4_q63ys")
 metadata/_custom_type_script = "uid://bei2cvpc8wqtr"
+
+[node name="Logo" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("6_7wdfj")
+expand_mode = 1

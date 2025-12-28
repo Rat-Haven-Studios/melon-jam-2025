@@ -1,25 +1,309 @@
 {
-  "initial_greeting": "You have the blank mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "Yo!",
+  "talked_already": "Yo! You're back!",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
-		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
-		}
-	  ]
-	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "start": {
+      "text": "You enjoying the party?",
+      "choices": [
+        {
+          "text": "Not particularly.",
+          "next": "not_enjoying",
+          "set_flag": "bad_party"
+        },
+        {
+          "text": "Yeah. It's been nice so far.",
+          "next": "good_party",
+          "set_flag": "good_party"
+        }
+      ]
+    },
+    "talked_previously": {
+      "text": "How about now, still enjoying the party?",
+      "choices": [
+        {
+          "text": "Nope.",
+          "next": "not_enjoying"
+        },
+        {
+          "text": "Yeah.",
+          "next": "good_party"
+        }
+      ],
+      "condition": {
+        "state": "true",
+        "flag": "good_party"
+      },
+      "else": "talked_previously_bad"
+    },
+    "end_positive": {
+      "text": "See ya around.",
+      "choices": []
+    },
+    "end_negative": {
+      "text": "Please go. You disappoint me.",
+      "choices": []
+    },
+    "good_party": {
+      "text": "That's what we love to hear! You got any plans for the rest of the night?",
+      "choices": [
+        {
+          "text": "Sorry. I've got to go.",
+          "next": "end_positive"
+        },
+        {
+          "text": "I'm going to keep talking around.",
+          "next": "chat_around"
+        }
+      ]
+    },
+    "not_enjoying": {
+      "text": "That sucks man. Why not?",
+      "choices": [
+        {
+          "text": "The Jack Rabbit. He's strange.",
+          "next": "talked_about_jack_rabbit",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "gay_bro_active"
+          }
+        },
+        {
+          "text": "No good conversationalists so far.",
+          "next": "go_to_flapper",
+          "set_flag": "flapper_yapper"
+        },
+        {
+          "text": "Not really a party guy myself.",
+          "next": "why_come"
+        },
+        {
+          "text": "Sorry. I've got to go.",
+          "next": "end_positive"
+        }
+      ]
+    },
+    "talked_about_jack_rabbit": {
+      "text": "I know. I tried to talk to him earlier. He's only interested in one thing. I don't even know why he came here to be honest.",
+      "choices": [
+        {
+          "text": "Why did you come here?",
+          "next": "asked_why_tiki_came"
+        },
+        {
+          "text": "Everyone loves a good time.",
+          "next": "do_you_like_a_good_time"
+        }
+      ]
+    },
+    "asked_why_tiki_came": {
+      "text": "My fath... no. The Mayor personally invited me. What other choice did I have?",
+      "choices": [
+        {
+          "text": "Your father? The Mayor?",
+          "next": "the_mayor_son",
+          "set_flag": "tiki_mayor_son"
+        },
+        {
+          "text": "You could've said no...",
+          "next": "said_no"
+        }
+      ]
+    },
+    "the_mayor_son": {
+      "text": "No. Well... alright. Yeah. That's me. Please don't tell anyone though. It's a masquerade for a reason.",
+      "choices": [
+        {
+          "text": "I won't. You can trust me.",
+          "next": "thanks"
+        },
+        {
+          "text": "I won't make any promises.",
+          "next": "no_promises"
+        }
+      ]
+    },
+    "go_to_flapper": {
+      "text": "If you want someone to talk to, you should go talk to The Flapper. It took me an hour before I escaped her grasp.",
+      "choices": [
+        {
+          "text": "I'll go now.",
+          "next": "end_positive"
+        },
+        {
+          "text": "I'd prefer to keep talking to you.",
+          "next": "talk_to_tiki"
+        }
+      ]
+    },
+    "why_come": {
+      "text": "If you're not a party guy, why did you come?",
+      "choices": [
+        {
+          "text": "I'm looking for a job.",
+          "next": "needs_job",
+          "set_flag": "looking_for_job"
+        },
+        {
+          "text": "I'm not sure to be honest.",
+          "next": "no_sure_tbh"
+        },
+        {
+          "text": "I was paid to come here and figure out a hidden traitor by an unknown party earlier today.",
+          "next": "dots"
+        }
+      ]
+    },
+    "needs_job": {
+      "text": "If you need a job, this is a great place to start. This party has a good amount of influential people here. If you keep talking around, I'm sure you'd find someone with a factory who is willing to provide you some work.",
+      "choices": [
+        {
+          "text": "Thanks! I'll go now.",
+          "next": "end_positive"
+        },
+        {
+          "text": "I'd like to ask you some more questions.",
+          "next": "talk_to_tiki"
+        }
+      ]
+    },
+    "talked_previously_bad": {
+      "text": "Enjoying the party yet?",
+      "choices": [
+        {
+          "text": "Nope.",
+          "next": "not_enjoying"
+        },
+        {
+          "text": "Yeah.",
+          "next": "good_party"
+        }
+      ]
+    },
+    "thanks": {
+      "text": "Thanks. You seem trustworthy enough. My father invited everyone here tonight for a reason. We should separate for now though.",
+      "next": "end_friendly"
+    },
+    "no_promises": {
+      "text": "Well, I guess I can't stop you... However, I no longer desire your company.",
+      "next": "end_negative"
+    },
+    "talk_to_tiki": {
+      "text": "What would you like to talk to me about?",
+      "choices": [
+        {
+          "text": "Do you have any secrets?",
+          "next": "asked_for_secrets"
+        },
+        {
+          "text": "Nevermind. I think I'm going to go.",
+          "next": "end_positive"
+        },
+        {
+          "text": "What's it like being the Mayors son?",
+          "next": "what_like_mayor_son",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "tiki_mayor_son"
+          }
+        }
+      ]
+    },
+    "asked_for_secrets": {
+      "text": "Well... not really. I don't think so at least. Why are you even asking this?",
+      "choices": [
+        {
+          "text": "I'd just like to know more about you.",
+          "next": "boundaries"
+        }
+      ]
+    },
+    "boundaries": {
+      "text": "I think you know enough. I think we should cut it here.",
+      "next": "end_negative"
+    },
+    "do_you_like_a_good_time": {
+      "text": "Does that include you?",
+      "choices": [
+        {
+          "text": "I actually hate fun.",
+          "next": "why_come"
+        },
+        {
+          "text": "Of course.",
+          "next": "we_love_fun"
+        }
+      ]
+    },
+    "we_love_fun": {
+      "text": "It seems that we're on the same page. Let's try our best to keep the party going then! Despite everything.",
+      "choices": []
+    },
+    "chat_around": {
+      "text": "Awesome man. You learn anything cool tonight?",
+      "choices": [
+        {
+          "text": "Not yet.",
+          "next": "sad_to_hear",
+          "set_flag": "flapper_yapper"
+        }
+      ]
+    },
+    "sad_to_hear": {
+      "text": "That's sad to hear.",
+      "next": "go_to_flapper"
+    },
+    "what_like_mayor_son": {
+      "text": "Well... It's nice. I suppose. I don't see my father a lot. He's always in the office trying to figure out what is best for the people. He's really passionate about the little man you know?",
+      "next": "moving_on"
+    },
+    "moving_on": {
+      "text": "Regardless, I think we should cut it here. Hopefully no one overheard us.",
+      "next": "end_positive"
+    },
+    "said_no": {
+      "text": "I guess I could've... I'm going to go reflect on what you said....",
+      "choices": []
+    },
+    "no_sure_tbh": {
+      "text": "Well... you're here now. So have fun! Do you have any plans?",
+      "choices": [
+        {
+          "text": "I'm going to go chat around some more.",
+          "next": "chat_around"
+        },
+        {
+          "text": "I think I'll go for now.",
+          "next": "end_positive"
+        }
+      ]
+    },
+    "dots": {
+      "text": ".......",
+      "next": "joking"
+    },
+    "joking": {
+      "text": "Are you joking?",
+      "choices": [
+        {
+          "text": "Of course I am!",
+          "next": "was_just_a_joke"
+        },
+        {
+          "text": "Unfortunately.... no.",
+          "next": "seriously_not_a_joke",
+          "set_flag": "scared_tiki"
+        }
+      ]
+    },
+    "was_just_a_joke": {
+      "text": "Hahahahah! You're quite funny. You really had me sweating there for a moment.",
+      "choices": []
+    },
+    "seriously_not_a_joke": {
+      "text": "I..I really think you should leave now.",
+      "choices": []
+    }
   }
 }

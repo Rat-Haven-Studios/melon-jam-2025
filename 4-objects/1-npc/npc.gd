@@ -60,8 +60,6 @@ func _process(delta):
 		wanderTime -= delta
 		self.velocity = moveDirection * (self.speed / 3)
 		move_and_slide()
-		if isExceedingMapBorder():
-			wanderTime = 0
 		if isProbablyHittingWall():
 			CLogger.debug("I hit the wall" + str(self.velocity))
 			wanderTime = 0
@@ -73,11 +71,6 @@ func _process(delta):
 	else:
 		randomizeWander()
 		chillOutTime()
-
-func isExceedingMapBorder():
-	var currX = self.global_position.x
-	var currY = self.global_position.y
-	return (currX > MAX_MAP_BORDER.x or currY > MAX_MAP_BORDER.y) or (currX < MIN_MAP_BORDER.x or currY < MIN_MAP_BORDER.y)
 
 func isProbablyHittingWall():
 	return velocity.x == 0 or velocity.y == 0

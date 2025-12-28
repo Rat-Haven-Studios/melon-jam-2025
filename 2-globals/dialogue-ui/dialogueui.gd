@@ -98,6 +98,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 		
 		btn.text = "  %d.\t %s" % [i + 1, choiceText]
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		btn.autowrap_mode = TextServer.AUTOWRAP_WORD
 		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i][0]))
 		btnContainer.add_child(btn)
 	

@@ -1,25 +1,87 @@
 {
-  "initial_greeting": "You have the blank mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "Hey hey, finally someone who doesn't give a damn about politics at this party.",
+  "talked_already": "Can't say I wanted to see you again.",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
-		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
-		}
-	  ]
-	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "start": {
+      "text": "Though, I can't say I'd want to spend my time talking to men on a night like this.",
+      "choices": [
+        {
+          "text": "Politics, Shmolitics. I'm really just here to get laid.",
+          "next": "talk_of_babes_begins"
+        }
+      ]
+    },
+    "talked_previously": {
+      "text": "Any chance we can hurry up with this conversation?",
+      "choices": [
+        {
+          "text": "You're tellin me, I was hoping you'd help me get laid tonight.",
+          "next": "talk_of_babes_begins"
+        },
+        {
+          "text": "How's your luck been so far with you know who?",
+          "next": "simplify_babe_talk",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "babe_bro_active"
+          }
+        }
+      ],
+      "condition": {
+        "state": "false",
+        "flag": "gay_bro_active"
+      },
+      "else": "this_guy_doesnt_like_gay_men_because_of_the_time_frame_and_his_how_his_character_is_but_we_respect_the_lgbtq"
+    },
+    "starts_talk_as_bro": {
+      "text": "What's up my man. Just had a perfect view of the fox and the hare from over here.",
+      "choices": []
+    },
+    "talk_of_babes_begins": {
+      "text": "Glad to see someone finally noticed all the hot meat here. I was worried I would have to take all the ladies home with me tonight. Got any preferences?",
+      "choices": [
+        {
+          "text": "The Hare",
+          "next": "gushing_over_the_hare",
+          "set_flag": "babe_bro_active"
+        },
+        {
+          "text": "The Flapper",
+          "next": "preferred_any_other_woman",
+          "set_flag": "babe_bro_active"
+        },
+        {
+          "text": "The Fox",
+          "next": "preferred_any_other_woman",
+          "set_flag": "babe_bro_active"
+        },
+        {
+          "text": "Ladies? I'm more into men...",
+          "next": "preferred_men",
+          "set_flag": "gay_bro_active"
+        }
+      ]
+    },
+    "gushing_over_the_hare": {
+      "text": "Haha! I knew I liked you. But I've got first take on her. I've been keeping my eyes on her. She's been with The Fox all night. Don't worry, once I win my prize, I'll let you have a turn.",
+      "choices": []
+    },
+    "preferred_any_other_woman": {
+      "text": "Heh, well they're somethin alright, but they don't hold a candle to The Hare. I'm just waiting for my chance alone with her, but she's been talking to The Fox all night. If they talk any longer I might just have to invite them both!",
+      "choices": []
+    },
+    "preferred_men": {
+      "text": "What? Wait, are you trying to come on to me? That's sick man, get out of here.",
+      "choices": []
+    },
+    "simplify_babe_talk": {
+      "text": "Ahh, yea, no luck yet. That damn Hare's been playin hard to get, any chance I get she goes running over to talk to The Fox. She's knows she can't resist me all night.",
+      "choices": []
+    },
+    "this_guy_doesnt_like_gay_men_because_of_the_time_frame_and_his_how_his_character_is_but_we_respect_the_lgbtq": {
+      "text": "Nice try, I don't waste my time with people like you.",
+      "choices": []
+    }
   }
 }

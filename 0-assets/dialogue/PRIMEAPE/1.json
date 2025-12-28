@@ -92,8 +92,12 @@
         },
         {
           "text": "I think I'd like to know that secret identity...",
-          "next": "idk",
-          "set_flag": "frog_identity_revealed"
+          "next": "actually_wants_to_know_who",
+          "set_flag": "frog_identity_revealed",
+          "condition": {
+            "state": "false",
+            "flag": "frog_identity_revealed"
+          }
         },
         {
           "text": "Nothing. I'll be on my way.",

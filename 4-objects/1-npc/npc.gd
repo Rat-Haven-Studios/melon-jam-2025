@@ -147,6 +147,10 @@ func converse(maskID: int):
 		
 		await DialogueUI.displayText(node.text, self)
 		
+		if node.has("next"):
+			currentNodeID = node.get("next", "")
+			continue
+		
 		if not node.has("choices") or node.choices.is_empty():
 			break
 		

@@ -1,35 +1,135 @@
 {
-  "initial_greeting": "",
-  "talked_already": "",
+  "initial_greeting": "Greetings. I am the Bandit King. Name yourself!",
+  "talked_already": "What's up? Couldn't get enough of me? Hahaha!",
   "nodes": {
-	"start": {
-	  "text": "",
-	  "choices": [
-		{
-		  "text": "",
-		  "next": ""
-		},
-		{
-		  "text": "Just passing through.",
-		  "next": "end"
-		}
-	  ]
-	},
-	"talked_previously" : {
-		"text" : "",
-		"choices": [
-			{
-				"text": "",
-				"next": ""
-			},
-			{
-				"text": "Nothing, I'll leave",
-				"next": "end"
-			}
-		]
-	},
-	"end": {
-	  "text": "Goodbye"
-	}
+    "start": {
+      "text": "What brings you here?",
+      "choices": [
+        {
+          "text": "Personal matters.",
+          "next": "end_distant"
+        },
+        {
+          "text": "Just passing through.",
+          "next": "end_friendly"
+        },
+        {
+          "text": "I need information",
+          "next": "asked_for_info"
+        }
+      ]
+    },
+    "talked_previously": {
+      "text": "I hope you're enjoying the party.",
+      "next": "start"
+    },
+    "end_friendly": {
+      "text": "Safe travels my friend."
+    },
+    "asked_for_info": {
+      "text": "What would you like to know?",
+      "choices": [
+        {
+          "text": "What's the deal with the Mayor?",
+          "next": "provide_mayor_info",
+          "set_flag": "asked_about_mayor"
+        },
+        {
+          "text": "I want to know about you.",
+          "next": "provide_bandit_king_info",
+          "set_flag": "asked_about_bandit_king"
+        },
+        {
+          "text": "Do you find anyone here suspicious?",
+          "next": "bk_provide_sus"
+        },
+        {
+          "text": "Nevermind actually. I think I'll just go.",
+          "next": "end_friendly"
+        },
+        {
+          "text": "Are you the mayor?",
+          "next": "confront_bk",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "maybe_mayor"
+          }
+        }
+      ]
+    },
+    "provide_mayor_info": {
+      "text": "Well... He's a big handsome hunk of a man. Some might even say dashing... Why do you ask?",
+      "choices": [
+        {
+          "text": "I'm just curious",
+          "next": "curious_response"
+        }
+      ]
+    },
+    "end_distant": {
+      "text": "Secretive I see. So be it. Farewell.",
+      "choices": []
+    },
+    "bk_provide_sus": {
+      "text": "There's no one suspicious here. You have nothing to worry about. Is there anything else you wanted to know?",
+      "next": "asked_for_info"
+    },
+    "curious_response": {
+      "text": "Just curious? Sorry son, that's not good enough. Go have fun, or did you need something else?",
+      "next": "asked_for_info"
+    },
+    "provide_bandit_king_info": {
+      "text": "Me? Well I've conquered the plains, the seas, and the castles. Ye Old Bandit King! A leader, a man of power. I could go on if you'd like.",
+      "choices": [
+        {
+          "text": "Please do.",
+          "next": "bk_yap_about_self"
+        },
+        {
+          "text": "No it's okay. I have more questions though.",
+          "next": "asked_for_info"
+        },
+        {
+          "text": "I think I'll go now.",
+          "next": "end_friendly"
+        }
+      ]
+    },
+    "bk_yap_about_self": {
+      "text": "Of course! I am a scholar born from the heavens. A man of principle whom is loved by his people. I am Ye Old Bandit King!",
+      "choices": [
+        {
+          "text": "What people?",
+          "next": "bk_slip_up",
+          "set_flag": "maybe_mayor"
+        },
+        {
+          "text": "I think you're amazing. I've got to go now though.",
+          "next": "end_friendly"
+        }
+      ]
+    },
+    "confront_bk": {
+      "text": "What?! No more questions from you.",
+      "next": "end_negative"
+    },
+    "end_negative": {
+      "text": "Scram!",
+      "choices": []
+    },
+    "bk_slip_up": {
+      "text": "... All of the world's people exist under Ye Old Bandit King! Haven't you asked me enough? Or do you want to bother me some more?",
+      "choices": [
+        {
+          "text": "I'll leave you alone. Sorry King.",
+          "next": "end_negative"
+        },
+        {
+          "text": "Just a few more...",
+          "next": "asked_for_info"
+        }
+      ]
+    }
   }
 }

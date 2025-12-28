@@ -1,14 +1,13 @@
 {
-  "initial_greeting": "I am the Bandit King... Name yourself!",
-  "talked_already": "What's wrong? Couldn't get enough of me? Hahaha!",
+  "initial_greeting": "",
+  "talked_already": "",
   "nodes": {
 	"start": {
-	  "text": "What brings you here?",
+	  "text": "",
 	  "choices": [
 		{
-		  "text": "Fuck. You. I don't talk to your kind.",
-		  "next": "end",
-		  "sus_change": 10
+		  "text": "",
+		  "next": ""
 		},
 		{
 		  "text": "Just passing through.",
@@ -16,8 +15,21 @@
 		}
 	  ]
 	},
+	"talked_previously" : {
+		"text" : "",
+		"choices": [
+			{
+				"text": "",
+				"next": ""
+			},
+			{
+				"text": "Nothing, I'll leave",
+				"next": "end"
+			}
+		]
+	},
 	"end": {
-	  "text": "I'm sorry...",
+	  "text": "Goodbye"
 	}
   }
 }

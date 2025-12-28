@@ -16,7 +16,8 @@
         },
         {
           "text": "You seen anyone suspicious around tonight?",
-          "next": "sus_talk_begins"
+          "next": "sus_talk_begins",
+          "set_flag": "jack_rabbit_talking_about_sus"
         }
       ]
     },
@@ -33,7 +34,7 @@
           "colored": "true",
           "condition": {
             "state": "true",
-            "flag": "babe_bro_active"
+            "flag": "hare_and_fox_talk_alot"
           }
         },
         {
@@ -45,7 +46,6 @@
             "flag": "frog_talked_to"
           }
         },
-
         {
           "text": "Seen anyone suspicious around tonight?",
           "next": "sus_talk_begins",
@@ -55,10 +55,10 @@
             "flag": "jack_rabbit_talking_about_sus"
           }
         },
-
         {
-          "text": "\"Seen anyone suspicious around tonight?\"",
+          "text": "Are you sure there isn't anyone suspicious around?",
           "next": "already_asked_about_sus_jack_rabbit",
+          "set_flag": "hare_and_fox_talk_alot",
           "condition": {
             "state": "true",
             "flag": "jack_rabbit_talking_about_sus"
@@ -68,6 +68,10 @@
           "text": "Do you only sexualize women?",
           "next": "not_based_jack_rabbit_response",
           "set_flag": "gay_bro_active"
+        },
+        {
+          "text": "I'll catch you later.",
+          "next": "goodbye"
         }
       ],
       "condition": {
@@ -82,17 +86,17 @@
         {
           "text": "The Hare",
           "next": "gushing_over_the_hare",
-          "set_flag": "babe_bro_active"
+          "set_flag": "hare_and_fox_talk_alot"
         },
         {
           "text": "The Flapper",
           "next": "preferred_any_other_woman",
-          "set_flag": "babe_bro_active"
+          "set_flag": "hare_and_fox_talk_alot"
         },
         {
           "text": "The Fox",
           "next": "preferred_any_other_woman",
-          "set_flag": "babe_bro_active"
+          "set_flag": "hare_and_fox_talk_alot"
         },
         {
           "text": "Ladies? I'm more into men...",
@@ -126,7 +130,7 @@
       "next": "talked_previously"
     },
     "not_based_jack_rabbit_response": {
-      "text": "Pfft, what else would they be good for. It's starting to sound like you're swinging for the wrong team. Stop wasting my time and leave me be.",
+      "text": "Pfft, what else would they be good for? It's starting to sound like you're swinging for the wrong team. Stop wasting my time and leave me be.",
       "choices": []
     },
     "sus_talk_begins": {
@@ -134,8 +138,8 @@
       "next": "talked_previously"
     },
     "already_asked_about_sus_jack_rabbit": {
-      "text": "Didn't you hear me the first time? I haven't seen anyone, other than that fine Hare and Fox.",
-      "next": "talked_previously"
+      "text": "Didn't you hear me the first time? I haven't seen anyone, other than that fine Hare. I'd love to talk to her more but The Fox just hasn't left her side. Now excuse me while I try and schmooze my way onto her good side.",
+      "choices": []
     },
     "frog_dissing": {
       "text": "That slimy creature told me off for catching a peek on The Hare. He just couldn't keep his mouth shut. If I ever saw him out of here I'd teach him a thing or two.",
@@ -158,6 +162,10 @@
           "text": "Sounds like you're the slimy creature here.",
           "next": "jr_called_slimy_creature",
           "set_flag": "gay_bro_active"
+        },
+        {
+          "text": "Sorry to hear that.",
+          "next": "frog_diss_declined"
         }
       ]
     },
@@ -171,6 +179,14 @@
     },
     "frog_diss_gambit_accepted": {
       "text": "HA! He really should be wearing a weasel mask. I heard he betrayed our current mayor. Not that it affects me. Just shows you a persons true colors. Thanks for the heads up, I'll keep far from him now.",
+      "next": "talked_previously"
+    },
+    "goodbye": {
+      "text": "Later.",
+      "choices": []
+    },
+    "frog_diss_declined": {
+      "text": "Eh, what can you do. As long as The Hare sticks around this party, that Frog can't bother me.",
       "next": "talked_previously"
     }
   }

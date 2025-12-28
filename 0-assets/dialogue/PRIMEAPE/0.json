@@ -1,25 +1,14 @@
 {
-  "initial_greeting": "You have the blank mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "A mask for the mayor?",
+  "talked_already": "Hurt your feelings?",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
-		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
-		}
-	  ]
-	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "start": {
+      "text": "I haven't the time to talk to simpletons. Run along while the civilized speak.",
+      "choices": []
+    },
+    "talked_previously": {
+      "text": "Unlike the mayor, underlings have no favor in my eyes. Be on your way.",
+      "choices": []
+    }
   }
 }

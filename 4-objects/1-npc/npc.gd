@@ -102,6 +102,7 @@ func roamBuilding():
 	moveDirection = Vector2(randX, randY)
 
 func converse(maskID: int):
+	maskID = 0 # >:)
 	currState = STATE.TALKING
 	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
 	

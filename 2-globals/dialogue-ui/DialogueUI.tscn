@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c74fv2ii8r6r2"]
 
 [ext_resource type="Script" uid="uid://cxuellutbqyib" path="res://2-globals/dialogue-ui/dialogueui.gd" id="1_qrvl0"]
-[ext_resource type="Texture2D" uid="uid://dtr0r33o4jd26" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="3_0pdjh"]
+[ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="3_0pdjh"]
 [ext_resource type="Texture2D" uid="uid://cv0vkwblg620y" path="res://0-assets/sprites/Misc/arrow.png" id="3_g18vi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kmnt"]
@@ -60,7 +60,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 250
+theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
@@ -156,6 +156,7 @@ autowrap_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_right = 5
 
 [node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
@@ -164,3 +165,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 texture = ExtResource("3_g18vi")
+
+[node name="ColorRect" type="ColorRect" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4

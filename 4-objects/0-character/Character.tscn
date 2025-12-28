@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ess0lyyqlkgy"]
 
 [ext_resource type="Script" uid="uid://122mf68ayfjx" path="res://4-objects/0-character/character.gd" id="1_l8ec2"]
-[ext_resource type="Texture2D" uid="uid://wj76csxjivf0" path="res://0-assets/sprites/character/Placeholder Man.png" id="2_hpm3x"]
+[ext_resource type="Texture2D" uid="uid://ktahdn5usa2x" path="res://0-assets/sprites/character/Neutral Placeholder Man.png" id="2_npi03"]
 [ext_resource type="PackedScene" uid="uid://pqx6itiibjs" path="res://5-component/interactions/InteractComponent/InteractComponent.tscn" id="3_hpm3x"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_npi03"]
 
@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_gbt3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
-texture = ExtResource("2_hpm3x")
+texture = ExtResource("2_npi03")
 
 [node name="InteractComponent" parent="." instance=ExtResource("3_hpm3x")]
 position = Vector2(0, -6)

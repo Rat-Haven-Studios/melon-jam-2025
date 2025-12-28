@@ -53,7 +53,7 @@ script = ExtResource("2_wl7ar")
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(60, 184)
+position = Vector2(214, 199)
 npcname = "Bandit King"
 susLevel = 5
 mapSprite = ExtResource("6_2rcib")

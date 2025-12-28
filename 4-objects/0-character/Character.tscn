@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ess0lyyqlkgy"]
+[gd_scene load_steps=9 format=3 uid="uid://ess0lyyqlkgy"]
 
 [ext_resource type="Script" uid="uid://122mf68ayfjx" path="res://4-objects/0-character/character.gd" id="1_l8ec2"]
 [ext_resource type="Texture2D" uid="uid://ktahdn5usa2x" path="res://0-assets/sprites/character/Neutral Placeholder Man.png" id="2_npi03"]
@@ -7,31 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://bkpd2mosvxelm" path="res://0-assets/sprites/character/Poor Placeholder Man.png" id="4_1ncbb"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_npi03"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcecp"]
+radius = 3.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt3e"]
 size = Vector2(10, 5.5)
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 8
 script = ExtResource("1_l8ec2")
 WALKING_STAIRS_SPEED = 50
 BASE_SPEED = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3.5)
-shape = SubResource("RectangleShape2D_gbt3e")
-
-[node name="NeutralMaskSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
-texture = ExtResource("2_npi03")
-
-[node name="MayorMaskSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -6)
-texture = ExtResource("3_rcecp")
-
-[node name="PoorMaskSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -6)
-texture = ExtResource("4_1ncbb")
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_rcecp")
 
 [node name="InteractComponent" parent="." instance=ExtResource("3_hpm3x")]
 position = Vector2(0, -6)
@@ -50,3 +40,19 @@ flickerMin = 0.8
 flickerMax = 0.9
 rangeMin = 0.0
 rangeMax = 0.0
+
+[node name="SpriteContainer" type="Node2D" parent="."]
+
+[node name="NeutralMaskSprite" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(0, -6)
+texture = ExtResource("2_npi03")
+
+[node name="MayorMaskSprite" type="Sprite2D" parent="SpriteContainer"]
+visible = false
+position = Vector2(0, -6)
+texture = ExtResource("3_rcecp")
+
+[node name="PoorMaskSprite" type="Sprite2D" parent="SpriteContainer"]
+visible = false
+position = Vector2(0, -6)
+texture = ExtResource("4_1ncbb")

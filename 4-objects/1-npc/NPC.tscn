@@ -1,19 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://toe70xl1lkkf"]
 
 [ext_resource type="Script" uid="uid://c1k2t3oaljnp8" path="res://4-objects/1-npc/npc.gd" id="1_atnjp"]
+[ext_resource type="Texture2D" uid="uid://b0qnmdbeo6s6i" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png" id="2_ifoj7"]
 [ext_resource type="PackedScene" uid="uid://0w1aiel064xo" path="res://5-component/interactions/interact-receiver/InteractReceiverComponent.tscn" id="2_j6cqc"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_gsny7"]
-[ext_resource type="Texture2D" uid="uid://b5wqyr3ub4p5t" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld.png" id="4_j6cqc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxofo"]
-size = Vector2(12, 22)
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6cqc"]
+radius = 5.0
 
 [node name="Npc" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_atnjp")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ifoj7")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_yxofo")
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_j6cqc")
 
 [node name="InteractReceiverComponent" parent="." instance=ExtResource("2_j6cqc")]
 scale = Vector2(2.6713219, 2.6713219)
@@ -21,5 +25,4 @@ interactString = "Hawk Tuah!"
 
 [node name="Light" parent="." instance=ExtResource("4_gsny7")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_j6cqc")
+[node name="Node2D" type="Node2D" parent="."]

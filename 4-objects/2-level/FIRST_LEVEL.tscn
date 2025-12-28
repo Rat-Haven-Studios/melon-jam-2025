@@ -1,6 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=38 format=3 uid="uid://btyikl70k86w6"]
 
-[ext_resource type="Script" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
+[ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/Matt's Map.png" id="2_qflod"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b0qnmdbeo6s6i" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png" id="7_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
 [ext_resource type="Texture2D" uid="uid://b23kn0vrc6afx" path="res://0-assets/sprites/NPC Text Sprites/Bunny_gal.png" id="8_10jhv"]
-[ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="9_igri3"]
 [ext_resource type="Texture2D" uid="uid://c6lk84cassnec" path="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png" id="9_ljyhy"]
 [ext_resource type="Texture2D" uid="uid://u7uqnsxm367v" path="res://0-assets/sprites/NPC Overworld Sprites/Jack Rabbit Overworld Sprite.png" id="9_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="10_i4rv0"]
@@ -44,6 +43,25 @@ size = Vector2(6.878421, 61.339245)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scqml"]
 size = Vector2(6.7478175, 55.926884)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqsdm"]
+radius = 13.0156555
+height = 49.992176
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4rv0"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kxxd"]
+radius = 5.3620377
+height = 23.518738
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7c5mk"]
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qeoqo"]
+radius = 4.220703
+height = 12.805725
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw45h"]
 size = Vector2(24, 43)
 
@@ -65,56 +83,56 @@ script = ExtResource("2_wl7ar")
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(177, 197)
+position = Vector2(39, 58)
 npcname = "Bandit King"
 susLevel = 5
 mapSprite = ExtResource("6_2rcib")
 dialogueSprite = ExtResource("7_ljyhy")
 
 [node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(73, 191)
+position = Vector2(211, 205)
 characterID = 1
 npcname = "Primeape"
 mapSprite = ExtResource("7_yqsdm")
 dialogueSprite = ExtResource("9_ljyhy")
 
 [node name="TheHare" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(74, 158)
+position = Vector2(66, 57)
 characterID = 6
 npcname = "The Hare"
 mapSprite = ExtResource("7_ms2wu")
 dialogueSprite = ExtResource("8_10jhv")
 
 [node name="JackRabbit" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(107, 157)
+position = Vector2(208, 54)
 characterID = 5
 npcname = "Jack Rabbit"
 mapSprite = ExtResource("9_yqsdm")
 dialogueSprite = ExtResource("10_i4rv0")
 
 [node name="Flapper" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(142, 159)
+position = Vector2(206, 127)
 characterID = 7
 npcname = "Flapper"
 mapSprite = ExtResource("11_2kxxd")
 dialogueSprite = ExtResource("12_7c5mk")
 
 [node name="Foxy" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(175, 164)
+position = Vector2(44, 177)
 characterID = 3
 npcname = "Foxy"
 mapSprite = ExtResource("13_qeoqo")
 dialogueSprite = ExtResource("14_2fjuf")
 
 [node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(107, 191)
+position = Vector2(79, 174)
 characterID = 4
 npcname = "Frogger"
 mapSprite = ExtResource("15_sf8gr")
 dialogueSprite = ExtResource("16_pu012")
 
 [node name="Tiki" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(143, 193)
+position = Vector2(136, 122)
 characterID = 2
 npcname = "Tiki"
 mapSprite = ExtResource("17_rng6a")
@@ -126,7 +144,6 @@ scale = Vector2(0.9921745, 1)
 WALKING_STAIRS_SPEED = 60
 
 [node name="All Walls" type="Node2D" parent="."]
-visible = false
 
 [node name="Wall" parent="All Walls" instance=ExtResource("6_4qvpp")]
 position = Vector2(55.000023, 247.00003)
@@ -218,8 +235,47 @@ position = Vector2(0.06530762, -2.7061462)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_scqml")
 
+[node name="Wall10" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(53, 203)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall10"]
+position = Vector2(6.000001, -1.0000001)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yqsdm")
+
+[node name="Wall11" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(183, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall11"]
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_i4rv0")
+
+[node name="Wall12" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(227, 198)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall12"]
+position = Vector2(0, -3)
+rotation = -0.6975689
+scale = Vector2(1.3367808, 1.1433684)
+shape = SubResource("CapsuleShape2D_2kxxd")
+
+[node name="Wall13" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(208, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall13"]
+position = Vector2(1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7c5mk")
+
+[node name="Wall14" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(219, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall14"]
+position = Vector2(8.940697e-08, 0)
+rotation = 0.68365085
+shape = SubResource("CapsuleShape2D_qeoqo")
+
 [node name="All Stairs" type="Node2D" parent="."]
-visible = false
 position = Vector2(128, 34.000015)
 rotation = -3.1415925
 scale = Vector2(5.742603, 0.8314422)
@@ -254,38 +310,3 @@ debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
 
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
 energy = 0.6
-
-[node name="All of the lights!" type="Node2D" parent="."]
-position = Vector2(128, 253)
-
-[node name="Light" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(-31, -137)
-
-[node name="Light2" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(30, -138)
-
-[node name="Light3" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(64, -43)
-
-[node name="Light4" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(-63, -236)
-
-[node name="Light5" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(-21, -235)
-
-[node name="Light6" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(20, -236)
-
-[node name="Light7" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(63, -234)
-
-[node name="Light8" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(-68, -53)
-
-[node name="Light9" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(-107, -133)
-
-[node name="Light10" parent="All of the lights!" instance=ExtResource("9_igri3")]
-position = Vector2(105, -133)
-
-[node name="Light11" parent="All of the lights!" instance=ExtResource("9_igri3")]

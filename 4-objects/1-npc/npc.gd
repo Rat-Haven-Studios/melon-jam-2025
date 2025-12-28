@@ -50,6 +50,7 @@ func _ready() -> void:
 	interactable.interact = _onInteract
 	CLogger.info("Initialized %s" % npcname)
 	roamBuilding()
+
 func _process(delta):
 	# They're talking
 	if currState == STATE.TALKING:
@@ -72,17 +73,18 @@ func _process(delta):
 	else:
 		randomizeWander()
 		chillOutTime()
-	
+
 func isExceedingMapBorder():
 	var currX = self.global_position.x
 	var currY = self.global_position.y
 	return (currX > MAX_MAP_BORDER.x or currY > MAX_MAP_BORDER.y) or (currX < MIN_MAP_BORDER.x or currY < MIN_MAP_BORDER.y)
+
 func isProbablyHittingWall():
 	return velocity.x == 0 or velocity.y == 0
-	
+
 func chillOutTime():
 	waitTime = randf_range(waitTimeMin, waitTimeMax)
-	
+
 func _onInteract():
 	interactable.isInteractable = false
 	converse(Data.player.currMask)
@@ -91,6 +93,13 @@ func _onInteract():
 func randomizeWander():
 	moveDirection = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	wanderTime = randf_range(wanderTimeMin, wanderTimeMax)
+	if moveDirection.x < 0:
+		sprite.flip_h = true
+	elif moveDirection.x > 0:
+		sprite.flip_h = false
+	else:
+		pass
+		
 
 func roamBuilding():
 	# I would want some sort of check to see if they NPC is going to a spot within the world border AND not intersecting with a wall
@@ -99,7 +108,7 @@ func roamBuilding():
 	var randX = randi_range(0, 512)
 	var randY = randi_range(0, 512)
 	moveDirection = Vector2(randX, randY)
-	
+
 func converse(maskID: int):
 	currState = STATE.TALKING
 	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
@@ -224,8 +233,9 @@ func generateDialogueTrees():
 		
 		parseDialogueFile(path)
 		#CLogger.debug(path)
-		
+
 func parseDialogueFile(path: String):
+	
 	var file = FileAccess.open(path, FileAccess.READ)
 	if not file:
 		CLogger.error("Failed to open dialogue file: %s" % path)

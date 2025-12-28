@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfv1e2f7kxd3y"]
+[gd_scene load_steps=2 format=3 uid="uid://cfv1e2f7kxd3y"]
 
 [ext_resource type="Script" uid="uid://ky8fceykghqi" path="res://4-objects/zones/room.gd" id="1_nbstc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycuhe"]
 
 [node name="Room" type="Area2D"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_nbstc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ycuhe")

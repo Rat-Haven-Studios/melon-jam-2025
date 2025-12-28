@@ -6,7 +6,6 @@ var playerIsInRoom: bool = false
 func _ready():
 	body_entered.connect(onAreaEntered)
 	body_exited.connect(onAreaExited)
-	CLogger.debug(str(guestInRoom))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("swap") and playerIsInRoom:
@@ -15,22 +14,25 @@ func _input(event: InputEvent) -> void:
 		
 		
 func alertGuestOfMaskSwap():
+	var comboNames = "Guests who saw the swap: "
 	for guest in guestInRoom:
 		guest.hasSeenPlayerSwapMask = true
-	
+		comboNames += guest.name + " & "
+	CLogger.info(comboNames.left(comboNames.length() - 2))
 func onAreaEntered(body: CharacterBody2D):
 	if body is NPC:
-		CLogger.debug(str(body) + str(body))
 		guestInRoom.append(body)
-		CLogger.debug(str(guestInRoom))
+		debugPrintGuestInRoom()
 	elif body is Character:
-		CLogger.debug("Player has entered my room :)")
+		CLogger.debug("Player has entered " + str(self.name))
 		playerIsInRoom = true
 func onAreaExited(body: CharacterBody2D):
 	if body is NPC:
-		CLogger.debug((str(body)))
-		CLogger.debug(str(guestInRoom))
 		guestInRoom.erase(body)
+		debugPrintGuestInRoom()
 	elif body is Character:
-		CLogger.debug("Player has left my room :(")
+		CLogger.debug("Player has left " + str(self.name))
 		playerIsInRoom = false
+
+func debugPrintGuestInRoom():
+	CLogger.debug("Guests in " + str(self.name) + " | " + str(guestInRoom))

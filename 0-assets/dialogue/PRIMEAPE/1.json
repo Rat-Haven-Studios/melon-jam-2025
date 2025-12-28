@@ -1,25 +1,138 @@
 {
-  "initial_greeting": "You have the mayoral mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "That mask! So bold, I applaud you good sir!",
+  "talked_already": "Ah, it's you.",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
-		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
-		}
-	  ]
-	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "start": {
+      "text": "Let's cut the formalities. As an intellect I presume you also know of the mayors new policy.",
+      "choices": [
+        {
+          "text": "I'm sure it only adds to one of his many blunders. Do tell, which policy are we referring to?",
+          "next": "policy_explanation"
+        },
+        {
+          "text": "Are you referring to the lousy \"Common Man\" act?",
+          "next": "dissed_the_common_man_act",
+          "set_flag": "common_man_act_dissed"
+        }
+      ]
+    },
+    "policy_explanation": {
+      "text": "Why, it's the \"Common Man\" act. Mandatory 40 hour work week, and an age limit for workers. Set to an astonishing age of 18.",
+      "choices": [
+        {
+          "text": "40 hour work weeks? Age limit for employees?! This mayor is bleeding us dry!",
+          "next": "dissed_the_common_man_act",
+          "set_flag": "common_man_act_dissed"
+        },
+        {
+          "text": "Doesn't seem too bad. The workers will work harder for the competitive wages, while keeping the youth in school to better prepare for their future careers.",
+          "next": "dismissive_common_man_act_response",
+          "set_flag": "agree_with_common_man_act"
+        }
+      ]
+    },
+    "dissed_the_common_man_act": {
+      "text": "Precisely! Does the mayor not understand the gravity of such an act? I'd be losing half my workforce from such an act. Not to mention all the shareholders I'd let down from these mandatory hours.",
+      "next": "diss_common_man_act_cont"
+    },
+    "diss_common_man_act_cont": {
+      "text": "Why the lovely Hare has been in quite the predicament herself. Her factories nearby would lose nearly all her workforce. This foolish mayor doesn't care for the intellects of society. Someone needs to put him in his place.",
+      "next": "lowkey_wants_to_mention_the_frog"
+    },
+    "lowkey_wants_to_mention_the_frog": {
+      "text": "Even the mayor's own members are beginning to turn on him... I know it may be uncouth, but I know the identity of a guest within this party. Would you like to hear?",
+      "choices": [
+        {
+          "text": "Oh, do tell...",
+          "next": "reveals_the_frog",
+          "set_flag": "frog_identity_revealed"
+        },
+        {
+          "text": "No need, I wouldn't want to ruin the spirit of such an event.",
+          "next": "frog_identity_reveal_declined"
+        }
+      ]
+    },
+    "frog_identity_reveal_declined": {
+      "text": "Ah, that's quite noble. I have nothing but respect for a man like yourself.",
+      "next": "talked_previously"
+    },
+    "reveals_the_frog": {
+      "text": "That bumbling oaf of a Frog tripped and stumbled outside, and for a split second his mask came off to reveal that he was the mayors former assistant.",
+      "choices": [
+        {
+          "text": "Former assistant? What happened.",
+          "next": "why_is_he_former"
+        },
+        {
+          "text": "Of course it'd be the lousy frog to reveal himself at such an event.",
+          "next": "hating_on_the_frog"
+        }
+      ]
+    },
+    "why_is_he_former": {
+      "text": "Who's to say. I hear he's one of use tho, hates the mayor and what he stands for.",
+      "choices": []
+    },
+    "talked_previously": {
+      "text": "Now, do tell, was there anything you'd like to ask?",
+      "choices": [
+        {
+          "text": "Why are you here?",
+          "next": "why_is_he_here"
+        },
+        {
+          "text": "The Tiki is the mayors son",
+          "next": "tiki_dialogue",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "tiki_mayor_son"
+          }
+        },
+        {
+          "text": "I think I'd like to know that secret identity...",
+          "next": "idk",
+          "set_flag": "frog_identity_revealed"
+        },
+        {
+          "text": "Nothing. I'll be on my way.",
+          "next": "end"
+        }
+      ],
+      "condition": {
+        "state": "false",
+        "flag": "agree_with_common_man_act"
+      },
+      "else": "hater_cuz_common_man_act_enjoyer"
+    },
+    "hating_on_the_frog": {
+      "text": "Haha, why I'd agree. I heard he's against the mayor, one of us. To think we'd have him on our side, it's quite laughable.",
+      "next": "talked_previously"
+    },
+    "dismissive_common_man_act_response": {
+      "text": "Bah, of all our guests I'd expect someone such as you to understand such a complex policy. I expected too much from you. Begone!",
+      "choices": []
+    },
+    "hater_cuz_common_man_act_enjoyer": {
+      "text": "For someone to claim hatred on the mayor, you would think you'd be wiser. I do not wish to speak with you.",
+      "choices": []
+    },
+    "why_is_he_here": {
+      "text": "While I do hate the mayor, it's hard to deny that amount of power that appears at events such as these. You never know when the next big idea could be broadcasted at such an event, and when it is, I will be the one to capitalize on it.",
+      "next": "talked_previously"
+    },
+    "tiki_dialogue": {
+      "text": "Interesting. His son should be up at university now, but to see him at an event leads me to believe he is no longer attending. Why he was probably caught diddling someone and was kicked out. You know what they say, the apple doesn't fall far from the tree.",
+      "choices": []
+    },
+    "actually_wants_to_know_who": {
+      "text": "Ha, I knew you'd come around",
+      "next": "reveals_the_frog"
+    },
+    "end": {
+      "text": "Good luck to you sir.",
+      "choices": []
+    }
   }
 }

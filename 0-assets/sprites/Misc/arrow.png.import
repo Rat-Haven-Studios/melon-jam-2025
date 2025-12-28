@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpfs2iqi65km5"
-path="res://.godot/imported/Mono Knight.png-5cb2fe5b5ccdea86b31bd7ddac8ac64b.ctex"
+uid="uid://cv0vkwblg620y"
+path="res://.godot/imported/arrow.png-0c3611504c7146b983fd9a8c01af46a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/Mono Knight.png"
-dest_files=["res://.godot/imported/Mono Knight.png-5cb2fe5b5ccdea86b31bd7ddac8ac64b.ctex"]
+source_file="res://0-assets/sprites/Misc/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-0c3611504c7146b983fd9a8c01af46a7.ctex"]
 
 [params]
 

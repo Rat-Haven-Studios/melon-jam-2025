@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbshiik2f0ccb"
-path="res://.godot/imported/PLACEHOLDER.png-7a5b52e711bdaa702481b090f7012ad3.ctex"
+uid="uid://cib33rhxfcvoh"
+path="res://.godot/imported/monkey_mask.png-e95856f2e5bd18217b26e8fdd460eb9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/character/PLACEHOLDER.png"
-dest_files=["res://.godot/imported/PLACEHOLDER.png-7a5b52e711bdaa702481b090f7012ad3.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png"
+dest_files=["res://.godot/imported/monkey_mask.png-e95856f2e5bd18217b26e8fdd460eb9c.ctex"]
 
 [params]
 

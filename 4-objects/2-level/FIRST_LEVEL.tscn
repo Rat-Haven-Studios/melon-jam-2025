@@ -1,16 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=22 format=3 uid="uid://btyikl70k86w6"]
 
-[ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
+[ext_resource type="Script" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/Matt's Map.png" id="2_qflod"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
+[ext_resource type="Texture2D" uid="uid://bh1tw04y86sd5" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit King Overworld.png" id="6_2rcib"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
-[ext_resource type="Texture2D" uid="uid://dwaob41kd75sa" path="res://0-assets/sprites/character/bunnyman_overworld.png" id="6_scqml"]
+[ext_resource type="Texture2D" uid="uid://dpjns717fenip" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
 [ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
-[ext_resource type="Texture2D" uid="uid://ch6uos4h5epkp" path="res://0-assets/sprites/character/flapper.png" id="7_scqml"]
 [ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
+[ext_resource type="Texture2D" uid="uid://b5wqyr3ub4p5t" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld.png" id="8_2rcib"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="9_igri3"]
+[ext_resource type="Texture2D" uid="uid://cib33rhxfcvoh" path="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png" id="9_ljyhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(19.155083, 22.027313)
@@ -48,19 +50,26 @@ position = Vector2(131, 255)
 zoom = Vector2(4, 4)
 script = ExtResource("2_wl7ar")
 
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(60, 184)
+npcname = "Bandit King"
+susLevel = 5
+mapSprite = ExtResource("6_2rcib")
+dialogueSprite = ExtResource("7_ljyhy")
+
+[node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(47, 184)
+characterID = 1
+npcname = "Primeape"
+mapSprite = ExtResource("8_2rcib")
+dialogueSprite = ExtResource("9_ljyhy")
+
 [node name="Character" parent="." instance=ExtResource("3_qj1of")]
 position = Vector2(128, 256)
 scale = Vector2(0.9921745, 1)
 WALKING_STAIRS_SPEED = 60
-
-[node name="NPCs" type="Node2D" parent="."]
-
-[node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(213, 205)
-npcname = "Bandit King"
-susLevel = 5
-mapSprite = ExtResource("6_scqml")
-dialogueSprite = ExtResource("7_scqml")
 
 [node name="All Walls" type="Node2D" parent="."]
 visible = false

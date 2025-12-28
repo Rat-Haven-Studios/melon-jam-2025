@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cib33rhxfcvoh"
-path="res://.godot/imported/monkey_mask.png-2eae62beb31902c5d86d34d350822e14.ctex"
+uid="uid://dtr0r33o4jd26"
+path="res://.godot/imported/bunny_man.png-3c23a8c5ca1a63b62c20398b1fa2d400.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/character/monkey_mask.png"
-dest_files=["res://.godot/imported/monkey_mask.png-2eae62beb31902c5d86d34d350822e14.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/bunny_man.png"
+dest_files=["res://.godot/imported/bunny_man.png-3c23a8c5ca1a63b62c20398b1fa2d400.ctex"]
 
 [params]
 

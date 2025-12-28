@@ -10,7 +10,14 @@ enum PlayerMasks {
 }
 
 enum Characters {
-	BANDIT_KING
+	BANDIT_KING, 
+	PRIMEAPE,
+	TIKI,
+	FOXY,
+	FROGGER,
+	JACK_RABBIT,
+	THE_HARE,
+	THE_FLAPPER
 }
 
 # Maybe could simply use groups instead?

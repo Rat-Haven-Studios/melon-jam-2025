@@ -1,0 +1,25 @@
+{
+  "initial_greeting": "You have the mayoral mask on.",
+  "talked_already": "Go away dude...",
+  "nodes": {
+	"start": {
+	  "text": "What brings you here?",
+	  "choices": [
+		{
+		  "text": "I want your body.",
+		  "next": "sexy_talk",
+		  "sus_change": 10
+		},
+		{
+		  "text": "Just passing through.",
+		}
+	  ]
+	},
+	"sexy_talk": {
+	  "text": "You couldn't handle me.",
+	},
+	"end": {
+	  "text": "Farewell."
+	}
+  }
+}

@@ -3,11 +3,20 @@
   "talked_already": "Can't say I wanted to see you again.",
   "nodes": {
     "start": {
-      "text": "Though, I can't say I'd want to spend my time talking to men on a night like this.",
+      "text": "Though, I can't say I'd want to spend my time talking to a man on a night like this.",
       "choices": [
         {
           "text": "Politics, Shmolitics. I'm really just here to get laid.",
           "next": "talk_of_babes_begins"
+        },
+        {
+          "text": "I'm just interested in getting to know everyone. Tell me about yourself.",
+          "next": "quick_annoyed_explanation",
+          "set_flag": "jack_rabbit_talked_to"
+        },
+        {
+          "text": "You seen anyone suspicious around tonight?",
+          "next": "sus_talk_begins"
         }
       ]
     },
@@ -15,7 +24,7 @@
       "text": "Any chance we can hurry up with this conversation?",
       "choices": [
         {
-          "text": "You're tellin me, I was hoping you'd help me get laid tonight.",
+          "text": "I was hoping you'd help me get laid tonight.",
           "next": "talk_of_babes_begins"
         },
         {
@@ -26,6 +35,39 @@
             "state": "true",
             "flag": "babe_bro_active"
           }
+        },
+        {
+          "text": "Have you talked to The Frog at all?",
+          "next": "frog_dissing",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "frog_talked_to"
+          }
+        },
+
+        {
+          "text": "Seen anyone suspicious around tonight?",
+          "next": "sus_talk_begins",
+          "set_flag": "jack_rabbit_talking_about_sus",
+          "condition": {
+            "state": "false",
+            "flag": "jack_rabbit_talking_about_sus"
+          }
+        },
+
+        {
+          "text": "\"Seen anyone suspicious around tonight?\"",
+          "next": "already_asked_about_sus_jack_rabbit",
+          "condition": {
+            "state": "true",
+            "flag": "jack_rabbit_talking_about_sus"
+          }
+        },
+        {
+          "text": "Do you only sexualize women?",
+          "next": "not_based_jack_rabbit_response",
+          "set_flag": "gay_bro_active"
         }
       ],
       "condition": {
@@ -33,10 +75,6 @@
         "flag": "gay_bro_active"
       },
       "else": "this_guy_doesnt_like_gay_men_because_of_the_time_frame_and_his_how_his_character_is_but_we_respect_the_lgbtq"
-    },
-    "starts_talk_as_bro": {
-      "text": "What's up my man. Just had a perfect view of the fox and the hare from over here.",
-      "choices": []
     },
     "talk_of_babes_begins": {
       "text": "Glad to see someone finally noticed all the hot meat here. I was worried I would have to take all the ladies home with me tonight. Got any preferences?",
@@ -80,8 +118,60 @@
       "choices": []
     },
     "this_guy_doesnt_like_gay_men_because_of_the_time_frame_and_his_how_his_character_is_but_we_respect_the_lgbtq": {
-      "text": "Nice try, I don't waste my time with people like you.",
+      "text": "I don't waste my time with people like you.",
       "choices": []
+    },
+    "quick_annoyed_explanation": {
+      "text": "Ladies love me. I love the ladies. I'm a win win.",
+      "next": "talked_previously"
+    },
+    "not_based_jack_rabbit_response": {
+      "text": "Pfft, what else would they be good for. It's starting to sound like you're swinging for the wrong team. Stop wasting my time and leave me be.",
+      "choices": []
+    },
+    "sus_talk_begins": {
+      "text": "Buddy, the only one who's suspicious is you. You wouldn't catch me talking to some grease pigs when we're surrounded by class A cattle.",
+      "next": "talked_previously"
+    },
+    "already_asked_about_sus_jack_rabbit": {
+      "text": "Didn't you hear me the first time? I haven't seen anyone, other than that fine Hare and Fox.",
+      "next": "talked_previously"
+    },
+    "frog_dissing": {
+      "text": "That slimy creature told me off for catching a peek on The Hare. He just couldn't keep his mouth shut. If I ever saw him out of here I'd teach him a thing or two.",
+      "choices": [
+        {
+          "text": "What a freak.",
+          "next": "player_disses_frog"
+        },
+        {
+          "text": "I know who he really is...",
+          "next": "frog_diss_gambit_accepted",
+          "colored": "true",
+          "set_flag": "frog_possible_betrayal",
+          "condition": {
+            "state": "true",
+            "flag": "frog_identity_revealed"
+          }
+        },
+        {
+          "text": "Sounds like you're the slimy creature here.",
+          "next": "jr_called_slimy_creature",
+          "set_flag": "gay_bro_active"
+        }
+      ]
+    },
+    "jr_called_slimy_creature": {
+      "text": "Heh, and you had just started to grow on me. Lets see how far protecting these ladies will get you in life. Get out of here.",
+      "choices": []
+    },
+    "player_disses_frog": {
+      "text": "Tell me about it. I don't have time to waste on creatures like him.",
+      "next": "talked_previously"
+    },
+    "frog_diss_gambit_accepted": {
+      "text": "HA! He really should be wearing a weasel mask. I heard he betrayed our current mayor. Not that it affects me. Just shows you a persons true colors. Thanks for the heads up, I'll keep far from him now.",
+      "next": "talked_previously"
     }
   }
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtr0r33o4jd26"
-path="res://.godot/imported/bunny_man.png-6782af2ba60b6fad6d192d2b59e42356.ctex"
+uid="uid://dwaob41kd75sa"
+path="res://.godot/imported/bunnyman_overworld.png-857fb6cc2800f7087408690a479da7b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/character/bunny_man.png"
-dest_files=["res://.godot/imported/bunny_man.png-6782af2ba60b6fad6d192d2b59e42356.ctex"]
+source_file="res://0-assets/sprites/NPC Overworld Sprites/bunnyman_overworld.png"
+dest_files=["res://.godot/imported/bunnyman_overworld.png-857fb6cc2800f7087408690a479da7b3.ctex"]
 
 [params]
 

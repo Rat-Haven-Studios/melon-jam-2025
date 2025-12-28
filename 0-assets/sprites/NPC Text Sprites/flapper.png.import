@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv0vkwblg620y"
-path="res://.godot/imported/arrow.png-fa85a864e17f5cbad14ecfdf1c7dd9c1.ctex"
+uid="uid://ch6uos4h5epkp"
+path="res://.godot/imported/flapper.png-86631472377417147ac7ff729dbe812c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-fa85a864e17f5cbad14ecfdf1c7dd9c1.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/flapper.png"
+dest_files=["res://.godot/imported/flapper.png-86631472377417147ac7ff729dbe812c.ctex"]
 
 [params]
 

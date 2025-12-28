@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch6uos4h5epkp"
-path="res://.godot/imported/flapper.png-f988ae5d1901db8f10ddf16569ffea6d.ctex"
+uid="uid://bh1tw04y86sd5"
+path="res://.godot/imported/Bandit King Overworld.png-e9dfabe4c29721698f2d7b417b54fa19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/character/flapper.png"
-dest_files=["res://.godot/imported/flapper.png-f988ae5d1901db8f10ddf16569ffea6d.ctex"]
+source_file="res://0-assets/sprites/NPC Overworld Sprites/Bandit King Overworld.png"
+dest_files=["res://.godot/imported/Bandit King Overworld.png-e9dfabe4c29721698f2d7b417b54fa19.ctex"]
 
 [params]
 

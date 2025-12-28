@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp7s1u6psl4q5"
-path="res://.godot/imported/mansion_interior.png-2ad661cd637320446fa15e87ecf49b9d.ctex"
+uid="uid://b5wqyr3ub4p5t"
+path="res://.godot/imported/Monkey Overworld.png-1e03472f37e2c1d2bd4bae8c5cd7eb93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/mansion_interior.png"
-dest_files=["res://.godot/imported/mansion_interior.png-2ad661cd637320446fa15e87ecf49b9d.ctex"]
+source_file="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld.png"
+dest_files=["res://.godot/imported/Monkey Overworld.png-1e03472f37e2c1d2bd4bae8c5cd7eb93.ctex"]
 
 [params]
 

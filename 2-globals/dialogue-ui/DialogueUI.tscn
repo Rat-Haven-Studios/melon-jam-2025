@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c74fv2ii8r6r2"]
 
 [ext_resource type="Script" uid="uid://cxuellutbqyib" path="res://2-globals/dialogue-ui/dialogueui.gd" id="1_qrvl0"]
-[ext_resource type="Texture2D" uid="uid://dtr0r33o4jd26" path="res://0-assets/sprites/character/bunny_man.png" id="3_0pdjh"]
-[ext_resource type="Texture2D" uid="uid://cv0vkwblg620y" path="res://0-assets/sprites/arrow.png" id="3_g18vi"]
+[ext_resource type="Texture2D" uid="uid://dtr0r33o4jd26" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="3_0pdjh"]
+[ext_resource type="Texture2D" uid="uid://cv0vkwblg620y" path="res://0-assets/sprites/Misc/arrow.png" id="3_g18vi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kmnt"]
 bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)

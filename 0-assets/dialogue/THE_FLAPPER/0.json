@@ -1,13 +1,13 @@
 {
-  "initial_greeting": "Hey.",
+  "initial_greeting": "I'm The Flapper. I'd love to get to know you some more.",
   "talked_already": "I'm so happy that you came back and wanted to talk to me some more!",
   "nodes": {
     "start": {
-      "text": "State your intentions.",
+      "text": "What brings you here?",
       "choices": [
         {
           "text": "I have some questions.",
-          "next": "ask_info"
+          "next": "answering_questions"
         },
         {
           "text": "Tiki said I should talk to you.",
@@ -29,7 +29,7 @@
       "next": "start"
     },
     "ask_info": {
-      "text": "Oh? Questions? I love answering questions! What would you like to know?",
+      "text": "What would you like to know?",
       "choices": [
         {
           "text": "Where did you get your dress?",
@@ -83,15 +83,15 @@
     },
     "my_dress": {
       "text": "It's been passed down in my family for a long time. My family isn't that well off you see. I know it isn't as glamorous as some of the other ladies here, but it's clear they haven't struggled the same way I have...",
-      "next": "more_to_know"
+      "next": "ask_info"
     },
     "sus": {
       "text": "Only that Bandit King... He looks awfully familiar. I'd like to think I could identify that big hunk of a man anywhere, but I'm not 100% sure...",
-      "next": "more_to_know"
+      "next": "ask_info"
     },
     "jobs_bad": {
       "text": "However, just between you and me, I wouldn't recommend it. Those factories aren't renowned for their pay and working conditions...",
-      "next": "more_to_know"
+      "next": "ask_info"
     },
     "more_to_know": {
       "text": "Is there anything else you'd like to know?",
@@ -109,6 +109,10 @@
     "thanks_tiki": {
       "text": "Awe! That's so sweet of him. That makes me so happy...",
       "next": "end_happy"
+    },
+    "answering_questions": {
+      "text": "Oh? Questions? I love answering questions!",
+      "next": "ask_info"
     }
   }
 }

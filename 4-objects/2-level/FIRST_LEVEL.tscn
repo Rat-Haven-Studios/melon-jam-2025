@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=39 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/world/Matt's Map.png" id="2_qflod"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
 [ext_resource type="Texture2D" uid="uid://0pds3dtb153c" path="res://0-assets/sprites/NPC Text Sprites/frogger.png" id="18_qeoqo"]
 [ext_resource type="Texture2D" uid="uid://b6326ptnmop5t" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png" id="19_2fjuf"]
+[ext_resource type="PackedScene" uid="uid://cfv1e2f7kxd3y" path="res://4-objects/zones/room.tscn" id="22_yqsdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(48.75838, 22.027313)
@@ -381,3 +382,7 @@ debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
 
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
 energy = 0.6
+
+[node name="Room" parent="." instance=ExtResource("22_yqsdm")]
+position = Vector2(134, 179)
+scale = Vector2(12.999997, 5.9200025)

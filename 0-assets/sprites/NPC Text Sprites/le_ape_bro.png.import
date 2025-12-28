@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn8b0d2k35da2"
-path="res://.godot/imported/frog_mask.png-331655e1d029cc6be4ab5c3317ec27e8.ctex"
+uid="uid://ocgjdvuxcjld"
+path="res://.godot/imported/le_ape_bro.png-4660eff8734e9a11391de9adc80111dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Text Sprites/frog_mask.png"
-dest_files=["res://.godot/imported/frog_mask.png-331655e1d029cc6be4ab5c3317ec27e8.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/le_ape_bro.png"
+dest_files=["res://.godot/imported/le_ape_bro.png-4660eff8734e9a11391de9adc80111dd.ctex"]
 
 [params]
 

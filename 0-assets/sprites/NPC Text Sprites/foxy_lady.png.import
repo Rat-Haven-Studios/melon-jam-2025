@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6lk84cassnec"
-path="res://.godot/imported/monkey_mask.png-e95856f2e5bd18217b26e8fdd460eb9c.ctex"
+uid="uid://fy1fy6sud2h8"
+path="res://.godot/imported/foxy_lady.png-fe8468a9c9a1f9b1c10cd21b023e11b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png"
-dest_files=["res://.godot/imported/monkey_mask.png-e95856f2e5bd18217b26e8fdd460eb9c.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/foxy_lady.png"
+dest_files=["res://.godot/imported/foxy_lady.png-fe8468a9c9a1f9b1c10cd21b023e11b7.ctex"]
 
 [params]
 

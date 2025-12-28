@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0qnmdbeo6s6i"
-path="res://.godot/imported/Monkey Overworld Sprite.png-ab2b5ed454d879d4b5f9ad5bc4bc27f3.ctex"
+uid="uid://caxg6o6egqma8"
+path="res://.godot/imported/Frogger_Overworld_Sprite.png-d71224fd7238fb8115ef4fbfe867011a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png"
-dest_files=["res://.godot/imported/Monkey Overworld Sprite.png-ab2b5ed454d879d4b5f9ad5bc4bc27f3.ctex"]
+source_file="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png"
+dest_files=["res://.godot/imported/Frogger_Overworld_Sprite.png-d71224fd7238fb8115ef4fbfe867011a.ctex"]
 
 [params]
 

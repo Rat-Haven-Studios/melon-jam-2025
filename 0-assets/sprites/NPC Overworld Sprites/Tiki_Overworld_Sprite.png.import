@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4jngnbv0y467"
-path="res://.godot/imported/Flapper Overworld Sprite.png-eb2f2dd3e011947540b0158671b00e82.ctex"
+uid="uid://b6326ptnmop5t"
+path="res://.godot/imported/Tiki_Overworld_Sprite.png-7adc7e9bc6c459f68689f739fb267d25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Overworld Sprites/Flapper Overworld Sprite.png"
-dest_files=["res://.godot/imported/Flapper Overworld Sprite.png-eb2f2dd3e011947540b0158671b00e82.ctex"]
+source_file="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png"
+dest_files=["res://.godot/imported/Tiki_Overworld_Sprite.png-7adc7e9bc6c459f68689f739fb267d25.ctex"]
 
 [params]
 

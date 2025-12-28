@@ -7,23 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
 [ext_resource type="Texture2D" uid="uid://bh1tw04y86sd5" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit King Overworld.png" id="6_2rcib"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
+[ext_resource type="Texture2D" uid="uid://bsb5h8wsfad5j" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey_Overworld.png" id="7_10jhv"]
 [ext_resource type="Texture2D" uid="uid://b1jnoeanb2j5d" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
 [ext_resource type="Texture2D" uid="uid://cgmlgtegih21y" path="res://0-assets/sprites/NPC Overworld Sprites/The Hare Overworld Sprite.png" id="7_ms2wu"]
 [ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
-[ext_resource type="Texture2D" uid="uid://b0qnmdbeo6s6i" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png" id="7_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
 [ext_resource type="Texture2D" uid="uid://b23kn0vrc6afx" path="res://0-assets/sprites/NPC Text Sprites/Bunny_gal.png" id="8_10jhv"]
-[ext_resource type="Texture2D" uid="uid://c6lk84cassnec" path="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png" id="9_ljyhy"]
+[ext_resource type="Texture2D" uid="uid://ocgjdvuxcjld" path="res://0-assets/sprites/NPC Text Sprites/le_ape_bro.png" id="8_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://u7uqnsxm367v" path="res://0-assets/sprites/NPC Overworld Sprites/Jack Rabbit Overworld Sprite.png" id="9_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="10_i4rv0"]
-[ext_resource type="Texture2D" uid="uid://4jngnbv0y467" path="res://0-assets/sprites/NPC Overworld Sprites/Flapper Overworld Sprite.png" id="11_2kxxd"]
 [ext_resource type="Texture2D" uid="uid://dgtrjmf0odosl" path="res://0-assets/sprites/NPC Text Sprites/flapper.png" id="12_7c5mk"]
+[ext_resource type="Texture2D" uid="uid://2qwc5s5wn7ad" path="res://0-assets/sprites/NPC Overworld Sprites/Flapper_Overworld_Sprite.png" id="13_i4rv0"]
 [ext_resource type="Texture2D" uid="uid://mf1b5f5mhewd" path="res://0-assets/sprites/NPC Overworld Sprites/Foxy Overworld Sprite.png" id="13_qeoqo"]
-[ext_resource type="Texture2D" uid="uid://bxo3yngieiurf" path="res://0-assets/sprites/NPC Text Sprites/fox_mask.png" id="14_2fjuf"]
-[ext_resource type="Texture2D" uid="uid://bonsh62hstc5g" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger Overworld Sprite.png" id="15_sf8gr"]
-[ext_resource type="Texture2D" uid="uid://bn8b0d2k35da2" path="res://0-assets/sprites/NPC Text Sprites/frog_mask.png" id="16_pu012"]
-[ext_resource type="Texture2D" uid="uid://bcvkwscicnd3v" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki Overworld Sprite.png" id="17_rng6a"]
+[ext_resource type="Texture2D" uid="uid://fy1fy6sud2h8" path="res://0-assets/sprites/NPC Text Sprites/foxy_lady.png" id="16_2kxxd"]
+[ext_resource type="Texture2D" uid="uid://caxg6o6egqma8" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png" id="17_7c5mk"]
 [ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
+[ext_resource type="Texture2D" uid="uid://0pds3dtb153c" path="res://0-assets/sprites/NPC Text Sprites/frogger.png" id="18_qeoqo"]
+[ext_resource type="Texture2D" uid="uid://b6326ptnmop5t" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png" id="19_2fjuf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(19.155083, 22.027313)
@@ -94,8 +94,8 @@ dialogueSprite = ExtResource("7_ljyhy")
 position = Vector2(211, 205)
 characterID = 1
 npcname = "Primeape"
-mapSprite = ExtResource("7_yqsdm")
-dialogueSprite = ExtResource("9_ljyhy")
+mapSprite = ExtResource("7_10jhv")
+dialogueSprite = ExtResource("8_yqsdm")
 
 [node name="TheHare" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(66, 57)
@@ -115,7 +115,7 @@ dialogueSprite = ExtResource("10_i4rv0")
 position = Vector2(206, 127)
 characterID = 7
 npcname = "Flapper"
-mapSprite = ExtResource("11_2kxxd")
+mapSprite = ExtResource("13_i4rv0")
 dialogueSprite = ExtResource("12_7c5mk")
 
 [node name="Foxy" parent="NPCs" instance=ExtResource("5_igri3")]
@@ -123,20 +123,20 @@ position = Vector2(44, 177)
 characterID = 3
 npcname = "Foxy"
 mapSprite = ExtResource("13_qeoqo")
-dialogueSprite = ExtResource("14_2fjuf")
+dialogueSprite = ExtResource("16_2kxxd")
 
 [node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(79, 174)
 characterID = 4
 npcname = "Frogger"
-mapSprite = ExtResource("15_sf8gr")
-dialogueSprite = ExtResource("16_pu012")
+mapSprite = ExtResource("17_7c5mk")
+dialogueSprite = ExtResource("18_qeoqo")
 
 [node name="Tiki" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(136, 122)
 characterID = 2
 npcname = "Tiki"
-mapSprite = ExtResource("17_rng6a")
+mapSprite = ExtResource("19_2fjuf")
 dialogueSprite = ExtResource("18_f3ux1")
 
 [node name="Character" parent="NPCs" instance=ExtResource("3_qj1of")]

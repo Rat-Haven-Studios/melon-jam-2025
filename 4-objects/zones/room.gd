@@ -8,8 +8,7 @@ func _ready():
 	body_exited.connect(onAreaExited)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("swap") and playerIsInRoom:
-		CLogger.debug("Alerting guest of the swap right now")
+	if event.is_action_pressed("swap") and playerIsInRoom:
 		alertGuestOfMaskSwap()
 		
 		
@@ -24,14 +23,14 @@ func onAreaEntered(body: CharacterBody2D):
 		guestInRoom.append(body)
 		debugPrintGuestInRoom()
 	elif body is Character:
-		CLogger.debug("Player has entered " + str(self.name))
+		CLogger.info("Player has entered " + str(self.name))
 		playerIsInRoom = true
 func onAreaExited(body: CharacterBody2D):
 	if body is NPC:
 		guestInRoom.erase(body)
 		debugPrintGuestInRoom()
 	elif body is Character:
-		CLogger.debug("Player has left " + str(self.name))
+		CLogger.info("Player has left " + str(self.name))
 		playerIsInRoom = false
 
 func debugPrintGuestInRoom():

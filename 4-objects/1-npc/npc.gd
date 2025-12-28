@@ -144,7 +144,10 @@ func converse(maskID: int):
 		var availableChoices = []
 		for choice in node.choices:
 			if not choice.has("condition") or evaluateCondition(choice.condition, conversationState):
-				availableChoices.append(choice)
+				if choice.has("colored"):
+					availableChoices.append([choice, true])
+				else:
+					availableChoices.append([choice, false])
 		
 		if availableChoices.is_empty():
 			break

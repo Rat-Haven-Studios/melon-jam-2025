@@ -75,9 +75,18 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	CLogger.log("choice", " ".join(choices))
 	for i in range(choices.size()):
 		var btn: Button = Button.new()
-		btn.text = "  %d.\t %s" % [i + 1, choices[i].text]
+		
+		var choiceText: String = choices[i][0].text
+		var colored: bool = choices[i][1]
+		
+		if colored:
+			btn.add_theme_color_override("font_color", Color("6FAF8E"))
+			btn.add_theme_color_override("font_hover_color", Color("86C8A5"))
+			CLogger.debug("Expected COLORED BUTTON")
+		
+		btn.text = "  %d.\t %s" % [i + 1, choiceText]
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i]))
+		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i][0]))
 		btnContainer.add_child(btn)
 	
 	while selected_choice == null:

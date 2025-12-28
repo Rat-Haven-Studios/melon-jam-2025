@@ -41,6 +41,7 @@
 			},
 			{
 				"text": "Nothing, I'll leave",
+				"next": "end"
 			}
 		]
 	},

@@ -81,7 +81,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 		
 		if colored:
 			btn.add_theme_color_override("font_color", Color("6FAF8E"))
-			btn.add_theme_color_override("font_hover_color", Color("86C8A5"))
+			btn.add_theme_color_override("font_hover_color", Color("5E9E7D"))
 			CLogger.debug("Expected COLORED BUTTON")
 		
 		btn.text = "  %d.\t %s" % [i + 1, choiceText]

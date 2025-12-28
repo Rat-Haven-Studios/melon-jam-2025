@@ -81,6 +81,7 @@ zoom = Vector2(4, 4)
 script = ExtResource("2_wl7ar")
 
 [node name="NPCs" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(39, 58)
@@ -138,7 +139,7 @@ npcname = "Tiki"
 mapSprite = ExtResource("17_rng6a")
 dialogueSprite = ExtResource("18_f3ux1")
 
-[node name="Character" parent="." instance=ExtResource("3_qj1of")]
+[node name="Character" parent="NPCs" instance=ExtResource("3_qj1of")]
 position = Vector2(128, 256)
 scale = Vector2(0.9921745, 1)
 WALKING_STAIRS_SPEED = 60

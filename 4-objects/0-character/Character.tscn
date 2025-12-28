@@ -20,13 +20,14 @@ WALKING_STAIRS_SPEED = 50
 BASE_SPEED = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_rcecp")
 
 [node name="InteractComponent" parent="." instance=ExtResource("3_hpm3x")]
-position = Vector2(0, -6)
+position = Vector2(0, -8)
 
 [node name="StairsDetector" type="Area2D" parent="."]
+position = Vector2(0, -2)
 collision_layer = 4
 collision_mask = 4
 
@@ -35,24 +36,28 @@ position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_gbt3e")
 
 [node name="Light" parent="." instance=ExtResource("4_npi03")]
-position = Vector2(0, -6)
+position = Vector2(0, -8)
 flickerMin = 0.8
 flickerMax = 0.9
 rangeMin = 0.0
 rangeMax = 0.0
 
 [node name="SpriteContainer" type="Node2D" parent="."]
+position = Vector2(0, -2)
 
 [node name="NeutralMaskSprite" type="Sprite2D" parent="SpriteContainer"]
+y_sort_enabled = true
 position = Vector2(0, -6)
 texture = ExtResource("2_npi03")
 
 [node name="MayorMaskSprite" type="Sprite2D" parent="SpriteContainer"]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -6)
 texture = ExtResource("3_rcecp")
 
 [node name="PoorMaskSprite" type="Sprite2D" parent="SpriteContainer"]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -6)
 texture = ExtResource("4_1ncbb")

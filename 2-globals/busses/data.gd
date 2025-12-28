@@ -2,6 +2,7 @@ extends Node
 
 var player: Character
 var level
+var killed # will be null or from characters enum
 
 enum PlayerMasks {
 	BLANK,
@@ -17,7 +18,8 @@ enum Characters {
 	FROGGER,
 	JACK_RABBIT,
 	THE_HARE,
-	THE_FLAPPER
+	THE_FLAPPER,
+	NONE
 }
 
 # Maybe could simply use groups instead?

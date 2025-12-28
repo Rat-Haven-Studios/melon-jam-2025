@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1itio7i60o4d"]
+
+[ext_resource type="Script" uid="uid://y7ijs4yq5nqh" path="res://4-objects/3-ending/ending_scene.gd" id="1_vwkhh"]
+
+[node name="EndingScene" type="Node2D"]
+script = ExtResource("1_vwkhh")

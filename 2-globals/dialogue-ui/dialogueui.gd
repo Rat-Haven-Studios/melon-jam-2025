@@ -8,12 +8,15 @@ signal choice_selected(choice: Dictionary)
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer/Label
 @onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
 @onready var ui: CanvasLayer = $UI
-@onready var displaySpritre: TextureRect = $UI/VBoxContainer/HBoxContainer/MarginContainer2/TextureRect
+@onready var displaySpritre: TextureRect = $UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/TextureRect
+@onready var killBtn: Button = $UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Button
 
 var selected_choice = null
 var char_timer: float = 0.04
+var currentNPC
 
 func _ready():
+	killBtn.pressed.connect(murderBtnPressed)
 	hide()
 
 func _input(event):
@@ -25,6 +28,12 @@ func _input(event):
 				var btn: Button = btnContainer.get_child(choiceIndex)
 				btn.pressed.emit()
 
+func murderBtnPressed():
+	if currentNPC != null:
+		Data.killed = currentNPC.characterID
+	hide()
+	SceneTransitioner.change_scene("res://4-objects/3-ending/EndingScene.tscn")
+
 func show():
 	if not ui.visible:
 		ui.visible = true
@@ -35,11 +44,14 @@ func hide():
 		
 	for btn in btnContainer.get_children():
 		btn.queue_free()
+	
+	currentNPC = null
 
 func displayText(text: String, npc: NPC):
 	show()
 	CLogger.log("npc", text)
 	
+	currentNPC = npc
 	displaySpritre.texture = npc.dialogueSprite
 	nameTextBox.text = npc.npcname
 	responseTextBox.text = ""

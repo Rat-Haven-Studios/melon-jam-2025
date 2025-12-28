@@ -16,7 +16,7 @@ var moveDirection: Vector2
 var prevPosition: Vector2
 var wanderTime: float
 var waitTime: float
-var seenPlayerSwapMask: bool = false
+var hasSeenPlayerSwapMask: bool = false
 const MAX_MAP_BORDER: Vector2 = Vector2(256, 256)
 const MIN_MAP_BORDER: Vector2 = Vector2(0, 0)
 @export var waitTimeMin: float = 2
@@ -104,7 +104,7 @@ func roamBuilding():
 func converse(maskID: int):
 	currState = STATE.TALKING
 	CLogger.action("Starting conversation with %s (mask: %d)" % [npcname, maskID])
-		
+	
 	var dialogueTree = dialogueTrees.get(maskID, {})
 	if dialogueTree.is_empty():
 		CLogger.error("No dialogue tree found for mask %d" % maskID)

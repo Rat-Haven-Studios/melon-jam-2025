@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		
 func alertGuestOfMaskSwap():
 	for guest in guestInRoom:
-		guest.seenPlayerSwapMask = true
+		guest.hasSeenPlayerSwapMask = true
 	
 func onAreaEntered(body: CharacterBody2D):
 	if body is NPC:

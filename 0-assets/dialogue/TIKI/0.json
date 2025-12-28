@@ -27,6 +27,10 @@
         {
           "text": "Yeah.",
           "next": "good_party"
+        },
+        {
+          "text": "I'm not worried about that. I have questions.",
+          "next": "talk_to_tiki"
         }
       ],
       "condition": {

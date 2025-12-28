@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://toe70xl1lkkf"]
 
 [ext_resource type="Script" uid="uid://c1k2t3oaljnp8" path="res://4-objects/1-npc/npc.gd" id="1_atnjp"]
-[ext_resource type="Texture2D" uid="uid://b0qnmdbeo6s6i" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png" id="2_ifoj7"]
+[ext_resource type="Texture2D" uid="uid://caxg6o6egqma8" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png" id="2_ifoj7"]
 [ext_resource type="PackedScene" uid="uid://0w1aiel064xo" path="res://5-component/interactions/interact-receiver/InteractReceiverComponent.tscn" id="2_j6cqc"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_gsny7"]
 

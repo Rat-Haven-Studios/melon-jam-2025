@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
-[ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/Matt's Map.png" id="2_qflod"]
+[ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/world/Matt's Map.png" id="2_qflod"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
@@ -32,7 +32,7 @@ size = Vector2(19.155083, 22.027313)
 size = Vector2(19.155079, 22.027313)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hsu"]
-size = Vector2(1.4801798, 286.43884)
+size = Vector2(2.3073163, 69.85295)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igri3"]
 size = Vector2(42.141174, 22.027313)
@@ -85,7 +85,7 @@ y_sort_enabled = true
 
 [node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(39, 58)
-npcname = "Bandit King"
+npcname = "The Bandit King"
 susLevel = 5
 mapSprite = ExtResource("6_2rcib")
 dialogueSprite = ExtResource("7_ljyhy")
@@ -93,7 +93,7 @@ dialogueSprite = ExtResource("7_ljyhy")
 [node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(211, 205)
 characterID = 1
-npcname = "Primeape"
+npcname = "The Ape"
 mapSprite = ExtResource("7_10jhv")
 dialogueSprite = ExtResource("8_yqsdm")
 
@@ -107,35 +107,35 @@ dialogueSprite = ExtResource("8_10jhv")
 [node name="JackRabbit" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(208, 54)
 characterID = 5
-npcname = "Jack Rabbit"
+npcname = "The Jack Rabbit"
 mapSprite = ExtResource("9_yqsdm")
 dialogueSprite = ExtResource("10_i4rv0")
 
 [node name="Flapper" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(206, 127)
 characterID = 7
-npcname = "Flapper"
+npcname = "The Flapper"
 mapSprite = ExtResource("13_i4rv0")
 dialogueSprite = ExtResource("12_7c5mk")
 
 [node name="Foxy" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(44, 177)
 characterID = 3
-npcname = "Foxy"
+npcname = "The Fox"
 mapSprite = ExtResource("13_qeoqo")
 dialogueSprite = ExtResource("16_2kxxd")
 
 [node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(79, 174)
 characterID = 4
-npcname = "Frogger"
+npcname = "The Frog"
 mapSprite = ExtResource("17_7c5mk")
 dialogueSprite = ExtResource("18_qeoqo")
 
 [node name="Tiki" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(136, 122)
 characterID = 2
-npcname = "Tiki"
+npcname = "The Tiki"
 mapSprite = ExtResource("19_2fjuf")
 dialogueSprite = ExtResource("18_f3ux1")
 
@@ -172,7 +172,7 @@ rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall3"]
-position = Vector2(-2.1194733e-06, 3.1471252e-05)
+position = Vector2(-0.34827057, -104.63741)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -182,7 +182,7 @@ rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall4"]
-position = Vector2(3.3676624e-06, -9.536743e-07)
+position = Vector2(0.41357154, -108.29289)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -275,6 +275,46 @@ position = Vector2(219, 224)
 position = Vector2(8.940697e-08, 0)
 rotation = 0.68365085
 shape = SubResource("CapsuleShape2D_qeoqo")
+
+[node name="Wall15" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(253, -24.999998)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall15"]
+position = Vector2(-0.34827057, -104.63741)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
+
+[node name="Wall16" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(1.5258789e-05, -22)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall16"]
+position = Vector2(-0.34827057, -104.63741)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
+
+[node name="Wall17" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(0.99999994, 44.999992)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall17"]
+position = Vector2(-0.34827057, -104.63741)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
+
+[node name="Wall18" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(250.99998, 44.000004)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall18"]
+position = Vector2(-0.34827057, -104.63741)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_02hsu")
 
 [node name="All Stairs" type="Node2D" parent="."]
 position = Vector2(128, 34.000015)

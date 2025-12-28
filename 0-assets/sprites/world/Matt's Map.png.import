@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt7jrka0fhgbu"
-path="res://.godot/imported/Matt's Map.png-20207b12826cad321d63ad50d00e6245.ctex"
+path="res://.godot/imported/Matt's Map.png-c352b718c5bf35beabf91329c7767059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/Matt's Map.png"
-dest_files=["res://.godot/imported/Matt's Map.png-20207b12826cad321d63ad50d00e6245.ctex"]
+source_file="res://0-assets/sprites/world/Matt's Map.png"
+dest_files=["res://.godot/imported/Matt's Map.png-c352b718c5bf35beabf91329c7767059.ctex"]
 
 [params]
 

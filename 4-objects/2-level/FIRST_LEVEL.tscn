@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=34 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/Matt's Map.png" id="2_qflod"]
@@ -7,12 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
 [ext_resource type="Texture2D" uid="uid://bh1tw04y86sd5" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit King Overworld.png" id="6_2rcib"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
-[ext_resource type="Texture2D" uid="uid://dpjns717fenip" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
+[ext_resource type="Texture2D" uid="uid://b1jnoeanb2j5d" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
+[ext_resource type="Texture2D" uid="uid://cgmlgtegih21y" path="res://0-assets/sprites/NPC Overworld Sprites/The Hare Overworld Sprite.png" id="7_ms2wu"]
 [ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
+[ext_resource type="Texture2D" uid="uid://b0qnmdbeo6s6i" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld Sprite.png" id="7_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
-[ext_resource type="Texture2D" uid="uid://b5wqyr3ub4p5t" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey Overworld.png" id="8_2rcib"]
+[ext_resource type="Texture2D" uid="uid://b23kn0vrc6afx" path="res://0-assets/sprites/NPC Text Sprites/Bunny_gal.png" id="8_10jhv"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="9_igri3"]
-[ext_resource type="Texture2D" uid="uid://cib33rhxfcvoh" path="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png" id="9_ljyhy"]
+[ext_resource type="Texture2D" uid="uid://c6lk84cassnec" path="res://0-assets/sprites/NPC Text Sprites/monkey_mask.png" id="9_ljyhy"]
+[ext_resource type="Texture2D" uid="uid://u7uqnsxm367v" path="res://0-assets/sprites/NPC Overworld Sprites/Jack Rabbit Overworld Sprite.png" id="9_yqsdm"]
+[ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="10_i4rv0"]
+[ext_resource type="Texture2D" uid="uid://4jngnbv0y467" path="res://0-assets/sprites/NPC Overworld Sprites/Flapper Overworld Sprite.png" id="11_2kxxd"]
+[ext_resource type="Texture2D" uid="uid://dgtrjmf0odosl" path="res://0-assets/sprites/NPC Text Sprites/flapper.png" id="12_7c5mk"]
+[ext_resource type="Texture2D" uid="uid://mf1b5f5mhewd" path="res://0-assets/sprites/NPC Overworld Sprites/Foxy Overworld Sprite.png" id="13_qeoqo"]
+[ext_resource type="Texture2D" uid="uid://bxo3yngieiurf" path="res://0-assets/sprites/NPC Text Sprites/fox_mask.png" id="14_2fjuf"]
+[ext_resource type="Texture2D" uid="uid://bonsh62hstc5g" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger Overworld Sprite.png" id="15_sf8gr"]
+[ext_resource type="Texture2D" uid="uid://bn8b0d2k35da2" path="res://0-assets/sprites/NPC Text Sprites/frog_mask.png" id="16_pu012"]
+[ext_resource type="Texture2D" uid="uid://bcvkwscicnd3v" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki Overworld Sprite.png" id="17_rng6a"]
+[ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(19.155083, 22.027313)
@@ -53,18 +65,60 @@ script = ExtResource("2_wl7ar")
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="BanditKing" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(214, 199)
+position = Vector2(177, 197)
 npcname = "Bandit King"
 susLevel = 5
 mapSprite = ExtResource("6_2rcib")
 dialogueSprite = ExtResource("7_ljyhy")
 
 [node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(47, 184)
+position = Vector2(73, 191)
 characterID = 1
 npcname = "Primeape"
-mapSprite = ExtResource("8_2rcib")
+mapSprite = ExtResource("7_yqsdm")
 dialogueSprite = ExtResource("9_ljyhy")
+
+[node name="TheHare" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(74, 158)
+characterID = 6
+npcname = "The Hare"
+mapSprite = ExtResource("7_ms2wu")
+dialogueSprite = ExtResource("8_10jhv")
+
+[node name="JackRabbit" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(107, 157)
+characterID = 5
+npcname = "Jack Rabbit"
+mapSprite = ExtResource("9_yqsdm")
+dialogueSprite = ExtResource("10_i4rv0")
+
+[node name="Flapper" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(142, 159)
+characterID = 7
+npcname = "Flapper"
+mapSprite = ExtResource("11_2kxxd")
+dialogueSprite = ExtResource("12_7c5mk")
+
+[node name="Foxy" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(175, 164)
+characterID = 3
+npcname = "Foxy"
+mapSprite = ExtResource("13_qeoqo")
+dialogueSprite = ExtResource("14_2fjuf")
+
+[node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(107, 191)
+characterID = 4
+npcname = "Frogger"
+mapSprite = ExtResource("15_sf8gr")
+dialogueSprite = ExtResource("16_pu012")
+
+[node name="Tiki" parent="NPCs" instance=ExtResource("5_igri3")]
+position = Vector2(143, 193)
+characterID = 2
+npcname = "Tiki"
+mapSprite = ExtResource("17_rng6a")
+dialogueSprite = ExtResource("18_f3ux1")
 
 [node name="Character" parent="." instance=ExtResource("3_qj1of")]
 position = Vector2(128, 256)

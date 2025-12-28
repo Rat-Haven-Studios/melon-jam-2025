@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwaob41kd75sa"
-path="res://.godot/imported/bunnyman_overworld.png-857fb6cc2800f7087408690a479da7b3.ctex"
+uid="uid://bxo3yngieiurf"
+path="res://.godot/imported/fox_mask.png-555040cf3a0356513ecb5a11775990c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Overworld Sprites/bunnyman_overworld.png"
-dest_files=["res://.godot/imported/bunnyman_overworld.png-857fb6cc2800f7087408690a479da7b3.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/fox_mask.png"
+dest_files=["res://.godot/imported/fox_mask.png-555040cf3a0356513ecb5a11775990c1.ctex"]
 
 [params]
 

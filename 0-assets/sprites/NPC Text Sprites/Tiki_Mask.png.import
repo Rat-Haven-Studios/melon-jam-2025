@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck7erfuuyi50d"
-path="res://.godot/imported/bunny_man.png-3c23a8c5ca1a63b62c20398b1fa2d400.ctex"
+uid="uid://djxksa1dl0bvp"
+path="res://.godot/imported/Tiki_Mask.png-270b5b041560065a7ef47eb515d18d26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/NPC Text Sprites/bunny_man.png"
-dest_files=["res://.godot/imported/bunny_man.png-3c23a8c5ca1a63b62c20398b1fa2d400.ctex"]
+source_file="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png"
+dest_files=["res://.godot/imported/Tiki_Mask.png-270b5b041560065a7ef47eb515d18d26.ctex"]
 
 [params]
 

@@ -1,25 +1,34 @@
 {
-  "initial_greeting": "You have the blank mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "I'm The Frog",
+  "talked_already": "Still the frog...",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
+    "start": {
+      "text": "Need somethin?",
+      "choices": [
+        {
+          "text": "Just need to introduce myself",
+          "next": "end",
+          "set_flag": "frog_talked_to"
+        }
+      ]
+    },
+    "talked_previously": {
+      "text": "Did it not set the flag already?",
+      "choices": [
 		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
+			"text": "Can you tell me your identity?",
+			"next": "identity",
+			"set_flag": "frog_identity_revealed"
 		}
 	  ]
+    },
+	"identity": {
+		"text": "Sure, I lowkey betrayed the mayor",
+		"next": "end"
 	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "end": {
+      "text": "See ya!",
+      "choices": []
+    }
   }
 }

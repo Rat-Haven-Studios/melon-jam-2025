@@ -6,7 +6,8 @@ signal choice_selected(choice: Dictionary)
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer/Label
-@onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
+#@onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
+@onready var arrow: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/Label
 @onready var ui: CanvasLayer = $UI
 @onready var displaySpritre: TextureRect = $UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/TextureRect
 @onready var killBtn: Button = $UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Button
@@ -71,6 +72,7 @@ func displayText(text: String, npc: NPC):
 	
 	var cntr = 0
 	for aChar in text:
+		arrow.text = "(X)"
 		if not ui.visible:
 			return
 		
@@ -91,10 +93,11 @@ func displayText(text: String, npc: NPC):
 
 	displaySpritre.texture = npc.dialogueSprite
 	# wait for the user to continue...
-	arrow.visible = true
+	arrow.text = "(Z)"
+	#arrow.visible = true
 	while not Input.is_action_just_pressed("interact"):
 		await get_tree().process_frame
-	arrow.visible = false
+	#arrow.visible = false
 	currentNPC = null
 
 func presentChoices(choices: Array, npc: NPC) -> Dictionary:
@@ -103,6 +106,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	
 	currentNPC = npc
 	selected_choice = null  # Reset selection
+	arrow.visible = false
 	
 	CLogger.log("choice", " ".join(choices))
 	for i in range(choices.size()):
@@ -116,7 +120,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 			btn.add_theme_color_override("font_hover_color", Color("5E9E7D"))
 			CLogger.debug("Expected COLORED BUTTON")
 		
-		btn.text = "  %d.\t %s" % [i + 1, choiceText]
+		btn.text = "  (%d)\t %s" % [i + 1, choiceText]
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		btn.autowrap_mode = TextServer.AUTOWRAP_WORD
 		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i][0]))
@@ -125,6 +129,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	while selected_choice == null:
 		await get_tree().process_frame
 	
+	arrow.visible = true
 	currentNPC = null
 	return selected_choice
 

@@ -158,6 +158,7 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
 visible = false
@@ -169,3 +170,9 @@ texture = ExtResource("3_g18vi")
 [node name="ColorRect" type="ColorRect" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "(Z)"

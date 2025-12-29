@@ -26,7 +26,12 @@
           "text": "Nevermind.",
           "next": "end"
         }
-      ]
+      ],
+      "condition": {
+        "state": "false",
+        "flag": "foxy_hate"
+      },
+      "else": "chance"
     },
     "ask_info": {
       "text": "Fine. What must you ask?",
@@ -44,9 +49,39 @@
           "text": "The Flapper said your dress was nice.",
           "next": "foxys_dress",
           "colored": "true",
+          "set_flag": "foxy_rich",
           "condition": {
             "state": "true",
             "flag": "flappers_dress"
+          }
+        },
+        {
+          "text": "I have nothing more.",
+          "next": "end"
+        },
+        {
+          "text": "Who hosted this party?",
+          "next": "hosted",
+          "set_flag": "mayor_hosted"
+        },
+        {
+          "text": "Do you also hate the Common Man act?",
+          "next": "rumor",
+          "colored": "true",
+          "set_flag": "someone_dies_tonight",
+          "condition": {
+            "state": "true",
+            "flag": "agree_with_common_man_act"
+          }
+        },
+        {
+          "text": "Do you also like the Common Man Act?",
+          "next": "cma_like",
+          "colored": "true",
+          "set_flag": "foxy_hate",
+          "condition": {
+            "state": "true",
+            "flag": "common_man_act_dissed"
           }
         }
       ],
@@ -71,6 +106,11 @@
         {
           "text": "Please...?",
           "next": "end"
+        },
+        {
+          "text": "I refuse to bow down to you.",
+          "next": "never_again",
+          "set_flag": "foxy_hate"
         }
       ],
       "condition": {
@@ -84,12 +124,67 @@
       "next": "whats_in_it"
     },
     "accused": {
-      "text": "",
-      "choices": []
+      "text": "Wha... What could you possibly mean? What do you know about the Hare and I?",
+      "choices": [
+        {
+          "text": "Nothing. It's just strange that you'd be talking to her.",
+          "next": "strange_talking",
+          "colored": "true",
+          "set_flag": "foxy_hate",
+          "condition": {
+            "state": "true",
+            "flag": "the_hare_and_mayor"
+          }
+        },
+        {
+          "text": "Nothing I suppose...",
+          "next": "thats_right"
+        }
+      ]
     },
     "foxys_dress": {
-      "text": "",
+      "text": "I'm surprised that tasteless broad could recognize such beauty. I bought it yesterday. I always buy a new dress before each party. Anything less is simply sad.",
+      "next": "ask_info"
+    },
+    "hosted": {
+      "text": "Obviously the Mayor is the host of this party. Do you think this gaudy place would belong to anyone else? I'm sure that he's around here somewhere... Not that I'd give him any piece of mind.",
+      "next": "ask_info"
+    },
+    "rumor": {
+      "text": "Of course! Such a foolish idea.",
+      "next": "dots"
+    },
+    "never_again": {
+      "text": "You dare!",
+      "next": "end"
+    },
+    "chance": {
+      "text": "You had your chance.",
       "choices": []
+    },
+    "cma_like": {
+      "text": "Why would I like that foolish bill? Only those loyal fools would agree with that. Off with you!",
+      "next": "end"
+    },
+    "dots": {
+      "text": ".......",
+      "next": "murder_rumor"
+    },
+    "murder_rumor": {
+      "text": "Just between me and you... I heard a rumor that someone was going to get killed at the party tonight.",
+      "choices": []
+    },
+    "dots_two": {
+      "text": ".................",
+      "choices": []
+    },
+    "strange_talking": {
+      "text": "Why would it be strange? Just because of our political alignment? Are we not allowed to socialize here? I am through with talking to you.",
+      "next": "end"
+    },
+    "thats_right": {
+      "text": "Yeah.... that's right.",
+      "next": "ask_info"
     }
   }
 }

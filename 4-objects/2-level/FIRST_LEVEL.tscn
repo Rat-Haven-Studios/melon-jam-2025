@@ -1,8 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=35 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
-[ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/world/Matt's Map.png" id="2_qflod"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
+[ext_resource type="Texture2D" uid="uid://b3h8twnvfy45y" path="res://0-assets/sprites/blocks/The Map.png" id="2_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
 [ext_resource type="Texture2D" uid="uid://8boforvtqjpj" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit_King_Overworld_Sprite.png" id="5_yqsdm"]
@@ -33,7 +33,7 @@ size = Vector2(48.75838, 22.027313)
 size = Vector2(41.444626, 22.027313)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hsu"]
-size = Vector2(2.3073163, 168.42941)
+size = Vector2(2.3073163, 227.33952)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igri3"]
 size = Vector2(42.141174, 22.027313)
@@ -44,24 +44,8 @@ size = Vector2(6.878421, 61.339245)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scqml"]
 size = Vector2(6.7478175, 55.926884)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqsdm"]
-radius = 13.0156555
-height = 49.992176
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4rv0"]
-radius = 16.0
-height = 32.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kxxd"]
-radius = 5.3620377
-height = 23.518738
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7c5mk"]
 height = 36.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qeoqo"]
-radius = 4.220703
-height = 12.805725
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw45h"]
 size = Vector2(24, 43)
@@ -74,7 +58,7 @@ script = ExtResource("1_jry3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(128, 128)
-texture = ExtResource("2_qflod")
+texture = ExtResource("2_yqsdm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(131, 255)
@@ -127,7 +111,7 @@ mapSprite = ExtResource("13_qeoqo")
 dialogueSprite = ExtResource("16_2kxxd")
 
 [node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
-position = Vector2(82, 282)
+position = Vector2(112, 323)
 characterID = 4
 npcname = "The Frog"
 mapSprite = ExtResource("17_7c5mk")
@@ -146,7 +130,6 @@ scale = Vector2(0.9921745, 1)
 WALKING_STAIRS_SPEED = 60
 
 [node name="All Walls" type="Node2D" parent="."]
-visible = false
 
 [node name="Wall" parent="All Walls" instance=ExtResource("6_4qvpp")]
 position = Vector2(55.000023, 247.00003)
@@ -174,7 +157,7 @@ rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall3"]
-position = Vector2(-0.5224087, -153.94931)
+position = Vector2(-0.52241516, -183.4043)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -184,7 +167,7 @@ rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall4"]
-position = Vector2(0.3482693, -157.55748)
+position = Vector2(0.52240574, -186.42297)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -238,30 +221,6 @@ position = Vector2(0.06530762, -2.7061462)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_scqml")
 
-[node name="Wall10" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(53, 203)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall10"]
-position = Vector2(6.000001, -1.0000001)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_yqsdm")
-
-[node name="Wall11" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(183, 204)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall11"]
-position = Vector2(4, 0)
-shape = SubResource("CapsuleShape2D_i4rv0")
-
-[node name="Wall12" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(227, 198)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall12"]
-position = Vector2(0, -3)
-rotation = -0.6975689
-scale = Vector2(1.3367808, 1.1433684)
-shape = SubResource("CapsuleShape2D_2kxxd")
-
 [node name="Wall13" parent="All Walls" instance=ExtResource("6_4qvpp")]
 position = Vector2(208, 62)
 
@@ -270,21 +229,13 @@ position = Vector2(1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_7c5mk")
 
-[node name="Wall14" parent="All Walls" instance=ExtResource("6_4qvpp")]
-position = Vector2(219, 224)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall14"]
-position = Vector2(8.940697e-08, 0)
-rotation = 0.68365085
-shape = SubResource("CapsuleShape2D_qeoqo")
-
 [node name="Wall17" parent="All Walls" instance=ExtResource("6_4qvpp")]
 position = Vector2(0.99999994, 44.999992)
 rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall17"]
-position = Vector2(-0.34827065, -55.349194)
+position = Vector2(-0.17413759, -25.257326)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -294,7 +245,7 @@ rotation = -3.1415925
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall18"]
-position = Vector2(-0.52241445, -51.717365)
+position = Vector2(-0.34827697, -32.473686)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_02hsu")
 
@@ -344,9 +295,19 @@ rotation = 3.1415927
 scale = Vector2(5.7426033, 0.8314423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall21"]
-position = Vector2(7.487892, 0)
+position = Vector2(6.9654803, -61.33919)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_4qvpp")
+
+[node name="Wall22" parent="All Walls" instance=ExtResource("6_4qvpp")]
+position = Vector2(316, 154)
+rotation = -3.1415925
+scale = Vector2(5.7426033, 0.8314423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Walls/Wall22"]
+position = Vector2(-11.144772, 9.1552734e-05)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_qflod")
 
 [node name="All Stairs" type="Node2D" parent="."]
 position = Vector2(128, 34.000015)
@@ -404,11 +365,15 @@ position = Vector2(191, 20)
 [node name="Light7" parent="All of the lights" instance=ExtResource("25_yqsdm")]
 position = Vector2(119, 340)
 
-[node name="Light8" parent="All of the lights" instance=ExtResource("25_yqsdm")]
-position = Vector2(191, 210)
-
 [node name="Light9" parent="All of the lights" instance=ExtResource("25_yqsdm")]
 position = Vector2(336, 211)
 
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
 energy = 0.3
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Wall" parent="." instance=ExtResource("6_4qvpp")]
+position = Vector2(59, 202)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]

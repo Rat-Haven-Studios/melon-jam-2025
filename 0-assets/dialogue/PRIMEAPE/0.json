@@ -71,7 +71,7 @@
       ]
     },
     "why_is_he_former": {
-      "text": "Who's to say. I hear he's one of us tho, hates the mayor and what he stands for.",
+      "text": "Who's to say. I hear he's one of use tho, hates the mayor and what he stands for.",
       "choices": []
     },
     "talked_previously": {
@@ -85,6 +85,7 @@
           "text": "The Tiki is the mayors son",
           "next": "tiki_dialogue",
           "colored": "true",
+          "set_flag": "ratted_on_tiki",
           "condition": {
             "state": "true",
             "flag": "tiki_mayor_son"

@@ -1,33 +1,95 @@
 {
-  "initial_greeting": "I'm The Frog",
-  "talked_already": "Still the frog...",
+  "initial_greeting": "....Oh, you're talking to me?",
+  "talked_already": "Oh...",
   "nodes": {
     "start": {
-      "text": "Need somethin?",
+      "text": "Sorry, I'm not much for conversation...",
       "choices": [
         {
-          "text": "Just need to introduce myself",
-          "next": "end",
-          "set_flag": "frog_talked_to"
+          "text": "It's ok, how's the party?",
+          "next": "frog_not_a_partier",
+          "set_flag": "talked_to_frog"
+        },
+        {
+          "text": "You don't like to conversate yet you came to a party?",
+          "next": "nervous_protest_explain"
         }
       ]
     },
-    "talked_previously": {
-      "text": "Did it not set the flag already?",
+    "frog_not_a_partier": {
+      "text": "Oh, I'm not much for parties. I'm here more so as a protest.",
       "choices": [
-		{
-			"text": "Can you tell me your identity?",
-			"next": "identity",
-			"set_flag": "frog_identity_revealed"
-		}
-	  ]
+        {
+          "text": "A protest? What are you protesting.",
+          "next": "frog_protest"
+        },
+        {
+          "text": "You don't seem to be protesting much standing out here by yourself.",
+          "next": "berate_the_frog",
+          "set_flag": "frog_berated"
+        }
+      ]
     },
-	"identity": {
-		"text": "Sure, I lowkey betrayed the mayor",
-		"next": "end"
-	},
+    "frog_protest": {
+      "text": "Oh, you know, bad policies and what not. This event brings in a lot of unique people.",
+      "choices": []
+    },
+    "dissing_protest_skills": {
+      "text": "Heh, yea, I know...",
+      "choices": []
+    },
+    "talked_previously": {
+      "text": "Uhm...",
+      "choices": [],
+      "condition": {
+        "state": "false",
+        "flag": "frog_berate_to_come_clean"
+      },
+      "else": "apprehensive"
+    },
+    "nervous_protest_explain": {
+      "text": "Oh, uhm, well, I'm really here as kind of, like, a protest.",
+      "choices": [
+        {
+          "text": "You came to a party alone to protest to no one?",
+          "next": "berate_the_frog",
+          "set_flag": "frog_berated"
+        }
+      ]
+    },
+    "berate_the_frog": {
+      "text": "Well... I don't know, it's hard to explain.",
+      "choices": [
+        {
+          "text": "Go ahead, explain.",
+          "next": "frog_about_to_cry"
+        },
+        {
+          "text": "Alright, if you say so.",
+          "next": "talked_previously"
+        }
+      ]
+    },
+    "frog_about_to_cry": {
+      "text": "I don't know... I'm sorry....",
+      "choices": [
+        {
+          "text": "You're sorry that you can't explain what you're protesting at a party alone?",
+          "next": "frog_berating_to_come_clean",
+          "set_flag": "frog_berate_to_come_clean"
+        }
+      ]
+    },
+    "frog_berating_to_come_clean": {
+      "text": "Look, I'm here for the mayor. Now please, leave me alone...",
+      "choices": []
+    },
+    "apprehensive": {
+      "text": "I'm here for the mayor. Please just leave me alone...",
+      "choices": []
+    },
     "end": {
-      "text": "See ya!",
+      "text": "Bye",
       "choices": []
     }
   }

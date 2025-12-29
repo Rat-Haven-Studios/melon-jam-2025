@@ -555,10 +555,25 @@ position = Vector2(65, 18)
 position = Vector2(191, 20)
 
 [node name="Light7" parent="All of the lights" instance=ExtResource("25_yqsdm")]
-position = Vector2(119, 340)
+position = Vector2(129, 328)
 
 [node name="Light9" parent="All of the lights" instance=ExtResource("25_yqsdm")]
-position = Vector2(336, 211)
+position = Vector2(321, 222)
+
+[node name="Light8" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(-65, 189)
+
+[node name="Light10" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(362, 207)
+
+[node name="Light11" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(191, 211)
+
+[node name="Light12" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(107, 19)
+
+[node name="Light13" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(149, 18)
 
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
 energy = 0.3

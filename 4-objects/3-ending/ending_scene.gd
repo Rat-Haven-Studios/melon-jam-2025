@@ -17,21 +17,24 @@ func _ready() -> void:
 		CLogger.error("Who Died was NULL")
 		return
 	
-	if whoDied == Data.Characters.TIKI and Data.prevFlags.has("one_shot_ending"):
-		label.text = "Wrong man. More than one shot..."
-	elif whoDied == Data.Characters.TIKI and Data.prevFlags.has("tiki_betrayal") and not (Data.prevFlags.has("tiki_learns_betrayal")):
-		label.text = "Vagrant down... but not my target."
-	elif whoDied == Data.Characters.BANDIT_KING and Data.prevFlags.has("maybe_mayor"):
-		label.text = "You killed the Mayor..."
-	elif (whoDied == Data.Characters.THE_FLAPPER) and Data.prevFlags.has("she_yappin"):
-		label.text = "Not her, but enough of that."
-	elif whoDied != killerID:
+	if whoDied != killerID:
 		CLogger.info("Player selected the wrong person")
-		label.text = "You selected wrong..."
+		label.text = "You selected wrong...\n"
 	else:
 		CLogger.info("Player won!")
-		label.text = "You correctly identified and killed the traitor!"
+		label.text = "You correctly identified and killed the traitor!\n"
 	
+	if whoDied == Data.Characters.TIKI and Data.prevFlags.has("one_shot_ending"):
+		label.text += "More than one shot..."
+	elif whoDied == Data.Characters.TIKI and Data.prevFlags.has("tiki_betrayal") and not (Data.prevFlags.has("tiki_learns_betrayal")):
+		label.text += "Vagrant down..."
+	elif (whoDied == Data.Characters.THE_FLAPPER) and Data.prevFlags.has("she_yappin"):
+		label.text += "No more yapping."
+	elif (whoDied == Data.Characters.JACK_RABBIT) and Data.prevFlags.has("gay_bro_active"):
+		label.text += "We're down one less bigot."
+	elif whoDied == Data.Characters.BANDIT_KING and Data.prevFlags.has("maybe_mayor"):
+		label.text = "You killed the Mayor..."
+
 	
 	CLogger.debug(str(Data.prevFlags))
 	

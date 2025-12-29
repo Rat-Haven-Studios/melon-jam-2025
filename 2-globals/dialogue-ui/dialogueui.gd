@@ -46,6 +46,8 @@ func murderBtnPressed():
 	
 	murdered = true
 	
+	killBtn.disabled = true
+	
 	for btn in btnContainer.get_children():
 		btn.queue_free()
 	

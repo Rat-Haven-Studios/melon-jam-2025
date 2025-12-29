@@ -94,6 +94,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 
 [node name="HowToPlayButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonMarginContainer/VBoxContainer/ButtonVBox"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"MainMenuButton"
 text = "How To Play"

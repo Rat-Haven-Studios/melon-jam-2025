@@ -61,12 +61,12 @@ theme_override_constants/margin_right = 250
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Back"
-
 [node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Proceed"
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"

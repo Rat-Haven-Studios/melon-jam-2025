@@ -42,14 +42,8 @@
           }
         },
         {
-          "text": "Were you a kicked out of university?",
-          "next": "defensive_tiki_man",
-          "colored": "true",
-          "set_flag": "tiki_learns_betrayal",
-          "condition": {
-            "state": "true",
-            "flag": "tiki_betrayal"
-          }
+          "text": "For sure, just dropping by real quick is all.",
+          "next": "end_positive"
         }
       ],
       "condition": {
@@ -59,7 +53,7 @@
       "else": "betrayed_tiki_man_response"
     },
     "end_positive": {
-      "text": "See ya around.",
+      "text": "Nice! See ya around.",
       "choices": []
     },
     "end_negative": {
@@ -148,16 +142,7 @@
     },
     "go_to_flapper": {
       "text": "If you want someone to talk to, you should go talk to The Flapper. It took me an hour before I escaped her grasp.",
-      "choices": [
-        {
-          "text": "I'll go now.",
-          "next": "end_positive"
-        },
-        {
-          "text": "I'd prefer to keep talking to you.",
-          "next": "talk_to_tiki"
-        }
-      ]
+      "next": "talked_previously"
     },
     "why_come": {
       "text": "If you're not a party guy, why did you come?",
@@ -226,6 +211,16 @@
         {
           "text": "I'd just like to know more about you.",
           "next": "boundaries"
+        },
+        {
+          "text": "Were you a kicked out of university?",
+          "next": "defensive_tiki_man",
+          "colored": "true",
+          "set_flag": "tiki_learns_betrayal",
+          "condition": {
+            "state": "true",
+            "flag": "tiki_betrayal"
+          }
         }
       ]
     },

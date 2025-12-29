@@ -121,7 +121,6 @@ script = ExtResource("4_q63ys")
 metadata/_custom_type_script = "uid://bei2cvpc8wqtr"
 
 [node name="CreditsButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonMarginContainer/VBoxContainer/ButtonVBox"]
-visible = false
 layout_mode = 2
 theme_type_variation = &"MainMenuButton"
 text = "Credits"

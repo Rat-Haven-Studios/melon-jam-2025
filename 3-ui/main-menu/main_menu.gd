@@ -8,7 +8,7 @@ extends Control
 
 const FIRST_LEVEL: String = "res://4-objects/2-level/FIRST_LEVEL.tscn"
 const HOW_TO_PLAY: String = ""
-const CREDITS: String = ""
+const CREDITS: String = "res://4-objects/5-credits/credits.tscn"
 const START: String = "res://4-objects/4-intro/Intro.tscn"
 
 func _ready() -> void:

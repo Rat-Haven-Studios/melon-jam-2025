@@ -6,12 +6,24 @@
       "text": "Are you sure you have the right person?",
       "choices": [
         {
-          "text": "Yes. I want to ask you some questions.",
-          "next": "ask_info"
+          "text": "I heard this is the mayor's party. Would you... know anything about this?",
+          "next": "secret_agenda",
+          "colored": "true",
+          "set_flag": "frog_talked_to",
+          "condition": {
+            "state": "true",
+            "flag": "mayor_hosted"
+          }
         },
         {
           "text": "Maybe I don't",
-          "next": "mistake"
+          "next": "mistake",
+          "set_flag": "frog_talked_to"
+        },
+        {
+          "text": "I was hoping to find the left person.",
+          "next": "talked_previously",
+          "set_flag": "frog_talked_to"
         }
       ],
       "condition": {
@@ -20,15 +32,11 @@
       },
       "else": "bad_thing"
     },
-    "talked_previously": {
-      "text": "",
-      "next": "start"
-    },
     "end": {
       "text": "Goodbye...",
       "choices": []
     },
-    "ask_info": {
+    "talked_previously": {
       "text": "Oh...",
       "choices": [
         {
@@ -65,6 +73,10 @@
             "state": "true",
             "flag": "frog_identity_revealed"
           }
+        },
+        {
+          "text": "We'll talk later.",
+          "next": "end"
         }
       ]
     },
@@ -73,7 +85,7 @@
       "choices": []
     },
     "identity": {
-      "text": "Uh... yeah. I hate the mayor. Really hate that guy.",
+      "text": "They said I betrayed the mayor? Uh... yeah. I hate the mayor. Really hate that guy.",
       "choices": [
         {
           "text": "You don't really sound like you do.",
@@ -87,12 +99,12 @@
       ]
     },
     "talk_to": {
-      "text": "I don't know... I think The Tiki is pretty cool...",
-      "next": "ask_info"
+      "text": "Hmmm, well, I guess I liked talking to The Tiki. Maybe you should see him.",
+      "next": "talked_previously"
     },
     "secret_agenda": {
       "text": "Uhhhh. I don't know... I'm sure he has some reason. I don't think he has a secrete agenda or anything that you should worry about though....",
-      "next": "ask_info"
+      "next": "talked_previously"
     },
     "cause_i_dont": {
       "text": "Sigh.... Ok. I don't.... I'll tell you a secret. I only act like I hate the mayor so I can gather intel for him.",
@@ -100,7 +112,7 @@
     },
     "evil": {
       "text": "The mayor is many things, but never evil. Maybe you're a fool...",
-      "next": "ask_info"
+      "next": "talked_previously"
     },
     "dots": {
       "text": ".............",
@@ -112,7 +124,7 @@
     },
     "who_am_i": {
       "text": "I know... It seems like everyone does at this point. I hope no one uses my true identify to tell you some secret background that you shouldn't know otherwise....",
-      "next": "ask_info"
+      "next": "talked_previously"
     }
   }
 }

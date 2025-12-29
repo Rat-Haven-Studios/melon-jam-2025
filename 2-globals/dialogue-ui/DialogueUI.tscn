@@ -105,7 +105,7 @@ theme_override_constants/margin_right = 20
 [node name="Button" type="Button" parent="UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Murder"
+text = "(M) Murder"
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2

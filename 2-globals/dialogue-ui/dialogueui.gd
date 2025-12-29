@@ -36,7 +36,7 @@ func murderBtnPressed():
 	if currentNPC != null:
 		Data.killed = currentNPC.characterID
 	# Change their sprite
-	displaySpritre = currentNPC.dialogueKilledSprite
+	displaySpritre.texture = currentNPC.dialogueKilledSprite
 	# Wait some time
 	# Play my sound
 	AudiManny.playSFX(preload("res://0-assets/sfx/gunshot.mp3"))

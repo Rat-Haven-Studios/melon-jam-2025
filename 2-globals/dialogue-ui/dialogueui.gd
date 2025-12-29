@@ -38,8 +38,11 @@ func murderBtnPressed():
 	# Change their sprite
 	displaySpritre = currentNPC.dialogueKilledSprite
 	# Wait some time
-	await get_tree().create_timer(4)
 	# Play my sound
+	AudiManny.playSFX(preload("res://0-assets/sfx/gunshot.mp3"))
+	await get_tree().create_timer(2)
+	AudiManny.playSFX(preload("res://0-assets/sfx/dead/Death Sound.mp3"))
+	await get_tree().create_timer(4)
 	
 	hide()
 	SceneTransitioner.change_scene("res://4-objects/3-ending/EndingScene.tscn")

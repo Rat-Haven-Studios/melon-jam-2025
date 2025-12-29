@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=74 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
 [ext_resource type="Texture2D" uid="uid://0pds3dtb153c" path="res://0-assets/sprites/NPC Text Sprites/frogger.png" id="18_qeoqo"]
 [ext_resource type="Texture2D" uid="uid://b6326ptnmop5t" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png" id="19_2fjuf"]
+[ext_resource type="Texture2D" uid="uid://lcat53xmqtdp" path="res://0-assets/sprites/NPC ICED Spritesa/bunny_man_headshot-export.png" id="20_ctvds"]
 [ext_resource type="Texture2D" uid="uid://bh10nmij7mwn7" path="res://0-assets/sprites/blocks/Piano.png" id="22_2kxxd"]
 [ext_resource type="Texture2D" uid="uid://bfc85es320jdu" path="res://0-assets/sprites/NPC ICED Spritesa/flapper_headshot-export.png" id="22_dn4to"]
 [ext_resource type="Texture2D" uid="uid://cm7dbdlukxamy" path="res://0-assets/sprites/NPC TALKING SPRITES/flapper_talks-export.png" id="23_jqmis"]
@@ -161,6 +162,7 @@ npcname = "The Jack Rabbit"
 mapSprite = ExtResource("9_yqsdm")
 dialogueSprite = ExtResource("10_i4rv0")
 dialogueSpriteTalk = ExtResource("13_2kxxd")
+dialogueKilledSprite = ExtResource("20_ctvds")
 
 [node name="Flapper" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(337, 192)

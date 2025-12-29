@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dvk86uok7ipc7"
-valid=false
+uid="uid://bm4k2dlqmtagq"
+path="res://.godot/imported/Death Sound.mp3-48e53a902d4e8f4519c00e6e5de30b86.mp3str"
 
 [deps]
 
 source_file="res://0-assets/sfx/dead/Death Sound.mp3"
+dest_files=["res://.godot/imported/Death Sound.mp3-48e53a902d4e8f4519c00e6e5de30b86.mp3str"]
 
 [params]
 

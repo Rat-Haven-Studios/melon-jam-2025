@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b373mi6bfp2hk"]
+[gd_scene load_steps=4 format=3 uid="uid://b373mi6bfp2hk"]
 
 [ext_resource type="Script" uid="uid://bmad4cc125fv8" path="res://4-objects/4-intro/intro.gd" id="1_8842d"]
+[ext_resource type="Script" uid="uid://wtkip6i1f07w" path="res://3-ui/components/on-hover-anim-component/on_hover_animation_component.gd" id="2_hcaqi"]
+[ext_resource type="Script" uid="uid://bei2cvpc8wqtr" path="res://3-ui/components/btn-sfx-component/Btnsfx_component.gd" id="3_pddsb"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_8842d")
@@ -66,7 +68,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Proceed"
 
+[node name="OnHoverAnimComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button2"]
+script = ExtResource("2_hcaqi")
+metadata/_custom_type_script = "uid://wtkip6i1f07w"
+
+[node name="SFXComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button2"]
+script = ExtResource("3_pddsb")
+metadata/_custom_type_script = "uid://bei2cvpc8wqtr"
+
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
+
+[node name="OnHoverAnimComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button"]
+script = ExtResource("2_hcaqi")
+metadata/_custom_type_script = "uid://wtkip6i1f07w"
+
+[node name="SFXComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button"]
+script = ExtResource("3_pddsb")
+metadata/_custom_type_script = "uid://bei2cvpc8wqtr"

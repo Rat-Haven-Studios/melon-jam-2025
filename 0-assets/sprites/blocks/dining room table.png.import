@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clgmxnjkkouxt"
-path="res://.godot/imported/Other bar table.png-aaa0e5555b764761c8e94dd82c7eab81.ctex"
+uid="uid://cixamg6l0be0m"
+path="res://.godot/imported/dining room table.png-b43576a4cfb0637fb17a14323aa3a071.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0-assets/sprites/blocks/Other bar table.png"
-dest_files=["res://.godot/imported/Other bar table.png-aaa0e5555b764761c8e94dd82c7eab81.ctex"]
+source_file="res://0-assets/sprites/blocks/dining room table.png"
+dest_files=["res://.godot/imported/dining room table.png-b43576a4cfb0637fb17a14323aa3a071.ctex"]
 
 [params]
 

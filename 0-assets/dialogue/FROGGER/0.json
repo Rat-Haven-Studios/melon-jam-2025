@@ -95,14 +95,8 @@
       "next": "ask_info"
     },
     "cause_i_dont": {
-      "text": "",
-      "choices": [
-        {
-          "text": "Sigh.... Ok. I don't.... I'll tell you a secret. I only act like I hate the mayor so I can gather intel for him.",
-          "next": "dots",
-          "set_flag": "the_frog_truth"
-        }
-      ]
+      "text": "Sigh.... Ok. I don't.... I'll tell you a secret. I only act like I hate the mayor so I can gather intel for him.",
+      "next": "dots"
     },
     "evil": {
       "text": "The mayor is many things, but never evil. Maybe you're a fool...",

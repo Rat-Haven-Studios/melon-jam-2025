@@ -35,6 +35,12 @@ func _input(event):
 func murderBtnPressed():
 	if currentNPC != null:
 		Data.killed = currentNPC.characterID
+	# Change their sprite
+	displaySpritre = currentNPC.dialogueKilledSprite
+	# Wait some time
+	await get_tree().create_timer(4)
+	# Play my sound
+	
 	hide()
 	SceneTransitioner.change_scene("res://4-objects/3-ending/EndingScene.tscn")
 

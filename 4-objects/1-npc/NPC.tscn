@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://toe70xl1lkkf"]
+[gd_scene load_steps=6 format=3 uid="uid://toe70xl1lkkf"]
 
 [ext_resource type="Script" uid="uid://c1k2t3oaljnp8" path="res://4-objects/1-npc/npc.gd" id="1_atnjp"]
 [ext_resource type="Texture2D" uid="uid://caxg6o6egqma8" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png" id="2_ifoj7"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6cqc"]
 radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qua7y"]
 
 [node name="Npc" type="CharacterBody2D"]
 collision_layer = 8
@@ -27,3 +29,6 @@ interactString = "Hawk Tuah!"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qua7y")

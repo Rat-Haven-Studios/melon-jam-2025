@@ -30,7 +30,9 @@ const MIN_MAP_BORDER: Vector2 = Vector2(0, 0)
 @export var mapSprite: Texture2D
 @export var dialogueSprite: Texture2D
 @export var dialogueSpriteTalk: Texture2D
+@export var dialogueKilledSprite: Texture2D
 
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactable:= $InteractReceiverComponent
 @onready var sprite: Sprite2D = $Sprite2D
 

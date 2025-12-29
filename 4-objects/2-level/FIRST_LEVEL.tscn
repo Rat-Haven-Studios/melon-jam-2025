@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=73 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
@@ -8,36 +8,50 @@
 [ext_resource type="Texture2D" uid="uid://8boforvtqjpj" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit_King_Overworld_Sprite.png" id="5_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
 [ext_resource type="Texture2D" uid="uid://bsb5h8wsfad5j" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey_Overworld.png" id="7_10jhv"]
+[ext_resource type="Texture2D" uid="uid://crc6o1xpbs0r" path="res://0-assets/sprites/NPC TALKING SPRITES/banditking_talks-export.png" id="7_g2j8e"]
 [ext_resource type="Texture2D" uid="uid://b1jnoeanb2j5d" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
 [ext_resource type="Texture2D" uid="uid://cgmlgtegih21y" path="res://0-assets/sprites/NPC Overworld Sprites/The Hare Overworld Sprite.png" id="7_ms2wu"]
 [ext_resource type="PackedScene" uid="uid://b87vnv5gfl6w1" path="res://4-objects/zones/stairs.tscn" id="7_qflod"]
 [ext_resource type="PackedScene" uid="uid://brllo41iwtc42" path="res://5-component/darkness component/darkness.tscn" id="8_02hsu"]
 [ext_resource type="Texture2D" uid="uid://b23kn0vrc6afx" path="res://0-assets/sprites/NPC Text Sprites/Bunny_gal.png" id="8_10jhv"]
+[ext_resource type="Texture2D" uid="uid://ctjhrekmvuwve" path="res://0-assets/sprites/NPC ICED Spritesa/banditking_headshot-export.png" id="8_ctvds"]
 [ext_resource type="Texture2D" uid="uid://ocgjdvuxcjld" path="res://0-assets/sprites/NPC Text Sprites/le_ape_bro.png" id="8_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://u7uqnsxm367v" path="res://0-assets/sprites/NPC Overworld Sprites/Jack Rabbit Overworld Sprite.png" id="9_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="10_i4rv0"]
+[ext_resource type="Texture2D" uid="uid://b88w3o81wwrc7" path="res://0-assets/sprites/NPC ICED Spritesa/lemonk_ded.png" id="11_1sopp"]
 [ext_resource type="Texture2D" uid="uid://dgtrjmf0odosl" path="res://0-assets/sprites/NPC Text Sprites/flapper.png" id="12_7c5mk"]
+[ext_resource type="Texture2D" uid="uid://dbekan5p8kwir" path="res://0-assets/sprites/NPC TALKING SPRITES/lemonk_talks.png" id="12_ql675"]
 [ext_resource type="Texture2D" uid="uid://xose2b8anehj" path="res://0-assets/sprites/NPC Text Sprites/bunny_man_talk.png" id="13_2kxxd"]
 [ext_resource type="Texture2D" uid="uid://2qwc5s5wn7ad" path="res://0-assets/sprites/NPC Overworld Sprites/Flapper_Overworld_Sprite.png" id="13_i4rv0"]
 [ext_resource type="Texture2D" uid="uid://mf1b5f5mhewd" path="res://0-assets/sprites/NPC Overworld Sprites/Foxy Overworld Sprite.png" id="13_qeoqo"]
+[ext_resource type="Texture2D" uid="uid://balhxgh33u13m" path="res://0-assets/sprites/NPC TALKING SPRITES/Bunny_gal_talkl-export.png" id="15_i5nh5"]
 [ext_resource type="Texture2D" uid="uid://fy1fy6sud2h8" path="res://0-assets/sprites/NPC Text Sprites/foxy_lady.png" id="16_2kxxd"]
+[ext_resource type="Texture2D" uid="uid://dy2o7caom8tdy" path="res://0-assets/sprites/NPC ICED Spritesa/Bunny_gal_headshot-export.png" id="16_07asf"]
 [ext_resource type="Texture2D" uid="uid://caxg6o6egqma8" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png" id="17_7c5mk"]
 [ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
 [ext_resource type="Texture2D" uid="uid://0pds3dtb153c" path="res://0-assets/sprites/NPC Text Sprites/frogger.png" id="18_qeoqo"]
 [ext_resource type="Texture2D" uid="uid://b6326ptnmop5t" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png" id="19_2fjuf"]
 [ext_resource type="Texture2D" uid="uid://bh10nmij7mwn7" path="res://0-assets/sprites/blocks/Piano.png" id="22_2kxxd"]
+[ext_resource type="Texture2D" uid="uid://bfc85es320jdu" path="res://0-assets/sprites/NPC ICED Spritesa/flapper_headshot-export.png" id="22_dn4to"]
+[ext_resource type="Texture2D" uid="uid://cm7dbdlukxamy" path="res://0-assets/sprites/NPC TALKING SPRITES/flapper_talks-export.png" id="23_jqmis"]
 [ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="25_yqsdm"]
+[ext_resource type="Texture2D" uid="uid://c52hkpe5hqv28" path="res://0-assets/sprites/NPC TALKING SPRITES/foxy_lady_talks-export.png" id="26_2e5yx"]
 [ext_resource type="Texture2D" uid="uid://cixamg6l0be0m" path="res://0-assets/sprites/blocks/dining room table.png" id="27_7c5mk"]
+[ext_resource type="Texture2D" uid="uid://dpgaj55cxulgf" path="res://0-assets/sprites/NPC ICED Spritesa/foxy_lady_shot-export.png" id="27_m80s7"]
 [ext_resource type="Texture2D" uid="uid://d33tvy6xmhdqh" path="res://0-assets/sprites/blocks/some chairs.png" id="29_pu012"]
 [ext_resource type="Texture2D" uid="uid://clgmxnjkkouxt" path="res://0-assets/sprites/blocks/Other bar table.png" id="29_ruc28"]
+[ext_resource type="Texture2D" uid="uid://cm8q81yhaxqbw" path="res://0-assets/sprites/NPC TALKING SPRITES/frogger_talk-export.png" id="30_2e6ld"]
 [ext_resource type="Texture2D" uid="uid://dckyaua30s3iy" path="res://0-assets/sprites/blocks/Fountain.png" id="30_f4bti"]
 [ext_resource type="Texture2D" uid="uid://d15lkabjvih40" path="res://0-assets/sprites/blocks/another chair.png" id="30_rng6a"]
 [ext_resource type="Texture2D" uid="uid://bt31yb1y0sxen" path="res://0-assets/sprites/blocks/Lefter rail.png" id="31_bjjq5"]
 [ext_resource type="Texture2D" uid="uid://5r1g7iagpgba" path="res://0-assets/sprites/blocks/Radio.png" id="31_f3ux1"]
+[ext_resource type="Texture2D" uid="uid://wxt0y26tiffe" path="res://0-assets/sprites/NPC ICED Spritesa/frogger_fucked-export.png" id="31_ykuuk"]
 [ext_resource type="Texture2D" uid="uid://c5hm62vta0ihr" path="res://0-assets/sprites/blocks/Bar Table.png" id="32_3uj2c"]
 [ext_resource type="Texture2D" uid="uid://c4l0hfkqc4w8r" path="res://0-assets/sprites/blocks/Up Left Rail.png" id="32_f6ob8"]
 [ext_resource type="Texture2D" uid="uid://bxf8804dtvfid" path="res://0-assets/sprites/blocks/Up Right Rail.png" id="33_kxndn"]
+[ext_resource type="Texture2D" uid="uid://bwsq8plcoewvn" path="res://0-assets/sprites/NPC TALKING SPRITES/Tiki_Mask_chat-export.png" id="34_mrk4x"]
 [ext_resource type="Texture2D" uid="uid://c5dek0toil34q" path="res://0-assets/sprites/blocks/Righter Rail.png" id="34_oqo5v"]
+[ext_resource type="Texture2D" uid="uid://bx4skipues8rx" path="res://0-assets/sprites/NPC ICED Spritesa/Tiki_Mask_dead_slimed_out-export.png" id="35_6l0ft"]
 [ext_resource type="Texture2D" uid="uid://clfgo5ajiuvxj" path="res://0-assets/sprites/blocks/Upstairs Chair.png" id="36_f4bti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiio4"]
@@ -119,6 +133,8 @@ npcname = "The Bandit King"
 susLevel = 5
 mapSprite = ExtResource("5_yqsdm")
 dialogueSprite = ExtResource("7_ljyhy")
+dialogueSpriteTalk = ExtResource("7_g2j8e")
+dialogueKilledSprite = ExtResource("8_ctvds")
 
 [node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(289, 199)
@@ -126,6 +142,8 @@ characterID = 1
 npcname = "The Ape"
 mapSprite = ExtResource("7_10jhv")
 dialogueSprite = ExtResource("8_yqsdm")
+dialogueSpriteTalk = ExtResource("12_ql675")
+dialogueKilledSprite = ExtResource("11_1sopp")
 
 [node name="TheHare" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(-64, 177)
@@ -133,6 +151,8 @@ characterID = 6
 npcname = "The Hare"
 mapSprite = ExtResource("7_ms2wu")
 dialogueSprite = ExtResource("8_10jhv")
+dialogueSpriteTalk = ExtResource("15_i5nh5")
+dialogueKilledSprite = ExtResource("16_07asf")
 
 [node name="JackRabbit" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(61, 183)
@@ -148,6 +168,8 @@ characterID = 7
 npcname = "The Flapper"
 mapSprite = ExtResource("13_i4rv0")
 dialogueSprite = ExtResource("12_7c5mk")
+dialogueSpriteTalk = ExtResource("23_jqmis")
+dialogueKilledSprite = ExtResource("22_dn4to")
 
 [node name="Foxy" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(-27, 178)
@@ -155,6 +177,8 @@ characterID = 3
 npcname = "The Fox"
 mapSprite = ExtResource("13_qeoqo")
 dialogueSprite = ExtResource("16_2kxxd")
+dialogueSpriteTalk = ExtResource("26_2e5yx")
+dialogueKilledSprite = ExtResource("27_m80s7")
 
 [node name="Frogger" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(112, 323)
@@ -162,6 +186,8 @@ characterID = 4
 npcname = "The Frog"
 mapSprite = ExtResource("17_7c5mk")
 dialogueSprite = ExtResource("18_qeoqo")
+dialogueSpriteTalk = ExtResource("30_2e6ld")
+dialogueKilledSprite = ExtResource("31_ykuuk")
 
 [node name="Tiki" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(201, 188)
@@ -169,6 +195,8 @@ characterID = 2
 npcname = "The Tiki"
 mapSprite = ExtResource("19_2fjuf")
 dialogueSprite = ExtResource("18_f3ux1")
+dialogueSpriteTalk = ExtResource("34_mrk4x")
+dialogueKilledSprite = ExtResource("35_6l0ft")
 
 [node name="Character" parent="NPCs" instance=ExtResource("3_qj1of")]
 position = Vector2(128, 256)

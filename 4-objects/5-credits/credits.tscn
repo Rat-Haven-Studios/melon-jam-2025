@@ -47,7 +47,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "
 Programming: Kob & Hunter
-Art: Lopez & Matt"
+Art: Lopez & Matt
+Music: Hunter"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2

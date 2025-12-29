@@ -69,9 +69,14 @@ func displayText(text: String, npc: NPC):
 			await get_tree().create_timer(char_timer).timeout
 			if cntr % 2 == 0: # play SFX every other
 				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
+			if npc.dialogueSpriteTalk and cntr % 6 <= 3:
+				displaySpritre.texture = npc.dialogueSpriteTalk
+			else:
+				displaySpritre.texture = npc.dialogueSprite
 			cntr += 1
 			responseTextBox.text += aChar
 
+	displaySpritre.texture = npc.dialogueSprite
 	# wait for the user to continue...
 	arrow.visible = true
 	while not Input.is_action_just_pressed("interact"):

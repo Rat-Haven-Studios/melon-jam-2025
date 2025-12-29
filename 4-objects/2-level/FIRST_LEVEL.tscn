@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=40 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/world/Matt's Map.png" id="2_qflod"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://u7uqnsxm367v" path="res://0-assets/sprites/NPC Overworld Sprites/Jack Rabbit Overworld Sprite.png" id="9_yqsdm"]
 [ext_resource type="Texture2D" uid="uid://ck7erfuuyi50d" path="res://0-assets/sprites/NPC Text Sprites/bunny_man.png" id="10_i4rv0"]
 [ext_resource type="Texture2D" uid="uid://dgtrjmf0odosl" path="res://0-assets/sprites/NPC Text Sprites/flapper.png" id="12_7c5mk"]
+[ext_resource type="Texture2D" uid="uid://xose2b8anehj" path="res://0-assets/sprites/NPC Text Sprites/bunny_man_talk.png" id="13_2kxxd"]
 [ext_resource type="Texture2D" uid="uid://2qwc5s5wn7ad" path="res://0-assets/sprites/NPC Overworld Sprites/Flapper_Overworld_Sprite.png" id="13_i4rv0"]
 [ext_resource type="Texture2D" uid="uid://mf1b5f5mhewd" path="res://0-assets/sprites/NPC Overworld Sprites/Foxy Overworld Sprite.png" id="13_qeoqo"]
 [ext_resource type="Texture2D" uid="uid://fy1fy6sud2h8" path="res://0-assets/sprites/NPC Text Sprites/foxy_lady.png" id="16_2kxxd"]
@@ -111,6 +112,7 @@ characterID = 5
 npcname = "The Jack Rabbit"
 mapSprite = ExtResource("9_yqsdm")
 dialogueSprite = ExtResource("10_i4rv0")
+dialogueSpriteTalk = ExtResource("13_2kxxd")
 
 [node name="Flapper" parent="NPCs" instance=ExtResource("5_igri3")]
 position = Vector2(337, 192)

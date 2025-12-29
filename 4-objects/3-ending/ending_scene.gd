@@ -24,6 +24,8 @@ func _ready() -> void:
 		
 	elif (whoDied == Data.Characters.THE_FLAPPER) and Data.prevFlags.has("she_yappin"):
 		label.text = "Not her, but enough of that."
+	elif (whoDied == Data.Characters.JACK_RABBIT) and Data.prevFlags.has("gay_bro_active"):
+		label.text = "Wrong man, but we're down one less bigot."
 	elif whoDied != killerID:
 		CLogger.info("Player selected the wrong person")
 		label.text = "You selected wrong..."

@@ -10,7 +10,7 @@ class_name Character extends CharacterBody2D
 @onready var mayorMask: Sprite2D = $SpriteContainer/MayorMaskSprite
 @onready var poorMask: Sprite2D = $SpriteContainer/PoorMaskSprite
 @onready var spriteContainer: Node2D = $SpriteContainer
-
+@onready var animatedSprite: AnimatedSprite2D = $SpriteContainer/AnimatedSprite2D
 var actionFlags: Dictionary
 var currState = STATE.WALKING
 var currSpeed: int

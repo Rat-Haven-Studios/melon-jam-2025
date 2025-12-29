@@ -1,16 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://ess0lyyqlkgy"]
+[gd_scene load_steps=18 format=3 uid="uid://ess0lyyqlkgy"]
 
 [ext_resource type="Script" uid="uid://122mf68ayfjx" path="res://4-objects/0-character/character.gd" id="1_l8ec2"]
 [ext_resource type="PackedScene" uid="uid://pqx6itiibjs" path="res://5-component/interactions/InteractComponent/InteractComponent.tscn" id="3_hpm3x"]
 [ext_resource type="Texture2D" uid="uid://ctarnv1j6vie0" path="res://0-assets/sprites/character/Mayor Placeholder Man.png" id="3_rcecp"]
 [ext_resource type="Texture2D" uid="uid://bwr0elyjneeww" path="res://0-assets/sprites/character/player_poor_mask_overworld-export.png" id="3_uhcqm"]
 [ext_resource type="Texture2D" uid="uid://bkpd2mosvxelm" path="res://0-assets/sprites/character/Poor Placeholder Man.png" id="4_1ncbb"]
+[ext_resource type="Texture2D" uid="uid://gfk0deyu88fj" path="res://0-assets/sprites/character/Player Walk.png" id="6_rcecp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcecp"]
 radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt3e"]
 size = Vector2(10, 5.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ncbb"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(0, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46kro"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(18, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chpod"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(36, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oumee"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(54, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4h54"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(72, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06c1u"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(90, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta6x4"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(108, 0, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q7vh"]
+atlas = ExtResource("6_rcecp")
+region = Rect2(126, 0, 18, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pw7om"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ncbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46kro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chpod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oumee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4h54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06c1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta6x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q7vh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 8
@@ -35,6 +100,7 @@ position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_gbt3e")
 
 [node name="SpriteContainer" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -10)
 
 [node name="NeutralMaskSprite" type="Sprite2D" parent="SpriteContainer"]
@@ -53,3 +119,10 @@ visible = false
 y_sort_enabled = true
 position = Vector2(0, -6)
 texture = ExtResource("4_1ncbb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_pw7om")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.7450824

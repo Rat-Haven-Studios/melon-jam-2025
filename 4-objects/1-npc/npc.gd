@@ -131,7 +131,7 @@ func converse(maskID: int):
 
 	talked[maskID] = true
 	
-	while DialogueUI.ui.visible and currentNodeID != "":
+	while not DialogueUI.murdered and DialogueUI.ui.visible and currentNodeID != "":
 		var node = dialogueTree.get("nodes", {}).get(currentNodeID, {})
 		
 		if node.is_empty():
@@ -172,8 +172,9 @@ func converse(maskID: int):
 		
 		currentNodeID = selectedChoice.get("next", "")
 	
+	if not DialogueUI.murdered:
 	# at this point, the conversation is over
-	DialogueUI.hide()
+		DialogueUI.hide()
 	CLogger.action("Conversation ended with %s" % npcname)
 	self.currState = STATE.WALKING
 	Data.player.currState = Data.player.STATE.WALKING

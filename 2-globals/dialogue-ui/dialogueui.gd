@@ -1,12 +1,10 @@
 extends Node
 
-#signal text_displayed
 signal choice_selected(choice: Dictionary)
 
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 @onready var nameTextBox: Label = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Panel/Label
 @onready var responseTextBox: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer/Label
-#@onready var arrow: TextureRect = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/TextureRect
 @onready var arrow: Label = $UI/VBoxContainer/MarginContainer/Panel/HBoxContainer/MarginContainer2/Label
 @onready var ui: CanvasLayer = $UI
 @onready var displaySpritre: TextureRect = $UI/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/TextureRect
@@ -16,19 +14,28 @@ var selected_choice = null
 var char_timer: float = 0.04
 var currentNPC
 
+var murdered: bool = false 
+
 func _ready():
-	killBtn.pressed.connect(murderBtnPressed)
+	killBtn.button_down.connect(murderBtnPressed)
+	killBtn.disabled = false
+	nameTextBox.text = ""
+	
+	murdered = false
 	hide()
 
 func _input(event):
+	if murdered:
+		return
+		
 	if event is InputEventKey and event.pressed and not event.echo:
 		if currentNPC != null and event.keycode == KEY_M:
-			killBtn.pressed.emit()
+			killBtn.button_down.emit()
 			return
 		
 		var keyCode = event.keycode
 		if keyCode >= KEY_1 and keyCode <= KEY_9:
-			var choiceIndex = keyCode - KEY_1 # conver to 0 index
+			var choiceIndex = keyCode - KEY_1
 			if choiceIndex < btnContainer.get_child_count():
 				var btn: Button = btnContainer.get_child(choiceIndex)
 				btn.pressed.emit()
@@ -36,14 +43,22 @@ func _input(event):
 func murderBtnPressed():
 	if currentNPC != null:
 		Data.killed = currentNPC.characterID
-	# Change their sprite
+	
+	murdered = true
+	
+	killBtn.disabled = true
+	
+	for btn in btnContainer.get_children():
+		btn.queue_free()
+	
 	displaySpritre.texture = currentNPC.dialogueKilledSprite
-	# Wait some time
-	# Play my sound
-	AudiManny.playSFX(preload("res://0-assets/sfx/gunshot.mp3"))
-	await get_tree().create_timer(2)
+	#nameTextBox.text = ""
+	responseTextBox.text = "Guah..sd.h"
+	arrow.visible = false
+	
+	AudiManny.playSFX(preload("res://0-assets/sfx/gunshot.mp3"))	
 	AudiManny.playSFX(preload("res://0-assets/sfx/dead/Death Sound.mp3"))
-	await get_tree().create_timer(4)
+	await get_tree().create_timer(2.0).timeout
 	
 	hide()
 	SceneTransitioner.change_scene("res://4-objects/3-ending/EndingScene.tscn")
@@ -51,6 +66,7 @@ func murderBtnPressed():
 func show():
 	if not ui.visible:
 		ui.visible = true
+	killBtn.disabled = false
 
 func hide():
 	if ui.visible:
@@ -60,6 +76,7 @@ func hide():
 		btn.queue_free()
 	
 	currentNPC = null
+	murdered = false
 
 func displayText(text: String, npc: NPC):
 	show()
@@ -73,31 +90,36 @@ func displayText(text: String, npc: NPC):
 	var cntr = 0
 	for aChar in text:
 		arrow.text = "(X)"
-		if not ui.visible:
+		if not ui.visible or murdered:
 			return
 		
-		if Input.is_action_pressed("alternate"):
+		if Input.is_action_pressed("alternate") and not murdered:
 			responseTextBox.text += text.substr(cntr)
 			CLogger.debug("Skipping current dialogue...")
 			break
 		else:
 			await get_tree().create_timer(char_timer).timeout
-			if cntr % 2 == 0: # play SFX every other
+			if murdered:
+				return
+			if cntr % 2 == 0:
 				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
-			if npc.dialogueSpriteTalk and cntr % 6 <= 3:
+			if npc.dialogueSpriteTalk and cntr % 6 <= 3 and not murdered:
 				displaySpritre.texture = npc.dialogueSpriteTalk
 			else:
 				displaySpritre.texture = npc.dialogueSprite
 			cntr += 1
 			responseTextBox.text += aChar
 
+	if murdered:
+		return
+		
 	displaySpritre.texture = npc.dialogueSprite
-	# wait for the user to continue...
 	arrow.text = "(Z)"
+
+	while not Input.is_action_just_pressed("interact") and not murdered:
 	#arrow.visible = true
-	while not Input.is_action_just_released("interact"):
 		await get_tree().process_frame
-	#arrow.visible = false
+	
 	currentNPC = null
 
 func presentChoices(choices: Array, npc: NPC) -> Dictionary:
@@ -105,7 +127,7 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 		child.queue_free()
 	
 	currentNPC = npc
-	selected_choice = null  # Reset selection
+	selected_choice = null
 	arrow.visible = false
 	
 	CLogger.log("choice", " ".join(choices))
@@ -126,14 +148,20 @@ func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 		btn.pressed.connect(_onChoiceButtonPressed.bind(choices[i][0]))
 		btnContainer.add_child(btn)
 	
-	while selected_choice == null:
+	while selected_choice == null and not murdered:
 		await get_tree().process_frame
+	
+	if murdered:
+		return {}
 	
 	arrow.visible = true
 	currentNPC = null
 	return selected_choice
 
 func _onChoiceButtonPressed(choice: Dictionary):
+	if murdered:
+		return
+		
 	CLogger.action("Player selected: %s" % choice.text)
 	selected_choice = choice
 	

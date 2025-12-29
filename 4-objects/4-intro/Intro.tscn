@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://b373mi6bfp2hk"]
+[gd_scene load_steps=2 format=3 uid="uid://b373mi6bfp2hk"]
+
+[ext_resource type="Script" uid="uid://bmad4cc125fv8" path="res://4-objects/4-intro/intro.gd" id="1_8842d"]
 
 [node name="Intro" type="Node2D"]
+script = ExtResource("1_8842d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -12,12 +15,58 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09411765, 0.11372549, 0.101960786, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-text = "Controls:
-"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "You're a hitman who has been hired by a mysterious client to attend a party. When you arrive, you're greeted and presented a letter. 
+
+It has a one word clue on it... Traitor."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Z: Interact
+X: Skip Dialogue
+M: Murder
+Number Keys: Select Dialogue Option
+You can also click on the buttons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Proceed"

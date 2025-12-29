@@ -9,6 +9,7 @@ extends Control
 const FIRST_LEVEL: String = "res://4-objects/2-level/FIRST_LEVEL.tscn"
 const HOW_TO_PLAY: String = ""
 const CREDITS: String = ""
+const START: String = "res://4-objects/4-intro/Intro.tscn"
 
 func _ready() -> void:
 	playButton.pressed.connect(onPlayButtonPressed)
@@ -19,7 +20,7 @@ func _ready() -> void:
 	CLogger.info("Main Scene Initialized")
 
 func onPlayButtonPressed() -> void:
-	SceneTransitioner.change_scene(FIRST_LEVEL)
+	SceneTransitioner.change_scene(START)
 	CLogger.action("Play button pressed. Starting the game")
 
 func onHowToPlayButtonPressed() -> void:

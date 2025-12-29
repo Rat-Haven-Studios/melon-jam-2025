@@ -21,7 +21,8 @@ func _ready() -> void:
 		label.text = "Wrong man. More than one shot..."
 	elif whoDied == Data.Characters.TIKI and Data.prevFlags.has("tiki_betrayal") and not (Data.prevFlags.has("tiki_learns_betrayal")):
 		label.text = "Vagrant down... but not my target."
-		
+	elif whoDied == Data.Characters.BANDIT_KING and Data.prevFlags.has("maybe_mayor"):
+		label.text = "You killed the Mayor..."
 	elif (whoDied == Data.Characters.THE_FLAPPER) and Data.prevFlags.has("she_yappin"):
 		label.text = "Not her, but enough of that."
 	elif whoDied != killerID:

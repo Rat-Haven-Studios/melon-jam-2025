@@ -139,7 +139,7 @@
 	  "next": "off_with_you"
 	},
 	"mayor_ask": {
-	  "text": "",
+	  "text": "I suppose...",
 	  "choices": [
 		{
 		  "text": "Is what The Frog said true?",

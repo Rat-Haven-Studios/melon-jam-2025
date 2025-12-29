@@ -6,13 +6,18 @@
       "text": "Let's cut the formalities. As an intellect I presume you also know of the mayors new policy.",
       "choices": [
         {
-          "text": "I'm sure it only adds to one of his many blunders. Do tell, which policy are we referring to?",
+          "text": "What policy are you referring to my good sir?",
           "next": "policy_explanation"
         },
         {
           "text": "Are you referring to the lousy \"Common Man\" act?",
           "next": "dissed_the_common_man_act",
           "set_flag": "common_man_act_dissed"
+        },
+        {
+          "text": "I'm a fart smella, not a smart fella.",
+          "next": "not_a_smart_fella",
+          "set_flag": "agree_with_common_man_act"
         }
       ]
     },
@@ -36,11 +41,11 @@
       "next": "diss_common_man_act_cont"
     },
     "diss_common_man_act_cont": {
-      "text": "Why the lovely Hare has been in quite the predicament herself. Her factories nearby would lose nearly all her workforce. This foolish mayor doesn't care for the intellects of society. Someone needs to put him in his place.",
-      "next": "lowkey_wants_to_mention_the_frog"
+      "text": "This foolish mayor doesn't care for the intellects of society. Someone needs to put him in his place.",
+      "next": "talked_previously"
     },
     "lowkey_wants_to_mention_the_frog": {
-      "text": "Even the mayor's own members are beginning to turn on him... I know it may be uncouth, but I know the identity of a guest within this party. Would you like to hear?",
+      "text": "Ha, The Frog... I know it may be uncouth, but I know of his true identity. Would you like to hear?",
       "choices": [
         {
           "text": "Oh, do tell...",
@@ -92,17 +97,21 @@
           }
         },
         {
-          "text": "I think I'd like to know that secret identity...",
-          "next": "actually_wants_to_know_who",
-          "set_flag": "frog_identity_revealed",
+          "text": "Nothing. I'll be on my way.",
+          "next": "end"
+        },
+        {
+          "text": "That Frog doesn't really seem fit for parties.",
+          "next": "lowkey_wants_to_mention_the_frog",
+          "colored": "true",
           "condition": {
-            "state": "false",
-            "flag": "frog_identity_revealed"
+            "state": "true",
+            "flag": "frog_talked_to"
           }
         },
         {
-          "text": "Nothing. I'll be on my way.",
-          "next": "end"
+          "text": "That policy we spoke of earlier, what was it again?",
+          "next": "policy_explanation"
         }
       ],
       "condition": {
@@ -120,7 +129,7 @@
       "choices": []
     },
     "hater_cuz_common_man_act_enjoyer": {
-      "text": "For someone to claim hatred on the mayor, you would think you'd be wiser. I do not wish to speak with you.",
+      "text": "I thought you'd be wiser. I do not wish to speak to such a simpleton. Begone!",
       "choices": []
     },
     "why_is_he_here": {
@@ -131,12 +140,12 @@
       "text": "Interesting. His son should be up at university now, but to see him at an event leads me to believe he is no longer attending. Why he was probably caught diddling someone and was kicked out. You know what they say, the apple doesn't fall far from the tree.",
       "choices": []
     },
-    "actually_wants_to_know_who": {
-      "text": "Ha, I knew you'd come around",
-      "next": "reveals_the_frog"
-    },
     "end": {
       "text": "Good luck to you sir.",
+      "choices": []
+    },
+    "not_a_smart_fella": {
+      "text": "Come again? Are you mocking me? Why, how rude. To think such low life would be at an event like this. Begone with you.",
       "choices": []
     }
   }

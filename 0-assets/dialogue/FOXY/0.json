@@ -1,25 +1,95 @@
 {
-  "initial_greeting": "You have the blank mask on.",
-  "talked_already": "Go away dude...",
+  "initial_greeting": "Huh?",
+  "talked_already": "Tsk. You again.",
   "nodes": {
-	"start": {
-	  "text": "What brings you here?",
-	  "choices": [
-		{
-		  "text": "I want your body.",
-		  "next": "sexy_talk",
-		  "sus_change": 10
-		},
-		{
-		  "text": "Just passing through.",
-		}
-	  ]
-	},
-	"sexy_talk": {
-	  "text": "You couldn't handle me.",
-	},
-	"end": {
-	  "text": "Farewell."
-	}
+    "start": {
+      "text": "Of whom might you be?",
+      "choices": [
+        {
+          "text": "I just have some questions",
+          "next": "whats_in_it"
+        },
+        {
+          "text": "Nothing. Sorry for bothering you.",
+          "next": "end"
+        }
+      ]
+    },
+    "talked_previously": {
+      "text": "Of what do you dare ask?",
+      "choices": [
+        {
+          "text": "There is some things I must know.",
+          "next": "ask_info"
+        },
+        {
+          "text": "Nevermind.",
+          "next": "end"
+        }
+      ]
+    },
+    "ask_info": {
+      "text": "Fine. What must you ask?",
+      "choices": [
+        {
+          "text": "What are you and The Hare up to?",
+          "next": "accused",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "hare_and_fox_talk_alot"
+          }
+        },
+        {
+          "text": "The Flapper said your dress was nice.",
+          "next": "foxys_dress",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "flappers_dress"
+          }
+        }
+      ],
+      "condition": {
+        "state": "true",
+        "flag": "foxy_talks"
+      },
+      "else": "convince_me"
+    },
+    "end": {
+      "text": "Hmph.",
+      "choices": []
+    },
+    "whats_in_it": {
+      "text": "And why would I waste my time on you?",
+      "choices": [
+        {
+          "text": "Someone with your esteem must be very knowledgeable.",
+          "next": "ask_info",
+          "set_flag": "foxy_talks"
+        },
+        {
+          "text": "Please...?",
+          "next": "end"
+        }
+      ],
+      "condition": {
+        "state": "false",
+        "flag": "foxy_talks"
+      },
+      "else": "ask_info"
+    },
+    "convince_me": {
+      "text": "You have yet to convince me of why I should answer your questions.",
+      "next": "whats_in_it"
+    },
+    "accused": {
+      "text": "",
+      "choices": []
+    },
+    "foxys_dress": {
+      "text": "",
+      "choices": []
+    }
   }
 }

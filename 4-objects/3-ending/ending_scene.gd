@@ -11,6 +11,7 @@ const FIRST_LEVEL: String = "res://4-objects/2-level/FIRST_LEVEL.tscn"
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	var whoDied = Data.killed
 	if whoDied == null:
 		CLogger.error("Who Died was NULL")

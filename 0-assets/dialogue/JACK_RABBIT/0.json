@@ -1,12 +1,12 @@
 {
-  "initial_greeting": "Hey hey, finally someone who doesn't give a damn about politics at this party.",
+  "initial_greeting": "Hey hey, glad to see another rodent mask at this party.",
   "talked_already": "Can't say I wanted to see you again.",
   "nodes": {
     "start": {
-      "text": "Though, I can't say I'd want to spend my time talking to a man on a night like this.",
+      "text": "Though, I can't say I'd want to spend my time talking to a man about politics on a night like this.",
       "choices": [
         {
-          "text": "Politics, Shmolitics. I'm really just here to get laid.",
+          "text": "Politics, Shmolitics. You know what I'm here for...",
           "next": "talk_of_babes_begins"
         },
         {
@@ -25,7 +25,7 @@
       "text": "Any chance we can hurry up with this conversation?",
       "choices": [
         {
-          "text": "I was hoping you'd help me get laid tonight.",
+          "text": "I was hoping we'd talk about more than just politics...",
           "next": "talk_of_babes_begins"
         },
         {
@@ -67,7 +67,12 @@
         {
           "text": "Do you only sexualize women?",
           "next": "not_based_jack_rabbit_response",
-          "set_flag": "gay_bro_active"
+          "colored": "true",
+          "set_flag": "gay_bro_active",
+          "condition": {
+            "state": "true",
+            "flag": "jack_rabbit_talking_about_sus"
+          }
         },
         {
           "text": "I'll catch you later.",
@@ -102,6 +107,10 @@
           "text": "Ladies? I'm more into men...",
           "next": "preferred_men",
           "set_flag": "gay_bro_active"
+        },
+        {
+          "text": "Oh, no, I'm actually here for the politics. Sorry, I can see how that was confusing.",
+          "next": "politics_bait"
         }
       ]
     },
@@ -188,6 +197,10 @@
     "frog_diss_declined": {
       "text": "Eh, what can you do. As long as The Hare sticks around this party, that Frog can't bother me.",
       "next": "talked_previously"
+    },
+    "politics_bait": {
+      "text": "What? Man, why would you... get out of here.",
+      "choices": []
     }
   }
 }

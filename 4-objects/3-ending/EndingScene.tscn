@@ -1,6 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1itio7i60o4d"]
+[gd_scene load_steps=4 format=3 uid="uid://b1itio7i60o4d"]
 
 [ext_resource type="Script" uid="uid://y7ijs4yq5nqh" path="res://4-objects/3-ending/ending_scene.gd" id="1_vwkhh"]
+[ext_resource type="Script" uid="uid://wtkip6i1f07w" path="res://3-ui/components/on-hover-anim-component/on_hover_animation_component.gd" id="2_5jfc0"]
+[ext_resource type="Script" uid="uid://bei2cvpc8wqtr" path="res://3-ui/components/btn-sfx-component/Btnsfx_component.gd" id="3_r2j0e"]
 
 [node name="EndingScene" type="Node2D"]
 script = ExtResource("1_vwkhh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.11372549, 0.101960786, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Playagain" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play Again"
+
+[node name="OnHoverAnimComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Playagain"]
+script = ExtResource("2_5jfc0")
+metadata/_custom_type_script = "uid://wtkip6i1f07w"
+
+[node name="SFXComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Playagain"]
+script = ExtResource("3_r2j0e")
+metadata/_custom_type_script = "uid://bei2cvpc8wqtr"
+
+[node name="quit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit Game"
+
+[node name="OnHoverAnimComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/quit"]
+script = ExtResource("2_5jfc0")
+metadata/_custom_type_script = "uid://wtkip6i1f07w"
+
+[node name="SFXComponent" type="Node" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/quit"]
+script = ExtResource("3_r2j0e")
+metadata/_custom_type_script = "uid://bei2cvpc8wqtr"

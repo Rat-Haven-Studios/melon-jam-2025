@@ -2,117 +2,138 @@
   "initial_greeting": "I'm The Flapper. I'd love to get to know you some more.",
   "talked_already": "I'm so happy that you came back and wanted to talk to me some more!",
   "nodes": {
-    "start": {
-      "text": "What brings you here?",
-      "choices": [
-        {
-          "text": "I have some questions.",
-          "next": "answering_questions"
-        },
-        {
-          "text": "Tiki said I should talk to you.",
-          "next": "tiki_reference",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "flapper_yapper"
-          }
-        },
-        {
-          "text": "Sorry. This was a mistake.",
-          "next": "end_sad"
-        }
-      ]
-    },
-    "talked_previously": {
-      "text": "Most people don't come back...",
-      "next": "start"
-    },
-    "ask_info": {
-      "text": "What would you like to know?",
-      "choices": [
-        {
-          "text": "Where did you get your dress?",
-          "next": "my_dress",
-          "set_flag": "flappers_dress"
-        },
-        {
-          "text": "Seen anyone suspicious?",
-          "next": "sus"
-        },
-        {
-          "text": "Nevermind. I'll be going now.",
-          "next": "end_happy"
-        }
-      ]
-    },
-    "tiki_reference": {
-      "text": "Tiki and I had a truly wonderful and amazing conversation earlier. Oh what I would give to go back and experience that again. What did he say about me?",
-      "choices": [
-        {
-          "text": "He said you were annoying.",
-          "next": "end_sad"
-        },
-        {
-          "text": "Maybe that you know some good jobs?",
-          "next": "jobs",
-          "colored": "true",
-          "set_flag": "factory_20_miles_away",
-          "condition": {
-            "state": "true",
-            "flag": "looking_for_job"
-          }
-        },
-        {
-          "text": "He said that he loved talking to you.",
-          "next": "thanks_tiki"
-        }
-      ]
-    },
-    "end_sad": {
-      "text": "Oh...",
-      "choices": []
-    },
-    "jobs": {
-      "text": "One of the Mayor's close advisors owns a lot of factories in a town about 20 miles away. Considering how close they are, it's quite likely they're around here somewhere.",
-      "next": "jobs_bad"
-    },
-    "end_happy": {
-      "text": "Toodles. I'd love to hear from you again...",
-      "choices": []
-    },
-    "my_dress": {
-      "text": "It's been passed down in my family for a long time. My family isn't that well off you see. I know it isn't as glamorous as some of the other ladies here, but it's clear they haven't struggled the same way I have...",
-      "next": "ask_info"
-    },
-    "sus": {
-      "text": "Only that Bandit King... He looks awfully familiar. I'd like to think I could identify that big hunk of a man anywhere, but I'm not 100% sure...",
-      "next": "ask_info"
-    },
-    "jobs_bad": {
-      "text": "However, just between you and me, I wouldn't recommend it. Those factories aren't renowned for their pay and working conditions...",
-      "next": "ask_info"
-    },
-    "more_to_know": {
-      "text": "Is there anything else you'd like to know?",
-      "choices": [
-        {
-          "text": "Yes.",
-          "next": "ask_info"
-        },
-        {
-          "text": "No. I'll be going now.",
-          "next": "end_happy"
-        }
-      ]
-    },
-    "thanks_tiki": {
-      "text": "Awe! That's so sweet of him. That makes me so happy...",
-      "next": "end_happy"
-    },
-    "answering_questions": {
-      "text": "Oh? Questions? I love answering questions!",
-      "next": "ask_info"
-    }
+	"start": {
+	  "text": "What brings you here?",
+	  "choices": [
+		{
+		  "text": "I have some questions.",
+		  "next": "answering_questions"
+		},
+		{
+		  "text": "Tiki said I should talk to you.",
+		  "next": "tiki_reference",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "flapper_yapper"
+		  }
+		},
+		{
+		  "text": "Sorry. This was a mistake.",
+		  "next": "end_sad"
+		}
+	  ]
+	},
+	"talked_previously": {
+	  "text": "Most people don't come back...",
+	  "next": "start"
+	},
+	"ask_info": {
+	  "text": "What would you like to know?",
+	  "choices": [
+		{
+		  "text": "Where did you get your dress?",
+		  "next": "my_dress",
+		  "set_flag": "flappers_dress"
+		},
+		{
+		  "text": "Seen anyone suspicious?",
+		  "next": "sus"
+		},
+		{
+		  "text": "Nevermind. I'll be going now.",
+		  "next": "end_happy"
+		}
+	  ]
+	},
+	"tiki_reference": {
+	  "text": "Tiki and I had a truly wonderful and amazing conversation earlier. Oh what I would give to go back and experience that again. What did he say about me?",
+	  "choices": [
+		{
+		  "text": "He said you were annoying.",
+		  "next": "end_sad"
+		},
+		{
+		  "text": "Maybe that you know some good jobs?",
+		  "next": "jobs",
+		  "colored": "true",
+		  "set_flag": "factory_20_miles_away",
+		  "condition": {
+			"state": "true",
+			"flag": "looking_for_job"
+		  }
+		},
+		{
+		  "text": "He said that he loved talking to you.",
+		  "next": "thanks_tiki",
+		  "set_flag": "she_yappin"
+		}
+	  ]
+	},
+	"end_sad": {
+	  "text": "Oh...",
+	  "choices": []
+	},
+	"jobs": {
+	  "text": "One of the Mayor's close advisors owns a lot of factories in a town about 20 miles away. Considering how close they are, it's quite likely they're around here somewhere.",
+	  "next": "jobs_bad"
+	},
+	"end_happy": {
+	  "text": "Toodles. I'd love to hear from you again...",
+	  "choices": []
+	},
+	"my_dress": {
+	  "text": "It's been passed down in my family for a long time. My family isn't that well off you see. I know it isn't as glamorous as some of the other ladies here, but it's clear they haven't struggled the same way I have...",
+	  "next": "ask_info"
+	},
+	"sus": {
+	  "text": "Only that Bandit King... He looks awfully familiar. I'd like to think I could identify that big hunk of a man anywhere, but I'm not 100% sure...",
+	  "next": "ask_info"
+	},
+	"jobs_bad": {
+	  "text": "However, just between you and me, I wouldn't recommend it. Those factories aren't renowned for their pay and working conditions...",
+	  "next": "ask_info"
+	},
+	"more_to_know": {
+	  "text": "Is there anything else you'd like to know?",
+	  "choices": [
+		{
+		  "text": "Yes.",
+		  "next": "ask_info"
+		},
+		{
+		  "text": "No. I'll be going now.",
+		  "next": "end_happy"
+		}
+	  ]
+	},
+	"thanks_tiki": {
+	  "text": "Awe! That's so sweet of him. That makes me so happy...",
+	  "next": "yap1"
+	},
+	"answering_questions": {
+	  "text": "Oh? Questions? I love answering questions!",
+	  "next": "ask_info"
+	},
+	"yap1": {
+	  "text": "You know, Tiki really is a sweet heart. In our conversation, we talked a lot about the political and economic state of the world. He is such a smart young man...",
+	  "next": "yap2"
+	},
+	"yap2": {
+	  "text": "I've talked to some other people here and they were quite rude to me. Just about everyone but the Bandit King, The Frog, and Tiki himself... I don't know why everyone is so mean to me. I really do try my best you know?",
+	  "next": "yap3"
+	},
+	"yap3": {
+	  "text": "Anyway. I'm so glad you decided to come over here and talk to me. People often get sick of talking to me after just a couple of minutes. It's something I've noticed after talking to people for so long. That's why I was so happy when you told me about how Tiki felt about our conversation!",
+	  "next": "yap4"
+	},
+	"yap4": {
+	  "text": "To be honest, I didn't really feel all that comfortable talking to you as much as I normally would until you told me about how he felt. I really want to thank for you that. And thank you for talking to me as well. You're making this party a much better experience for me already.",
+	  "next": "yap5"
+	},
+	"yap5": {
+	  "text": "Sorry... I just got a little off topic. I tend to do that sometimes. You should've really said something. If you said something I would've stopped talking so much.",
+	  "next": "ask_info"
+	}
   }
 }

@@ -11,6 +11,7 @@ class_name Character extends CharacterBody2D
 @onready var poorMask: Sprite2D = $SpriteContainer/PoorMaskSprite
 @onready var spriteContainer: Node2D = $SpriteContainer
 @onready var animatedSprite: AnimatedSprite2D = $SpriteContainer/AnimatedSprite2D
+
 var actionFlags: Dictionary
 var currState = STATE.WALKING
 var currSpeed: int
@@ -32,6 +33,7 @@ func _ready() -> void:
 # initialize talked to array
 func onStairsEntered(_area):
 	currSpeed = WALKING_STAIRS_SPEED
+	
 func onStairsExited(_area):
 	currSpeed = BASE_SPEED
 

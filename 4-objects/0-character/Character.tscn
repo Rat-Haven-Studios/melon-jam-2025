@@ -103,6 +103,7 @@ shape = SubResource("RectangleShape2D_gbt3e")
 position = Vector2(0, -10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer"]
+visible = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_pw7om")
 animation = &"walk"
@@ -110,7 +111,6 @@ autoplay = "walk"
 frame_progress = 0.7375797
 
 [node name="NeutralMaskSprite" type="Sprite2D" parent="SpriteContainer"]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, -6)
 texture = ExtResource("3_uhcqm")

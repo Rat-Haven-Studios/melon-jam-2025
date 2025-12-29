@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b373mi6bfp2hk"]
+[gd_scene load_steps=6 format=3 uid="uid://b373mi6bfp2hk"]
 
 [ext_resource type="Script" uid="uid://bmad4cc125fv8" path="res://4-objects/4-intro/intro.gd" id="1_8842d"]
 [ext_resource type="Script" uid="uid://wtkip6i1f07w" path="res://3-ui/components/on-hover-anim-component/on_hover_animation_component.gd" id="2_hcaqi"]
+[ext_resource type="Texture2D" uid="uid://clwehhyx1lism" path="res://0-assets/sprites/Misc/letter_v2.png" id="2_pddsb"]
 [ext_resource type="Script" uid="uid://bei2cvpc8wqtr" path="res://3-ui/components/btn-sfx-component/Btnsfx_component.gd" id="3_pddsb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pddsb"]
+bg_color = Color(0.09411765, 0.11372549, 0.101960786, 1)
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_8842d")
@@ -10,12 +14,21 @@ script = ExtResource("1_8842d")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09411765, 0.11372549, 0.101960786, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pddsb")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -25,39 +38,44 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 100
 
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pddsb")
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "You're a hitman who has been hired by a mysterious client to attend a party. When you arrive, you're greeted and presented a letter. 
-
-It has a one word clue on it... Traitor."
+text = "You're a hitman who has been hired by a mysterious client to attend a party. When you arrive, you're greeted and presented a letter with a clue..."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pddsb")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Z: Interact
-X: Skip Dialogue
-M: Murder
-Number Keys: Select Dialogue Option
+text = "(Z) Interact
+(X) Skip Dialogue
+(M) Murder
+(Number Keys) Select Dialogue Option
 You can also click on the buttons"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_right = 250
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2

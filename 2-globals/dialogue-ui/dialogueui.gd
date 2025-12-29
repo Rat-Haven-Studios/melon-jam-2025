@@ -95,7 +95,7 @@ func displayText(text: String, npc: NPC):
 	# wait for the user to continue...
 	arrow.text = "(Z)"
 	#arrow.visible = true
-	while not Input.is_action_just_pressed("interact"):
+	while not Input.is_action_just_released("interact"):
 		await get_tree().process_frame
 	#arrow.visible = false
 	currentNPC = null

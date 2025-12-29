@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ko5yay6dida1" path="res://4-objects/2-level/camera_2d.gd" id="2_wl7ar"]
 [ext_resource type="PackedScene" uid="uid://ess0lyyqlkgy" path="res://4-objects/0-character/Character.tscn" id="3_qj1of"]
 [ext_resource type="PackedScene" uid="uid://toe70xl1lkkf" path="res://4-objects/1-npc/NPC.tscn" id="5_igri3"]
-[ext_resource type="Texture2D" uid="uid://bh1tw04y86sd5" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit King Overworld.png" id="6_2rcib"]
+[ext_resource type="Texture2D" uid="uid://8boforvtqjpj" path="res://0-assets/sprites/NPC Overworld Sprites/Bandit_King_Overworld_Sprite.png" id="5_yqsdm"]
 [ext_resource type="PackedScene" uid="uid://bjfxc3u1h0mrx" path="res://4-objects/zones/wall.tscn" id="6_4qvpp"]
 [ext_resource type="Texture2D" uid="uid://bsb5h8wsfad5j" path="res://0-assets/sprites/NPC Overworld Sprites/Monkey_Overworld.png" id="7_10jhv"]
 [ext_resource type="Texture2D" uid="uid://b1jnoeanb2j5d" path="res://0-assets/sprites/NPC Text Sprites/banditking.png" id="7_ljyhy"]
@@ -88,7 +88,7 @@ y_sort_enabled = true
 position = Vector2(113, 71)
 npcname = "The Bandit King"
 susLevel = 5
-mapSprite = ExtResource("6_2rcib")
+mapSprite = ExtResource("5_yqsdm")
 dialogueSprite = ExtResource("7_ljyhy")
 
 [node name="MonkeyMan" parent="NPCs" instance=ExtResource("5_igri3")]

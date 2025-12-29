@@ -44,6 +44,7 @@
           "text": "Did you hear that the Frog's identity was revealed?",
           "next": "frog_id_revealed",
           "colored": "true",
+          "set_flag": "the_hare_accuses_frog",
           "condition": {
             "state": "true",
             "flag": "frog_identity_revealed"

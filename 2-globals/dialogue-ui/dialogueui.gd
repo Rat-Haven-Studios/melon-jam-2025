@@ -1,6 +1,6 @@
 extends Node
 
-signal text_displayed
+#signal text_displayed
 signal choice_selected(choice: Dictionary)
 
 @onready var btnContainer: VBoxContainer = $UI/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
@@ -57,7 +57,7 @@ func displayText(text: String, npc: NPC):
 	responseTextBox.text = ""
 	
 	var cntr = 0
-	for char in text:
+	for aChar in text:
 		if not ui.visible:
 			return
 		
@@ -70,7 +70,7 @@ func displayText(text: String, npc: NPC):
 			if cntr % 2 == 0: # play SFX every other
 				AudiManny.playSFX(preload("res://0-assets/sfx/button/hovered.ogg"))
 			cntr += 1
-			responseTextBox.text += char
+			responseTextBox.text += aChar
 
 	# wait for the user to continue...
 	arrow.visible = true
@@ -78,7 +78,7 @@ func displayText(text: String, npc: NPC):
 		await get_tree().process_frame
 	arrow.visible = false
 
-func presentChoices(choices: Array, npc: NPC) -> Dictionary:
+func presentChoices(choices: Array, _npc: NPC) -> Dictionary:
 	for child in btnContainer.get_children():
 		child.queue_free()
 	

@@ -26,8 +26,8 @@ func _sortByNearest(area1: Area2D, area2:Area2D):
 	var area2_dist = global_position.distance_to(area2.global_position)
 	return area1_dist < area2_dist
 	
-func onAreaEntered(area: Area2D):
-	interactables.push_back(area)
+func onAreaEntered(tempArea: Area2D):
+	interactables.push_back(tempArea)
 
-func onAreaExited(area: Area2D):
-	interactables.erase(area)
+func onAreaExited(tempArea: Area2D):
+	interactables.erase(tempArea)

@@ -30,37 +30,19 @@ func _ready() -> void:
 
 
 # initialize talked to array
-func onStairsEntered(area):
+func onStairsEntered(_area):
 	currSpeed = WALKING_STAIRS_SPEED
-func onStairsExited(area):
+func onStairsExited(_area):
 	currSpeed = BASE_SPEED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if currState == STATE.TALKING:
 		return
 	
 	processMovement()
 	move_and_slide()
-	if Input.is_action_just_pressed("swap"):
-		swapMask()
-	
-func swapMask():
-	
-	match self.currMask:
-		Data.PlayerMasks.BLANK:
-			neutralMask.hide()
-			mayorMask.show()
-			currMask = Data.PlayerMasks.MAYORAL
-		Data.PlayerMasks.MAYORAL:
-			mayorMask.hide()
-			poorMask.show()
-			currMask = Data.PlayerMasks.POOR
-		Data.PlayerMasks.POOR:
-			poorMask.hide()
-			neutralMask.show()
-			currMask = Data.PlayerMasks.BLANK
-	CLogger.debug("I'm swappin my mfing mask to " + str(currMask))
+
 	
 func processMovement():
 	var movement_vector: Vector2 = get_movement_vector()

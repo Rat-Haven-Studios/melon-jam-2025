@@ -6,7 +6,7 @@ var player = null
 func _ready():
 	findPlayer()
 
-func _process(float):
+func _process(_delta):
 	if player == null:
 		CLogger.debug("Haven't found the player man")
 		findPlayer()

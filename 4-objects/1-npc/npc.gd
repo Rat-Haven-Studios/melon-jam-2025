@@ -58,7 +58,7 @@ func _process(delta):
 	# They're walking
 	elif wanderTime > 0:
 		wanderTime -= delta
-		self.velocity = moveDirection * (self.speed / 3)
+		self.velocity = moveDirection * (self.speed / 3.0)
 		move_and_slide()
 		if isProbablyHittingWall():
 			wanderTime = 0

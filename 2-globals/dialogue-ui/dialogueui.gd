@@ -112,8 +112,9 @@ func displayText(text: String, npc: NPC):
 		
 	displaySpritre.texture = npc.dialogueSprite
 	arrow.text = "(Z)"
-	
-	while not Input.is_action_just_pressed("interact") and not murdered:
+
+	while not Input.is_action_just_released("interact") and not murdered:
+	#arrow.visible = true
 		await get_tree().process_frame
 	
 	currentNPC = null

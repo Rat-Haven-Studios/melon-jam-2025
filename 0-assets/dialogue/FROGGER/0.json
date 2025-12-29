@@ -2,110 +2,110 @@
   "initial_greeting": "....Oh, you're talking to me?",
   "talked_already": "Oh...",
   "nodes": {
-    "start": {
-      "text": "Are you sure you have the right person?",
-      "choices": [
-        {
-          "text": "Yes. I want to ask you some questions.",
-          "next": "ask_info"
-        },
-        {
-          "text": "Maybe I don't",
-          "next": "mistake"
-        }
-      ],
-      "condition": {
-        "state": "false",
-        "flag": "the_frog_truth"
-      },
-      "else": "bad_thing"
-    },
-    "talked_previously": {
-      "text": "",
-      "next": "start"
-    },
-    "end": {
-      "text": "Goodbye...",
-      "choices": []
-    },
-    "ask_info": {
-      "text": "Oh...",
-      "choices": [
-        {
-          "text": "Who should I talk to?",
-          "next": "talk_to"
-        },
-        {
-          "text": "Is what they say true about you?",
-          "next": "identity",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "the_hare_accuses_frog"
-          }
-        },
-        {
-          "text": "Why do you think the mayor hosted this party?",
-          "next": "secret_agenda",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "mayor_hosted"
-          }
-        },
-        {
-          "text": "I think I made a mistake. Bye.",
-          "next": "mistake"
-        }
-      ]
-    },
-    "mistake": {
-      "text": "I knew it was a mistake...",
-      "choices": []
-    },
-    "identity": {
-      "text": "Uh... yeah. I hate the mayor. Really hate that guy.",
-      "choices": [
-        {
-          "text": "You don't really sound like you do.",
-          "next": "cause_i_dont",
-          "set_flag": "the_frog_truth"
-        },
-        {
-          "text": "Me too. In fact, I think he is evil.",
-          "next": "evil"
-        }
-      ]
-    },
-    "talk_to": {
-      "text": "I don't know... I think The Tiki is pretty cool...",
-      "next": "ask_info"
-    },
-    "secret_agenda": {
-      "text": "Uhhhh. I don't know... I'm sure he has some reason. I don't think he has a secrete agenda or anything that you should worry about though....",
-      "next": "ask_info"
-    },
-    "cause_i_dont": {
-      "text": "",
-      "choices": [
-        {
-          "text": "Sigh.... Ok. I don't.... I'll tell you a secret. I only act like I hate the mayor so I can gather intel for him.",
-          "next": "dots",
-          "set_flag": "the_frog_truth"
-        }
-      ]
-    },
-    "evil": {
-      "text": "The mayor is many things, but never evil. Maybe you're a fool...",
-      "next": "ask_info"
-    },
-    "dots": {
-      "text": ".............",
-      "next": "bad_thing"
-    },
-    "bad_thing": {
-      "text": "I shouldn't have told you anything...",
-      "choices": []
-    }
+	"start": {
+	  "text": "Are you sure you have the right person?",
+	  "choices": [
+		{
+		  "text": "Yes. I want to ask you some questions.",
+		  "next": "ask_info"
+		},
+		{
+		  "text": "Maybe I don't",
+		  "next": "mistake"
+		}
+	  ],
+	  "condition": {
+		"state": "false",
+		"flag": "the_frog_truth"
+	  },
+	  "else": "bad_thing"
+	},
+	"talked_previously": {
+	  "text": "",
+	  "next": "start"
+	},
+	"end": {
+	  "text": "Goodbye...",
+	  "choices": []
+	},
+	"ask_info": {
+	  "text": "Oh...",
+	  "choices": [
+		{
+		  "text": "Who should I talk to?",
+		  "next": "talk_to"
+		},
+		{
+		  "text": "Is what they say true about you?",
+		  "next": "identity",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "the_hare_accuses_frog"
+		  }
+		},
+		{
+		  "text": "Why do you think the mayor hosted this party?",
+		  "next": "secret_agenda",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "mayor_hosted"
+		  }
+		},
+		{
+		  "text": "I think I made a mistake. Bye.",
+		  "next": "mistake"
+		}
+	  ]
+	},
+	"mistake": {
+	  "text": "I knew it was a mistake...",
+	  "choices": []
+	},
+	"identity": {
+	  "text": "Uh... yeah. I hate the mayor. Really hate that guy.",
+	  "choices": [
+		{
+		  "text": "You don't really sound like you do.",
+		  "next": "cause_i_dont",
+		  "set_flag": "the_frog_truth"
+		},
+		{
+		  "text": "Me too. In fact, I think he is evil.",
+		  "next": "evil"
+		}
+	  ]
+	},
+	"talk_to": {
+	  "text": "I don't know... I think The Tiki is pretty cool...",
+	  "next": "ask_info"
+	},
+	"secret_agenda": {
+	  "text": "Uhhhh. I don't know... I'm sure he has some reason. I don't think he has a secrete agenda or anything that you should worry about though....",
+	  "next": "ask_info"
+	},
+	"cause_i_dont": {
+	  "text": "",
+	  "choices": [
+		{
+		  "text": "Sigh.... Ok. I don't.... I'll tell you a secret. I only act like I hate the mayor so I can gather intel for him.",
+		  "next": "dots",
+		  "set_flag": "the_frog_truth"
+		}
+	  ]
+	},
+	"evil": {
+	  "text": "The mayor is many things, but never evil. Maybe you're a fool...",
+	  "next": "ask_info"
+	},
+	"dots": {
+	  "text": ".............",
+	  "next": "bad_thing"
+	},
+	"bad_thing": {
+	  "text": "I shouldn't have told you anything...",
+	  "choices": []
+	}
   }
 }

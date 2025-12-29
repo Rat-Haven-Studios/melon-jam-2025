@@ -21,6 +21,10 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.echo:
+		if currentNPC != null and event.keycode == KEY_M:
+			killBtn.pressed.emit()
+			return
+		
 		var keyCode = event.keycode
 		if keyCode >= KEY_1 and keyCode <= KEY_9:
 			var choiceIndex = keyCode - KEY_1 # conver to 0 index
@@ -82,11 +86,13 @@ func displayText(text: String, npc: NPC):
 	while not Input.is_action_just_pressed("interact"):
 		await get_tree().process_frame
 	arrow.visible = false
+	currentNPC = null
 
-func presentChoices(choices: Array, _npc: NPC) -> Dictionary:
+func presentChoices(choices: Array, npc: NPC) -> Dictionary:
 	for child in btnContainer.get_children():
 		child.queue_free()
 	
+	currentNPC = npc
 	selected_choice = null  # Reset selection
 	
 	CLogger.log("choice", " ".join(choices))
@@ -110,6 +116,7 @@ func presentChoices(choices: Array, _npc: NPC) -> Dictionary:
 	while selected_choice == null:
 		await get_tree().process_frame
 	
+	currentNPC = null
 	return selected_choice
 
 func _onChoiceButtonPressed(choice: Dictionary):

@@ -17,7 +17,7 @@ var currentNPC
 var murdered: bool = false 
 
 func _ready():
-	killBtn.pressed.connect(murderBtnPressed)
+	killBtn.button_down.connect(murderBtnPressed)
 	killBtn.disabled = false
 	nameTextBox.text = ""
 	
@@ -30,7 +30,7 @@ func _input(event):
 		
 	if event is InputEventKey and event.pressed and not event.echo:
 		if currentNPC != null and event.keycode == KEY_M:
-			killBtn.pressed.emit()
+			killBtn.button_down.emit()
 			return
 		
 		var keyCode = event.keycode
@@ -66,6 +66,7 @@ func murderBtnPressed():
 func show():
 	if not ui.visible:
 		ui.visible = true
+	killBtn.disabled = false
 
 func hide():
 	if ui.visible:
@@ -115,7 +116,7 @@ func displayText(text: String, npc: NPC):
 	displaySpritre.texture = npc.dialogueSprite
 	arrow.text = "(Z)"
 
-	while not Input.is_action_just_released("interact") and not murdered:
+	while not Input.is_action_just_pressed("interact") and not murdered:
 	#arrow.visible = true
 		await get_tree().process_frame
 	

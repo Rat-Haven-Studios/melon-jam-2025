@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://toe70xl1lkkf"]
+[gd_scene load_steps=5 format=3 uid="uid://toe70xl1lkkf"]
 
 [ext_resource type="Script" uid="uid://c1k2t3oaljnp8" path="res://4-objects/1-npc/npc.gd" id="1_atnjp"]
 [ext_resource type="Texture2D" uid="uid://caxg6o6egqma8" path="res://0-assets/sprites/NPC Overworld Sprites/Frogger_Overworld_Sprite.png" id="2_ifoj7"]
 [ext_resource type="PackedScene" uid="uid://0w1aiel064xo" path="res://5-component/interactions/interact-receiver/InteractReceiverComponent.tscn" id="2_j6cqc"]
-[ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="4_gsny7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6cqc"]
 radius = 5.0
@@ -25,9 +24,6 @@ shape = SubResource("CircleShape2D_j6cqc")
 position = Vector2(0, -16)
 scale = Vector2(2.6713219, 2.6713219)
 interactString = "Hawk Tuah!"
-
-[node name="Light" parent="." instance=ExtResource("4_gsny7")]
-position = Vector2(0, -16)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -16)

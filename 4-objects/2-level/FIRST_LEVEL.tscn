@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://btyikl70k86w6"]
+[gd_scene load_steps=39 format=3 uid="uid://btyikl70k86w6"]
 
 [ext_resource type="Script" uid="uid://c2vmdfsx83oa8" path="res://4-objects/2-level/first_level.gd" id="1_jry3e"]
 [ext_resource type="Texture2D" uid="uid://dt7jrka0fhgbu" path="res://0-assets/sprites/world/Matt's Map.png" id="2_qflod"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://djxksa1dl0bvp" path="res://0-assets/sprites/NPC Text Sprites/Tiki_Mask.png" id="18_f3ux1"]
 [ext_resource type="Texture2D" uid="uid://0pds3dtb153c" path="res://0-assets/sprites/NPC Text Sprites/frogger.png" id="18_qeoqo"]
 [ext_resource type="Texture2D" uid="uid://b6326ptnmop5t" path="res://0-assets/sprites/NPC Overworld Sprites/Tiki_Overworld_Sprite.png" id="19_2fjuf"]
-[ext_resource type="PackedScene" uid="uid://cfv1e2f7kxd3y" path="res://4-objects/zones/room.tscn" id="22_yqsdm"]
+[ext_resource type="PackedScene" uid="uid://ddjp2vs6mg0xs" path="res://5-component/light component/light.tscn" id="25_yqsdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvpp"]
 size = Vector2(48.75838, 22.027313)
@@ -68,21 +68,6 @@ size = Vector2(24, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rcib"]
 size = Vector2(52, 40.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqsdm"]
-size = Vector2(252, 136)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4rv0"]
-size = Vector2(252, 79)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kxxd"]
-size = Vector2(128, 123)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c5mk"]
-size = Vector2(132, 136)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeoqo"]
-size = Vector2(251, 87)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jry3e")
@@ -396,47 +381,34 @@ position = Vector2(1.1148811e-06, 0)
 shape = SubResource("RectangleShape2D_2rcib")
 debug_color = Color(0, 0.78431374, 0.6039216, 0.41960785)
 
+[node name="All of the lights" type="Node2D" parent="."]
+
+[node name="Light" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(-92, 118)
+
+[node name="Light2" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(-38, 118)
+
+[node name="Light3" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(97, 116)
+
+[node name="Light4" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(158, 115)
+
+[node name="Light5" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(65, 18)
+
+[node name="Light6" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(191, 20)
+
+[node name="Light7" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(119, 340)
+
+[node name="Light8" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(191, 210)
+
+[node name="Light9" parent="All of the lights" instance=ExtResource("25_yqsdm")]
+position = Vector2(336, 211)
+
 [node name="Darkness" parent="." instance=ExtResource("8_02hsu")]
-energy = 0.6
-
-[node name="All Rooms" type="Node2D" parent="."]
-
-[node name="Main Room" parent="All Rooms" instance=ExtResource("22_yqsdm")]
-position = Vector2(128, 182)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Rooms/Main Room"]
-position = Vector2(-2, 6)
-shape = SubResource("RectangleShape2D_yqsdm")
-debug_color = Color(0.69803923, 0.33333334, 0.95686275, 0.41960785)
-
-[node name="Outside" parent="All Rooms" instance=ExtResource("22_yqsdm")]
-position = Vector2(124, 277)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Rooms/Outside"]
-position = Vector2(2, 18.5)
-shape = SubResource("RectangleShape2D_i4rv0")
-debug_color = Color(1.7266907e-06, 0.3601097, 0.012659687, 0.41960785)
-
-[node name="Ball Room" parent="All Rooms" instance=ExtResource("22_yqsdm")]
-position = Vector2(-63, 186)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Rooms/Ball Room"]
-position = Vector2(-1, -4.5)
-shape = SubResource("RectangleShape2D_2kxxd")
-debug_color = Color(0, 0, 0.5882353, 0.56078434)
-
-[node name="Bar Room" parent="All Rooms" instance=ExtResource("22_yqsdm")]
-position = Vector2(321, 195)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Rooms/Bar Room"]
-position = Vector2(-3, -7)
-shape = SubResource("RectangleShape2D_7c5mk")
-debug_color = Color(0.5971776, 0.4490415, 0, 0.41960785)
-
-[node name="Upstairs" parent="All Rooms" instance=ExtResource("22_yqsdm")]
-position = Vector2(131, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="All Rooms/Upstairs"]
-position = Vector2(-5.5, 6.5)
-shape = SubResource("RectangleShape2D_qeoqo")
-debug_color = Color(0.92941177, 0.08627451, 0, 0.3882353)
+energy = 0.3

@@ -71,7 +71,7 @@
           "set_flag": "someone_dies_tonight",
           "condition": {
             "state": "true",
-            "flag": "agree_with_common_man_act"
+            "flag": "common_man_act_dissed"
           }
         },
         {
@@ -81,7 +81,7 @@
           "set_flag": "foxy_hate",
           "condition": {
             "state": "true",
-            "flag": "common_man_act_dissed"
+            "flag": "agree_with_common_man_act"
           }
         }
       ],

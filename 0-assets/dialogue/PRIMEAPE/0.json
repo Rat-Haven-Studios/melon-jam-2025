@@ -90,7 +90,7 @@
           "text": "The Tiki is the mayors son",
           "next": "tiki_dialogue",
           "colored": "true",
-          "set_flag": "ratted_on_tiki",
+          "set_flag": "tiki_betrayal",
           "condition": {
             "state": "true",
             "flag": "tiki_mayor_son"

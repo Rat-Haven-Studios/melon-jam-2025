@@ -21,23 +21,42 @@
       "text": "How about now, still enjoying the party?",
       "choices": [
         {
-          "text": "Nope.",
+          "text": "Not really...",
           "next": "not_enjoying"
         },
         {
-          "text": "Yeah.",
+          "text": "Oh yeah.",
           "next": "good_party"
         },
         {
           "text": "I'm not worried about that. I have questions.",
           "next": "talk_to_tiki"
+        },
+        {
+          "text": "It's a bit weird, especially with The Jack Rabbit",
+          "next": "talked_about_jack_rabbit",
+          "colored": "true",
+          "condition": {
+            "state": "true",
+            "flag": "gay_bro_active"
+          }
+        },
+        {
+          "text": "Were you a kicked out of university?",
+          "next": "defensive_tiki_man",
+          "colored": "true",
+          "set_flag": "tiki_learns_betrayal",
+          "condition": {
+            "state": "true",
+            "flag": "tiki_betrayal"
+          }
         }
       ],
       "condition": {
-        "state": "true",
-        "flag": "good_party"
+        "state": "false",
+        "flag": "tiki_learns_betrayal"
       },
-      "else": "talked_previously_bad"
+      "else": "betrayed_tiki_man_response"
     },
     "end_positive": {
       "text": "See ya around.",
@@ -171,19 +190,6 @@
         }
       ]
     },
-    "talked_previously_bad": {
-      "text": "Enjoying the party yet?",
-      "choices": [
-        {
-          "text": "Nope.",
-          "next": "not_enjoying"
-        },
-        {
-          "text": "Yeah.",
-          "next": "good_party"
-        }
-      ]
-    },
     "thanks": {
       "text": "Thanks. You seem trustworthy enough. My father invited everyone here tonight for a reason. We should separate for now though.",
       "next": "end_friendly"
@@ -307,6 +313,18 @@
     },
     "seriously_not_a_joke": {
       "text": "I..I really think you should leave now.",
+      "choices": []
+    },
+    "defensive_tiki_man": {
+      "text": "What, who told you... Look, it wasn't that simple. But they didn't kick me out, my father took me out as punishment. Said it would be harder for reelection if I stayed there.",
+      "next": "leave_me_be"
+    },
+    "leave_me_be": {
+      "text": "Look man, I don't know who told you that, but you must've asked around exposing me. I really trusted you man. I'm sorry but I don't wanna see you here anymore.",
+      "choices": []
+    },
+    "betrayed_tiki_man_response": {
+      "text": "Oh, it's you... I still don't trust you... I'm just too trusting of everyone...",
       "choices": []
     }
   }

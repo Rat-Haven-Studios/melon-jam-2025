@@ -33,8 +33,9 @@ func _ready() -> void:
 	elif (whoDied == Data.Characters.JACK_RABBIT) and Data.prevFlags.has("gay_bro_active"):
 		label.text += "We're down one less bigot."
 	elif whoDied == Data.Characters.BANDIT_KING and Data.prevFlags.has("maybe_mayor"):
-		label.text = "You killed the Mayor..."
-
+		label.text += "You killed the Mayor..."
+	elif (whoDied == Data.Characters.PRIMEAPE) and Data.prevFlags.has("agree_with_common_man_act"):
+		label.text += "Four fingered bastard."
 	
 	CLogger.debug(str(Data.prevFlags))
 	

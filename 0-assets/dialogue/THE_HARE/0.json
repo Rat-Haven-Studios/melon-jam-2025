@@ -1,166 +1,179 @@
 {
   "initial_greeting": "Look who we have here...",
-  "talked_already": "I've missed you darling.",
+  "talked_already": "Welcome back.",
   "nodes": {
-    "start": {
-      "text": "How can I be of service?",
-      "choices": [
-        {
-          "text": "I have questions that need answers.",
-          "next": "ask_info"
-        },
-        {
-          "text": "Nevermind.",
-          "next": "end"
-        }
-      ]
-    },
-    "talked_previously": {
-      "text": "I couldn't satisfy you?",
-      "next": "start"
-    },
-    "ask_info": {
-      "text": "Ask away. I'm an open book.",
-      "choices": [
-        {
-          "text": "To whom do your loyalties lie?",
-          "next": "with_the_mayor",
-          "set_flag": "the_hare_and_mayor"
-        },
-        {
-          "text": "Where are you from?",
-          "next": "background"
-        },
-        {
-          "text": "What are your thoughts on the Mayor's bill?",
-          "next": "mayor_bill_question",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "agree_with_common_man_act"
-          }
-        },
-        {
-          "text": "Did you hear that the Frog's identity was revealed?",
-          "next": "frog_id_revealed",
-          "colored": "true",
-          "set_flag": "the_hare_accuses_frog",
-          "condition": {
-            "state": "true",
-            "flag": "frog_identity_revealed"
-          }
-        },
-        {
-          "text": "What are your thoughts on the Mayor's bill?",
-          "next": "mayor_bill_question",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "common_man_act_dissed"
-          }
-        },
-        {
-          "text": "I'm just leaving",
-          "next": "end"
-        }
-      ]
-    },
-    "end": {
-      "text": "Come back to play soon.",
-      "choices": []
-    },
-    "with_the_mayor": {
-      "text": "With the mayor of course.",
-      "choices": [
-        {
-          "text": "Then why were you seen with The Fox?",
-          "next": "response_to_allegations",
-          "colored": "true",
-          "set_flag": "confronted_the_hare",
-          "condition": {
-            "state": "true",
-            "flag": "hare_and_fox_talk_alot"
-          }
-        },
-        {
-          "text": "What do you like about the mayor?",
-          "next": "like_mayor"
-        }
-      ]
-    },
-    "background": {
-      "text": "I am not from this place. I only came here a couple of years ago.",
-      "choices": [
-        {
-          "text": "Do you visit your home often?",
-          "next": "home_place",
-          "set_flag": "the_hare_home_place"
-        }
-      ]
-    },
-    "response_to_allegations": {
-      "text": "Who told you that? Was it that Rabbit? You really trust what that buffoon says? He knows nothing. Less than nothing even. My loyalty is true and my heart is pure. What else do you have?",
-      "next": "ask_info"
-    },
-    "like_mayor": {
-      "text": "Everything. I think he is quite the darling. He is smart, handsome, and most importantly, for the people. He has spirit. And that is something I admire.",
-      "next": "ask_info"
-    },
-    "home_place": {
-      "text": "Naturally. My family has a lot of wealth still tied up there. I can't simply leave that behind.",
-      "choices": [
-        {
-          "text": "How far away is this place? Is it about 20 miles away?",
-          "next": "20_miles",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "factory_20_miles_away"
-          }
-        },
-        {
-          "text": "Do you like it here or there better?",
-          "next": "no_place_like_home"
-        }
-      ]
-    },
-    "no_place_like_home": {
-      "text": "Well... There's no place like home. Really.",
-      "next": "ask_info"
-    },
-    "20_miles": {
-      "text": "Why yes. It about is. Why do you ask?",
-      "choices": [
-        {
-          "text": "I've heard some things about the factories around there. They weren't good either.",
-          "next": "bad_things",
-          "colored": "true",
-          "condition": {
-            "state": "true",
-            "flag": "factory_20_miles_away"
-          }
-        }
-      ]
-    },
-    "bad_things": {
-      "text": "Naught but rumors. Everything there is fine, happy, and dare I say, perfect. You shouldn't believe everything you're told darling.",
-      "next": "ask_info"
-    },
-    "mayor_bill_question": {
-      "text": "It is exactly what the people need. Need I say more?",
-      "next": "ask_info"
-    },
-    "frog_id_revealed": {
-      "text": "Oh yes. I heard all about the slimy creature. You shouldn't associate with his kind. If you didn't know, he used to be the mayor's closest friend and ally. He backstabbed him and started feeding information to his enemies. He is nothing more than a filthy traitor.",
-      "next": "dots"
-    },
-    "dots": {
-      "text": "......",
-      "next": "must_know"
-    },
-    "must_know": {
-      "text": "And if you must know, his previous title now belongs to me.",
-      "next": "ask_info"
-    }
+	"start": {
+	  "text": "How can I be of service?",
+	  "choices": [
+		{
+		  "text": "I have questions that need answers.",
+		  "next": "ask_info"
+		},
+		{
+		  "text": "Nevermind.",
+		  "next": "end"
+		}
+	  ]
+	},
+	"talked_previously": {
+	  "text": "",
+	  "next": "start"
+	},
+	"ask_info": {
+	  "text": "Ask away. I'm an open book.",
+	  "choices": [
+		{
+		  "text": "To whom do your loyalties lie?",
+		  "next": "with_the_mayor",
+		  "set_flag": "the_hare_and_mayor"
+		},
+		{
+		  "text": "Where are you from?",
+		  "next": "background"
+		},
+		{
+		  "text": "What are your thoughts on the Mayor's bill?",
+		  "next": "mayor_bill_question",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "agree_with_common_man_act"
+		  }
+		},
+		{
+		  "text": "Did you hear that the Frog's identity was revealed?",
+		  "next": "frog_id_revealed",
+		  "colored": "true",
+		  "set_flag": "the_hare_accuses_frog",
+		  "condition": {
+			"state": "true",
+			"flag": "frog_identity_revealed"
+		  }
+		},
+		{
+		  "text": "What are your thoughts on the Mayor's bill?",
+		  "next": "mayor_bill_question",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "common_man_act_dissed"
+		  }
+		},
+		{
+		  "text": "I'm just leaving",
+		  "next": "end"
+		},
+		{
+		  "text": "You lied to me.",
+		  "next": "you_liar",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "the_frog_verified"
+		  }
+		}
+	  ]
+	},
+	"end": {
+	  "text": "Come back soon.",
+	  "choices": []
+	},
+	"with_the_mayor": {
+	  "text": "With the mayor of course.",
+	  "choices": [
+		{
+		  "text": "Then why were you seen with The Fox?",
+		  "next": "response_to_allegations",
+		  "colored": "true",
+		  "set_flag": "confronted_the_hare",
+		  "condition": {
+			"state": "true",
+			"flag": "hare_and_fox_talk_alot"
+		  }
+		},
+		{
+		  "text": "What do you like about the mayor?",
+		  "next": "like_mayor"
+		}
+	  ]
+	},
+	"background": {
+	  "text": "I am not from this place. I only came here a couple of years ago.",
+	  "choices": [
+		{
+		  "text": "Do you visit your home often?",
+		  "next": "home_place",
+		  "set_flag": "the_hare_home_place"
+		}
+	  ]
+	},
+	"response_to_allegations": {
+	  "text": "Who told you that? Was it that Rabbit? You really trust what that buffoon says? He knows nothing. Less than nothing even. My loyalty is true and my heart is pure. What else do you have?",
+	  "next": "ask_info"
+	},
+	"like_mayor": {
+	  "text": "Everything. I think he is quite the darling. He is smart, handsome, and most importantly, for the people. He has spirit. And that is something I admire.",
+	  "next": "ask_info"
+	},
+	"home_place": {
+	  "text": "Naturally. My family has a lot of wealth still tied up there. I can't simply leave that behind.",
+	  "choices": [
+		{
+		  "text": "How far away is this place? Is it about 20 miles away?",
+		  "next": "20_miles",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "factory_20_miles_away"
+		  }
+		},
+		{
+		  "text": "Do you like it here or there better?",
+		  "next": "no_place_like_home"
+		}
+	  ]
+	},
+	"no_place_like_home": {
+	  "text": "Well... There's no place like home. Really.",
+	  "next": "ask_info"
+	},
+	"20_miles": {
+	  "text": "Why yes. It about is. Why do you ask?",
+	  "choices": [
+		{
+		  "text": "I've heard some things about the factories around there. They weren't good either.",
+		  "next": "bad_things",
+		  "colored": "true",
+		  "condition": {
+			"state": "true",
+			"flag": "factory_20_miles_away"
+		  }
+		}
+	  ]
+	},
+	"bad_things": {
+	  "text": "Naught but rumors. Everything there is fine, happy, and dare I say, perfect. You shouldn't believe everything you're told darling.",
+	  "next": "ask_info"
+	},
+	"mayor_bill_question": {
+	  "text": "It is exactly what the people need. Need I say more?",
+	  "next": "ask_info"
+	},
+	"frog_id_revealed": {
+	  "text": "Oh yes. I heard all about the slimy creature. You shouldn't associate with his kind. If you didn't know, he used to be the mayor's closest friend and ally. He backstabbed him and started feeding information to his enemies. He is nothing more than a filthy traitor.",
+	  "next": "dots"
+	},
+	"dots": {
+	  "text": "......",
+	  "next": "must_know"
+	},
+	"must_know": {
+	  "text": "And if you must know, his previous title now belongs to me.",
+	  "next": "ask_info"
+	},
+	"you_liar": {
+	  "text": "Tsk. Believe what you want.",
+	  "next": "ask_info"
+	}
   }
 }

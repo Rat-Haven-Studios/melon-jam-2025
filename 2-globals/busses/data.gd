@@ -1,5 +1,6 @@
 extends Node
 
+var prevFlags
 var player: Character
 var level
 var killed # will be null or from characters enum

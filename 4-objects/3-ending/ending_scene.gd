@@ -17,13 +17,23 @@ func _ready() -> void:
 		CLogger.error("Who Died was NULL")
 		return
 	
-	if whoDied != killerID:
+	if whoDied == Data.Characters.TIKI and Data.prevFlags.has("one_shot_ending"):
+		label.text = "Wrong man. More than one shot..."
+	elif whoDied == Data.Characters.TIKI and Data.prevFlags.has("tiki_betrayal") and not (Data.prevFlags.has("tiki_learns_betrayal")):
+		label.text = "Vagrant down... but not my target."
+		
+	elif (whoDied == Data.Characters.THE_FLAPPER) and Data.prevFlags.has("she_yappin"):
+		label.text = "Not her, but enough of that."
+	elif whoDied != killerID:
 		CLogger.info("Player selected the wrong person")
 		label.text = "You selected wrong..."
 	else:
 		CLogger.info("Player won!")
 		label.text = "You correctly identified and killed the traitor!"
-
+	
+	
+	CLogger.debug(str(Data.prevFlags))
+	
 	menuBtn.pressed.connect(onMenuBtnPressed)
 	quitBtn.pressed.connect(onQuitBtnPressed)
 

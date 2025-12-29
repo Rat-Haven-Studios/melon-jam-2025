@@ -202,6 +202,16 @@
             "state": "true",
             "flag": "tiki_mayor_son"
           }
+        },
+        {
+          "text": "I was being serious about before. I need to know who I'm supposed to kill. Is it you??",
+          "next": "tiki_fearing_for_his_life",
+          "colored": "true",
+          "set_flag": "tiki_fearing_life",
+          "condition": {
+            "state": "true",
+            "flag": "scared_tiki"
+          }
         }
       ]
     },
@@ -320,6 +330,24 @@
     },
     "betrayed_tiki_man_response": {
       "text": "Oh, it's you... I still don't trust you... I'm just too trusting of everyone...",
+      "choices": []
+    },
+    "tiki_fearing_for_his_life": {
+      "text": "NO! PLEASE! NO! Look, all I know is my dad hired a hitman for tonight. I don't know who they're trying to kill but I know it's not me.",
+      "choices": [
+        {
+          "text": "It would take one shot...",
+          "next": "tiki_begins_pleading",
+          "set_flag": "one_shot_ending"
+        },
+        {
+          "text": "Heh, I'm just yankin your chain man, calm down.",
+          "next": "was_just_a_joke"
+        }
+      ]
+    },
+    "tiki_begins_pleading": {
+      "text": "PLEASE, I'M TELLING THE TRUTH! I PROMISE, DON'T KILL ME. MY DAD IS THE BANDIT KING, ASK HIM YOURSELF.",
       "choices": []
     }
   }

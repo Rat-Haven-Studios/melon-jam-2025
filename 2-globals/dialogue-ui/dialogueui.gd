@@ -41,6 +41,7 @@ func _input(event):
 				btn.pressed.emit()
 
 func murderBtnPressed():
+	Data.prevFlags = Data.player.actionFlags.duplicate(true)
 	if currentNPC != null:
 		Data.killed = currentNPC.characterID
 	

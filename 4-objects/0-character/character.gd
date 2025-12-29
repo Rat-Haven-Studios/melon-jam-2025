@@ -33,7 +33,7 @@ func _ready() -> void:
 # initialize talked to array
 func onStairsEntered(_area):
 	currSpeed = WALKING_STAIRS_SPEED
-	
+	CLogger.debug(str(actionFlags))
 func onStairsExited(_area):
 	currSpeed = BASE_SPEED
 

@@ -96,3 +96,4 @@ swap={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.06666667, 0.078431375, 0.07058824, 1)

@@ -1,6 +1,6 @@
 ## [Massaquerade](https://hutnerr.itch.io/massaquerade)
 Massquerade is a puzzle visual novel built with Godot for the
-[Winter Melon Jam 2025](https://itch.io/jam/wmj2025https://itch.io/jam/wmj2025) by [Rat Haven Studios](https://github.com/Rat-Haven-Studios).
+[Winter Melon Jam 2025](https://itch.io/jam/wmj2025) by [Rat Haven Studios](https://github.com/Rat-Haven-Studios).
 The theme for the jam was **"Mask"**.
 
 You are a conscripted killer who was invited to a party. The only hint at who your target is was on a letter you recieved as you arrived. "Traitor". 

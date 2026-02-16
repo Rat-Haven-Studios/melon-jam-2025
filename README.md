@@ -10,7 +10,7 @@ You are a conscripted killer who was invited to a party. The only hint at who yo
 ## Links
 - [Play the game on itch.io](https://hutnerr.itch.io/massaquerade)
 - [Jam page](https://itch.io/jam/wmj2025/rate/4155805)
-- hutner's [Post-jam reflection](https://www.hunter-baker.com/pages/games/massaquerade.html)
+- hutner's [Massaquerade Showcase](https://www.hunter-baker.com/pages/games/massaquerade.html)
 
 ## How to Play
 You must go around and talk to the party guests to determine who the traitor is.
